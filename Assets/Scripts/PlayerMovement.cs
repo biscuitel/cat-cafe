@@ -39,18 +39,27 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GroundCheck();
+        Inputs();
+        
+    }
+
+    void GroundCheck()
+    {
         // check that the player is grounded
         foreach (LayerMask mask in groundMasks)
         {
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, mask);
         }
 
-        // reset gravity
+        // reset gravity if grounded
         if (isGrounded && vel.y < 0)
         {
             vel.y = -2f;
         }
-
+    }
+    void Inputs()
+    {
         // get inputs, create movement vector, move player character
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -65,6 +74,6 @@ public class PlayerMovement : MonoBehaviour
 
         // add gravity to player's y velocity
         vel.y += gravity * Time.deltaTime;
-        controller.Move(vel * Time.deltaTime);
+        controller.Move(vel * Time.deltaTime); 
     }
 }
