@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     // public movement values
-    public float moveSpeed = 10;
+    public float moveSpeed = 10.0f;
     public float gravity = -9.81f;
     public float jumpHeight = 1f;
 
@@ -41,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
     {
         GroundCheck();
         Inputs();
-        
     }
 
     void GroundCheck()
@@ -76,4 +75,5 @@ public class PlayerMovement : MonoBehaviour
         vel.y += gravity * Time.deltaTime;
         controller.Move(vel * Time.deltaTime); 
     }
+
 }
