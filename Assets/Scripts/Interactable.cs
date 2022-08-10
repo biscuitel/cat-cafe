@@ -11,6 +11,8 @@ public class Interactable : MonoBehaviour
     private Camera cam;
     private GameObject obj;
 
+    [SerializeField] private TaskSO task;
+
 
     // max distance that player can interact from
     public float interactionRange = 3.0f;
@@ -62,6 +64,10 @@ public class Interactable : MonoBehaviour
     {
         Debug.Log("Player interacted with me! Do a thing or smth idk");
         //do thing here
+        if (task != null)
+        {
+            task.TaskComplete();
+        }
     }
 
 

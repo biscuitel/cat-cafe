@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-abstract public class Task : ScriptableObject
+[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/ExampleTask", order = 1)]
+public class ExampleTask : TaskSO
 {
     // Start is called before the first frame update
     void Start()
@@ -14,5 +15,10 @@ abstract public class Task : ScriptableObject
     void Update()
     {
         
+    }
+
+    public override void TaskComplete()
+    {
+        Debug.Log("completed task with id = " + this.taskID);
     }
 }
