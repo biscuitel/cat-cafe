@@ -4,9 +4,9 @@ using UnityEngine;
 
 abstract public class TaskSO : ScriptableObject
 {
-    [SerializeField] protected string taskName;
-    [SerializeField] protected string taskDesc;
-    [SerializeField] protected int taskID;
+    public string taskName;
+    public string taskDesc;
+    public int taskID;
 
     public abstract void TaskComplete();
 

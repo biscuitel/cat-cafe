@@ -10,8 +10,9 @@ public class Interactable : MonoBehaviour
     private int raycastLayerMask;
     private Camera cam;
     private GameObject obj;
+    private TaskManager taskManager;
 
-    [SerializeField] private TaskSO task;
+    [SerializeField] private int taskID;
 
 
     // max distance that player can interact from
@@ -24,6 +25,7 @@ public class Interactable : MonoBehaviour
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         playerInTrigger = false;
         obj = this.transform.GetChild(0).gameObject;
+        taskManager = GameObject.FindGameObjectWithTag("TaskManager").GetComponent<TaskManager>();
     }
 
     // Update is called once per frame
@@ -63,11 +65,9 @@ public class Interactable : MonoBehaviour
     private void Interact()
     {
         Debug.Log("Player interacted with me! Do a thing or smth idk");
+        taskManager.TaskComplete(taskID);
         //do thing here
-        if (task != null)
-        {
-            task.TaskComplete();
-        }
+
     }
 
 
