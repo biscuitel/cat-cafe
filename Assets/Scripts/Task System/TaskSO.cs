@@ -2,12 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-abstract public class TaskSO : ScriptableObject
+public class TaskSO : TaskBase
 {
+
+    public int taskID;
     public string taskName;
     public string taskDesc;
-    public int taskID;
 
-    public abstract void TaskComplete();
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public override void TaskComplete()
+    {
+        // do thing here on completion
+    }
 
 }
