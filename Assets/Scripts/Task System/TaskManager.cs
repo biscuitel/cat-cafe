@@ -7,7 +7,9 @@ using System.Text;
 public class TaskManager : MonoBehaviour
 {
     [SerializeField] private List<TaskBase> taskList;
+    [SerializeField] private List<TaskBase> reserveTaskList;
     public Text taskText;
+    public string jsonPath;
     
     // Start is called before the first frame update
     void Start()

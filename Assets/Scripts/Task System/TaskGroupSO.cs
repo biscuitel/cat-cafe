@@ -7,18 +7,6 @@ public class TaskGroupSO : TaskBase
 
     public List<TaskBase> taskGroup;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public bool CheckCompletion(int taskID)
     {
         // for each task in the group
