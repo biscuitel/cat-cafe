@@ -28,7 +28,6 @@ public class TaskGroupSO : TaskBase
             {
                 if (taskSO.taskID == taskID)
                 {
-                    task.TaskComplete();
                     taskGroup.Remove(task);
                     break;
                 }
@@ -55,16 +54,10 @@ public class TaskGroupSO : TaskBase
         // therefore do completion actions, and return true (i.e. group has completed) to parent group or taskmanager
         if (taskGroup.Count == 0)
         {
-            TaskComplete();
             return true;
         }
 
         return false;
-    }
-
-    public override void TaskComplete()
-    {
-        // do thing here on completion
     }
 
     public List<TaskBase> GetTaskList()

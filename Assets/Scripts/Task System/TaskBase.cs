@@ -4,6 +4,5 @@ using UnityEngine;
 
 abstract public class TaskBase : ScriptableObject
 {
-    public abstract void TaskComplete();
 
 }

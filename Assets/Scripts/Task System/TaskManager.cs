@@ -9,6 +9,7 @@ public class TaskManager : MonoBehaviour
 {
     [SerializeField] private List<TaskBase> taskList;
     [SerializeField] private List<TaskBase> reserveTaskList;
+    private Outcomes outcomesScript;
     public Text taskText;
     public string jsonName;
 
@@ -16,12 +17,16 @@ public class TaskManager : MonoBehaviour
     void Start()
     {
         //InitList();
+        outcomesScript = GetComponent<Outcomes>();
         UpdateUI();
         StringBuilder sb = new StringBuilder();
         ToJson(taskList, ref sb, jsonName);
         sb.Clear();
         ToJson(reserveTaskList, ref sb, jsonName + "Reserve");
         UnityEditor.AssetDatabase.Refresh();
+
+        FromJson(jsonName);
+        FromJson(jsonName + "Reserve");
     }
 
     private void InitList()
@@ -44,7 +49,7 @@ public class TaskManager : MonoBehaviour
             {
                 if (taskSO.taskID == taskID)
                 {
-                    task.TaskComplete();
+                    outcomesScript.Outcome(taskSO.outcomeID);
                     taskList.Remove(task);
                     break;
                 }
@@ -60,6 +65,7 @@ public class TaskManager : MonoBehaviour
                     // then break from iteration
                     if (taskGroupSO.CheckCompletion(taskID))
                     {
+                        outcomesScript.Outcome(taskSO.outcomeID);
                         taskList.Remove(task);
                         break;
                     }
@@ -132,7 +138,7 @@ public class TaskManager : MonoBehaviour
             }
         }
 
-        using (FileStream fs = new FileStream(Path.Combine(Application.dataPath, "SavedTasks/" + fileName + ".json"), FileMode.Create))
+        using (FileStream fs = new FileStream(Path.Combine(Application.dataPath, "Resources/SavedTasks/" + fileName + ".json"), FileMode.Create))
         {
             using (StreamWriter writer = new StreamWriter(fs))
             {
@@ -144,9 +150,11 @@ public class TaskManager : MonoBehaviour
 
     }
 
-    void FromJson()
+    void FromJson(string fileName)
     {
-
+        Debug.Log(Path.Combine(Application.dataPath, "Resources/SavedTasks/" + fileName + ".json"));
+        TextAsset textAsset = Resources.Load<TextAsset>("SavedTasks/" + fileName);
+        Debug.Log(textAsset.ToString());
     }
 
     void ActivateTask(int taskID)
