@@ -3,32 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Text;
+using System.IO;
 
 public class TaskManager : MonoBehaviour
 {
     [SerializeField] private List<TaskBase> taskList;
     [SerializeField] private List<TaskBase> reserveTaskList;
     public Text taskText;
-    public string jsonPath;
-    
+    public string jsonName;
+
     // Start is called before the first frame update
     void Start()
     {
         //InitList();
         UpdateUI();
+        StringBuilder sb = new StringBuilder();
+        ToJson(taskList, ref sb, jsonName);
+        sb.Clear();
+        ToJson(reserveTaskList, ref sb, jsonName + "Reserve");
+        UnityEditor.AssetDatabase.Refresh();
     }
 
     private void InitList()
     {
-        taskList = new List<TaskBase>();
         // populate with tasks according to some imported list of them, or scriptable obj, here
         // or smth idk
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void TaskComplete(int taskID)
@@ -76,15 +75,15 @@ public class TaskManager : MonoBehaviour
     {
         // update the task UI here
         StringBuilder sb = new StringBuilder();
-        GetAllTaskText(ref taskList, ref sb);
+        GetAllTaskText(taskList, ref sb);
         taskText.text = sb.ToString();
     }
 
     // iterates over task list, and recursively calls itself for groups of tasks
     // getting task ID + name + desc for tasks, and constructing string for UI text
-    void GetAllTaskText(ref List<TaskBase> list, ref StringBuilder sb)
+    void GetAllTaskText(List<TaskBase> list, ref StringBuilder sb)
     {
-        foreach (TaskBase task in taskList)
+        foreach (TaskBase task in list)
         {
             TaskSO taskSO = task as TaskSO;
             if (taskSO != null)
@@ -96,7 +95,7 @@ public class TaskManager : MonoBehaviour
                 TaskGroupSO taskGroupSO = task as TaskGroupSO;
                 if (taskGroupSO != null)
                 {
-                    GetAllTaskText(ref taskGroupSO.taskGroup, ref sb);
+                    GetAllTaskText(taskGroupSO.GetTaskList(), ref sb);
                 }
             }
         }
@@ -109,4 +108,75 @@ public class TaskManager : MonoBehaviour
         sb.AppendLine(task.taskDesc);
         sb.AppendLine();
     }
+
+    void ToJson(List<TaskBase> taskList, ref StringBuilder sb, string fileName)
+    {
+        foreach (TaskBase task in taskList)
+        {
+            TaskSO taskSO = task as TaskSO;
+            if (taskSO != null)
+            {
+                Debug.Log(taskSO.taskID);
+                sb.AppendLine(JsonUtility.ToJson(taskSO, true));
+            }
+            else
+            {
+                TaskGroupSO taskGroupSO = task as TaskGroupSO;
+                if (taskGroupSO != null)
+                {
+                    sb.AppendLine(JsonUtility.ToJson(taskGroupSO, true));
+                    sb.AppendLine("[");
+                    ToJson(taskGroupSO.GetTaskList(), ref sb, jsonName);
+                    sb.AppendLine("]");
+                }
+            }
+        }
+
+        using (FileStream fs = new FileStream(Path.Combine(Application.dataPath, "SavedTasks/" + fileName + ".json"), FileMode.Create))
+        {
+            using (StreamWriter writer = new StreamWriter(fs))
+            {
+                writer.Write(sb.ToString());
+                writer.Close();
+            }
+            fs.Close();
+        }
+
+    }
+
+    void FromJson()
+    {
+
+    }
+
+    void ActivateTask(int taskID)
+    {
+        foreach (TaskBase task in reserveTaskList)
+        {
+            TaskSO taskSO = task as TaskSO;
+            if (taskSO != null)
+            {
+                if (taskSO.taskID == taskID)
+                {
+
+                }
+            }
+        }
+    }
+
+    void ActivateGroup(int groupID)
+    {
+        foreach (TaskBase task in reserveTaskList)
+        {
+            TaskGroupSO taskGroupSO = task as TaskGroupSO;
+            if (taskGroupSO != null)
+            {
+                if (taskGroupSO.groupID == groupID)
+                {
+
+                }
+            }
+        }
+    }
+
 }

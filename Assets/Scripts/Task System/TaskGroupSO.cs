@@ -2,10 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/TaskGroup", order = 1)]
 public class TaskGroupSO : TaskBase
 {
+    public int groupID;
+    public int outcomeID;
+    private List<TaskBase> taskGroup;
 
-    public List<TaskBase> taskGroup;
+    void Initialize(List<TaskBase> tasks)
+    {
+        taskGroup = tasks;
+    }
 
     public bool CheckCompletion(int taskID)
     {
@@ -58,6 +65,11 @@ public class TaskGroupSO : TaskBase
     public override void TaskComplete()
     {
         // do thing here on completion
+    }
+
+    public List<TaskBase> GetTaskList()
+    {
+        return taskGroup;
     }
 
 }

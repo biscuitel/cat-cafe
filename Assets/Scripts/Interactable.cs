@@ -36,11 +36,8 @@ public class Interactable : MonoBehaviour
 
     private void CheckForInteraction()
     {
-        // if player is in trigger for this object, and presses interact
-        if (playerInTrigger && Input.GetButtonDown("Interact"))
+        if (playerInTrigger)
         {
-            Debug.Log("Player is in trigger and pressed interact button");
-
             // get camera center
             Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 
@@ -55,11 +52,16 @@ public class Interactable : MonoBehaviour
                 if (GameObject.ReferenceEquals(obj, hit.transform.gameObject))
                 {
                     Debug.Log("Player raycast hit this object");
-                    Interact();
+                    if (Input.GetButtonDown("Interact"))
+                    {
+                        Debug.Log("Playerpressed interact button");
+                        Interact();
+                    }
+
                 }
             }
-
         }
+        
     }
 
     private void Interact()

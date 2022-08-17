@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a69aea1627b02524f9186ee703e9a72b, type: 3}
-  m_Name: ExampleTask
+  m_Script: {fileID: 11500000, guid: 71fb62c9e4c1e4e4e8c8b40d689e4fa5, type: 3}
+  m_Name: Task1
   m_EditorClassIdentifier: 
-  taskName: Task with ID 0
-  taskDesc: THis is a test task
-  taskID: 0
+  taskID: 1
+  taskName: Task 1
+  taskDesc: This is task 1 - ID 1, outcome 3
+  outcomeID: 3
