@@ -157,6 +157,7 @@ public class TaskManager : MonoBehaviour
         Debug.Log(textAsset.ToString());
     }
 
+    // takes a task ID, checks the reserve task list for the ID, and activates the task with matching ID if present
     void ActivateTask(int taskID)
     {
         foreach (TaskBase task in reserveTaskList)
@@ -166,12 +167,15 @@ public class TaskManager : MonoBehaviour
             {
                 if (taskSO.taskID == taskID)
                 {
-
+                    taskList.Add(task);
+                    reserveTaskList.Remove(task);
+                    break;
                 }
             }
         }
     }
 
+    // takes a group ID, checks the reserve task list for the ID, and activates the group with matching ID if present
     void ActivateGroup(int groupID)
     {
         foreach (TaskBase task in reserveTaskList)
@@ -181,7 +185,9 @@ public class TaskManager : MonoBehaviour
             {
                 if (taskGroupSO.groupID == groupID)
                 {
-
+                    taskList.Add(task);
+                    reserveTaskList.Remove(task);
+                    break;
                 }
             }
         }
