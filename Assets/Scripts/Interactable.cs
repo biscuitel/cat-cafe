@@ -48,13 +48,10 @@ public class Interactable : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, interactionRange, raycastLayerMask, QueryTriggerInteraction.Ignore))
             {
-                Debug.Log("raycast hit something");
                 if (GameObject.ReferenceEquals(obj, hit.transform.gameObject))
                 {
-                    Debug.Log("Player raycast hit this object");
                     if (Input.GetButtonDown("Interact"))
                     {
-                        Debug.Log("Playerpressed interact button");
                         Interact();
                     }
 
@@ -80,7 +77,6 @@ public class Interactable : MonoBehaviour
         {
             if (other.CompareTag("Player") && !playerInTrigger)
             {
-                Debug.Log("Player entered trigger for interactable object");
                 playerInTrigger = true;
             }
         }
@@ -93,7 +89,6 @@ public class Interactable : MonoBehaviour
             // set interactable 
             if (other.CompareTag("Player") && playerInTrigger)
             {
-                Debug.Log("Player exited trigger for interactable object");
                 playerInTrigger = false;
             }
         }

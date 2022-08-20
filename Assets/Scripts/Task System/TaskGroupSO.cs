@@ -8,10 +8,11 @@ public class TaskGroupSO : TaskBase
     public int groupID;
     public int outcomeID;
     private List<TaskBase> taskGroup;
+    public List<TaskBase> tasks;
 
-    void Initialize(List<TaskBase> tasks)
+    public void Initialize()
     {
-        taskGroup = tasks;
+        taskGroup = new List<TaskBase>(tasks);
     }
 
     public bool CheckCompletion(int taskID)
@@ -29,6 +30,7 @@ public class TaskGroupSO : TaskBase
                 if (taskSO.taskID == taskID)
                 {
                     taskGroup.Remove(task);
+                    Debug.Log("Removed task with ID: " + taskID);
                     break;
                 }
             }
@@ -54,6 +56,7 @@ public class TaskGroupSO : TaskBase
         // therefore do completion actions, and return true (i.e. group has completed) to parent group or taskmanager
         if (taskGroup.Count == 0)
         {
+            Debug.Log("all tasks in group completed");
             return true;
         }
 

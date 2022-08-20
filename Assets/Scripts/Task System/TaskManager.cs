@@ -16,23 +16,40 @@ public class TaskManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //InitList();
+        Initialize();
         outcomesScript = GetComponent<Outcomes>();
         UpdateUI();
-        StringBuilder sb = new StringBuilder();
+        /*StringBuilder sb = new StringBuilder();
         ToJson(taskList, ref sb, jsonName);
         sb.Clear();
         ToJson(reserveTaskList, ref sb, jsonName + "Reserve");
-        UnityEditor.AssetDatabase.Refresh();
+        UnityEditor.AssetDatabase.Refresh();*/
 
-        FromJson(jsonName);
-        FromJson(jsonName + "Reserve");
+        /*FromJson(jsonName);
+        FromJson(jsonName + "Reserve");*/
     }
 
-    private void InitList()
+    private void Initialize()
     {
-        // populate with tasks according to some imported list of them, or scriptable obj, here
-        // or smth idk
+        // initialize tasks groups, if they exist
+        foreach (TaskBase task in taskList)
+        {
+            TaskGroupSO taskGroupSO = task as TaskGroupSO;
+            if (taskGroupSO != null)
+            {
+                taskGroupSO.Initialize();
+            }
+        }
+
+        foreach (TaskBase task in reserveTaskList)
+        {
+            TaskGroupSO taskGroupSO = task as TaskGroupSO;
+            if (taskGroupSO != null)
+            {
+                taskGroupSO.Initialize();
+            }
+        }
+
     }
 
     public void TaskComplete(int taskID)
@@ -44,6 +61,7 @@ public class TaskManager : MonoBehaviour
             // and the ID of the completed task matches the ID provided by the interacted obj
             // complete the task (and any associated actions) and remove it from the list
             // then break from iteration
+            Debug.Log("checking a task in the list");
             TaskSO taskSO = task as TaskSO;
             if (taskSO != null)
             {
@@ -61,18 +79,23 @@ public class TaskManager : MonoBehaviour
                 TaskGroupSO taskGroupSO = task as TaskGroupSO;
                 if (taskGroupSO != null)
                 {
+                    Debug.Log("task group is not null");
                     // if all tasks in the group have been completed, execute group finish actions, and remove from this group of tasks
                     // then break from iteration
                     if (taskGroupSO.CheckCompletion(taskID))
                     {
-                        outcomesScript.Outcome(taskSO.outcomeID);
+                        outcomesScript.Outcome(taskGroupSO.outcomeID);
                         taskList.Remove(task);
                         break;
                     }
                 }
             }
         }
-        UpdateUI();
+
+        if (taskList.Count > 0)
+        {
+            UpdateUI();
+        }
     }
 
     // handles updating the UI text for tasks
@@ -158,7 +181,7 @@ public class TaskManager : MonoBehaviour
     }
 
     // takes a task ID, checks the reserve task list for the ID, and activates the task with matching ID if present
-    void ActivateTask(int taskID)
+    public void ActivateTask(int taskID)
     {
         foreach (TaskBase task in reserveTaskList)
         {
@@ -176,7 +199,7 @@ public class TaskManager : MonoBehaviour
     }
 
     // takes a group ID, checks the reserve task list for the ID, and activates the group with matching ID if present
-    void ActivateGroup(int groupID)
+    public void ActivateGroup(int groupID)
     {
         foreach (TaskBase task in reserveTaskList)
         {
@@ -191,6 +214,12 @@ public class TaskManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void SetUIText(string text)
+    {
+        Debug.Log(text);
+        taskText.text = text;
     }
 
 }

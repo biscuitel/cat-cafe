@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskID: 1
   taskName: Task 1
-  taskDesc: This is task 1 - ID 1, outcome 3
-  outcomeID: 3
+  taskDesc: This is task 1. It becomes active after task 0 completes, and activates
+    task 2
+  outcomeID: 1
