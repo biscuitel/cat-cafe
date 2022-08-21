@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8b56af3c12974f4bb42835774b3d9f9, type: 3}
-  m_Name: Group0
+  m_Script: {fileID: 11500000, guid: 71fb62c9e4c1e4e4e8c8b40d689e4fa5, type: 3}
+  m_Name: FlipSign
   m_EditorClassIdentifier: 
-  groupID: 0
-  outcomeID: 3
-  tasks:
-  - {fileID: 11400000, guid: 366d24ccf69dd73498c2ac90f748974c, type: 2}
-  - {fileID: 11400000, guid: 3f7ca42c19987e3459e4c291099eb847, type: 2}
+  taskID: 0
+  taskName: Close up
+  taskDesc: Flip the sign on the door to indicate that the cafe is closed.
+  outcomeID: 0
