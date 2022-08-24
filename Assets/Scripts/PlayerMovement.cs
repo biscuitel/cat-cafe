@@ -20,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
     // player velocity for purposes of jumping, gravity, grounded checks, etc.
     private Vector3 vel;
 
+    // dialogue manager to disable movement when reading dialogue
+    private DialogueManager dm;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,13 +37,17 @@ public class PlayerMovement : MonoBehaviour
         }
         
         controller = this.GetComponent<CharacterController>();
+        dm = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
         GroundCheck();
-        Inputs();
+        if (!dm.IsDialogueActive())
+        {
+            Inputs();
+        }
     }
 
     void GroundCheck()

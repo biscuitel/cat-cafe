@@ -11,6 +11,7 @@ public class Interactable : MonoBehaviour
     private Camera cam;
     private GameObject obj;
     private TaskManager taskManager;
+    private DialogueTrigger dialogueTrigger;
 
     [SerializeField] private int taskID;
 
@@ -26,6 +27,7 @@ public class Interactable : MonoBehaviour
         playerInTrigger = false;
         obj = this.transform.GetChild(0).gameObject;
         taskManager = GameObject.FindGameObjectWithTag("TaskManager").GetComponent<TaskManager>();
+        dialogueTrigger = this.GetComponent<DialogueTrigger>();
     }
 
     // Update is called once per frame
@@ -53,6 +55,10 @@ public class Interactable : MonoBehaviour
                     if (Input.GetButtonDown("Interact"))
                     {
                         Interact();
+                        if (dialogueTrigger != null)
+                        {
+                            dialogueTrigger.TriggerDialogue();
+                        }
                     }
 
                 }
