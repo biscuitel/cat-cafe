@@ -22,7 +22,7 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (dialogueActive)
+        if (dialogueActive && Input.GetButtonDown("Interact"))
         {
             DisplayDialogue();
         }
@@ -31,20 +31,17 @@ public class DialogueManager : MonoBehaviour
 
     private void DisplayDialogue()
     {
-        if (Input.GetButtonDown("Interact"))
+        if (dialogueIndex < dialogue[listIndex].GetDialogue().Count)
         {
-            if (dialogueIndex < dialogue[listIndex].GetDialogue().Count)
-            {
-                Debug.Log(dialogueIndex);
-                UpdateUI();
-                dialogueIndex++;
-            } else
-            {
-                dialogueIndex = 0;
-                dialogueText.text = "";
-                dialogueActive = false;
-                Debug.Log("dialogue deactivated");
-            }
+            Debug.Log(dialogueIndex);
+            UpdateUI();
+            dialogueIndex++;
+        } else
+        {
+            dialogueIndex = 0;
+            dialogueText.text = "";
+            dialogueActive = false;
+            Debug.Log("dialogue deactivated");
         }
     }
 
@@ -62,6 +59,7 @@ public class DialogueManager : MonoBehaviour
         {
             listIndex = index;
         }
+        DisplayDialogue();
         
     }
 
