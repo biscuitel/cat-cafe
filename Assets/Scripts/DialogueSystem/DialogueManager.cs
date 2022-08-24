@@ -43,6 +43,7 @@ public class DialogueManager : MonoBehaviour
                 dialogueIndex = 0;
                 dialogueText.text = "";
                 dialogueActive = false;
+                Debug.Log("dialogue deactivated");
             }
         }
     }
