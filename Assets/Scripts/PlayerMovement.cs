@@ -37,14 +37,18 @@ public class PlayerMovement : MonoBehaviour
         }
         
         controller = this.GetComponent<CharacterController>();
-        dm = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
+        GameObject dmObj = GameObject.FindGameObjectWithTag("DialogueManager");
+        if (dmObj != null)
+        {
+            dm = dmObj.GetComponent<DialogueManager>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         GroundCheck();
-        if (!dm.IsDialogueActive())
+        if (dm == null || !dm.IsDialogueActive())
         {
             Inputs();
         }

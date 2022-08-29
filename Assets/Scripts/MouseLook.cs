@@ -15,13 +15,17 @@ public class MouseLook : MonoBehaviour
     {
         playerBody = this.transform.parent.GetComponent<Transform>();
         Cursor.lockState = CursorLockMode.Locked;
-        dm = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
+        GameObject dmObj = GameObject.FindGameObjectWithTag("DialogueManager");
+        if (dmObj != null)
+        {
+            dm = dmObj.GetComponent<DialogueManager>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!dm.IsDialogueActive())
+        if (dm == null || !dm.IsDialogueActive())
         {
             float mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
