@@ -14,10 +14,15 @@ public class Interactable : MonoBehaviour
     private DialogueTrigger dialogueTrigger;
 
     [SerializeField] private int taskID;
+    [SerializeField] private bool deactivateAfterInteraction = false;
+    [SerializeField] private bool deleteAfterInteraction = false;
+    [SerializeField] private bool toggleVisAfterInteraction = false;
+
+    [SerializeField] private MeshRenderer[] meshes;
 
 
     // max distance that player can interact from
-    public float interactionRange = 3.0f;
+    public float interactionRange = 5.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +33,7 @@ public class Interactable : MonoBehaviour
         obj = this.transform.GetChild(0).gameObject;
         taskManager = GameObject.FindGameObjectWithTag("TaskManager").GetComponent<TaskManager>();
         dialogueTrigger = this.GetComponent<DialogueTrigger>();
+        meshes = this.GetComponentsInChildren<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -48,7 +54,7 @@ public class Interactable : MonoBehaviour
 
             // cast ray from camera center, if hits this object then interact with it
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, interactionRange, raycastLayerMask, QueryTriggerInteraction.Ignore))
+            if (Physics.Raycast(ray, out hit, interactionRange, raycastLayerMask, QueryTriggerInteraction.Collide))
             {
                 if (GameObject.ReferenceEquals(obj, hit.transform.gameObject))
                 {
@@ -60,6 +66,19 @@ public class Interactable : MonoBehaviour
                             dialogueTrigger.TriggerDialogue();
                             this.enabled = false;
                         }
+                        if (toggleVisAfterInteraction)
+                        {
+                            ToggleVisibility();
+                        }
+                        else if (deleteAfterInteraction)
+                        {
+                            Destroy(gameObject);
+                        }
+                        else if (deactivateAfterInteraction)
+                        {
+                            this.enabled = false;
+                        }
+                        
                     }
 
                 }
@@ -74,6 +93,14 @@ public class Interactable : MonoBehaviour
         taskManager.TaskComplete(taskID);
         //do thing here
 
+    }
+
+    private void ToggleVisibility()
+    {
+        foreach (MeshRenderer renderer in meshes)
+        {
+            renderer.enabled = !renderer.enabled;
+        }
     }
 
 
