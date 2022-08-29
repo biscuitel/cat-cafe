@@ -19,6 +19,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
+        Debug.Log("Dialogue triggered with index = " + 0);
         dialogueManager.ActivateDialogue(dialogueIndex);
     }
 }

@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<Texture> loadImages;
     [SerializeField] private float fadeTime;
 
+    private DialogueManager dm;
+    private TaskManager tm;
+
     private void Awake()
     {
         levelIndex = SceneManager.GetActiveScene().buildIndex;
@@ -21,6 +24,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         loadImage = GetComponentInChildren<RawImage>();
+        loadImage.texture = loadImage.texture = loadImages[levelIndex + 1];
+        dm = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
+        tm = GameObject.FindGameObjectWithTag("TaskManager").GetComponent<TaskManager>();
         StartCoroutine(FadeIn());
     }
 
@@ -79,6 +85,8 @@ public class GameManager : MonoBehaviour
             load = SceneManager.LoadSceneAsync(levelIndex);
         }
 
+        dm = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
+
         // fade in
         int imageIndex = levelIndex + 1 > SceneManager.sceneCountInBuildSettings ? levelIndex = 0 : levelIndex + 1;
         Debug.Log(imageIndex);
@@ -104,5 +112,10 @@ public class GameManager : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
+    }
+
+    public void StartFadeIn()
+    {
+        StartCoroutine(FadeIn());
     }
 }

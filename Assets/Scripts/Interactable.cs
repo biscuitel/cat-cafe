@@ -58,6 +58,7 @@ public class Interactable : MonoBehaviour
                         if (dialogueTrigger != null)
                         {
                             dialogueTrigger.TriggerDialogue();
+                            this.enabled = false;
                         }
                     }
 

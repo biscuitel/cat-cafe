@@ -54,6 +54,7 @@ public class TaskManager : MonoBehaviour
 
     public void TaskComplete(int taskID)
     {
+        Debug.Log("taskID = " + taskID + " was triggered");
         // for each task in the group
         foreach (TaskBase task in taskList)
         {
@@ -214,6 +215,11 @@ public class TaskManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void TriggerOutcome(int outcomeID)
+    {
+        outcomesScript.Outcome(outcomeID);
     }
 
     public void SetUIText(string text)

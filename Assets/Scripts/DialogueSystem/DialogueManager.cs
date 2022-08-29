@@ -60,7 +60,6 @@ public class DialogueManager : MonoBehaviour
             listIndex = index;
         }
         DisplayDialogue();
-        
     }
 
     public bool IsDialogueActive()

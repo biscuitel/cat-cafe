@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 6773458893238801005}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: c40f4f34ca877144b84caa01fdc9a1be, type: 3}
   - {fileID: 2800000, guid: ef31946ad1d8def4680a3ae8d19465b3, type: 3}
   - {fileID: 2800000, guid: f8ddc5852a8652346914640dfe192238, type: 3}
-  fadeTime: 2
+  fadeTime: 1.5
 --- !u!223 &6773458893238801003
 Canvas:
   m_ObjectHideFlags: 0
@@ -147,7 +147,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &6773458893238801005
 MonoBehaviour:
