@@ -52,8 +52,9 @@ public class TaskManager : MonoBehaviour
 
     }
 
-    public void TaskComplete(int taskID)
+    public bool TaskComplete(int taskID)
     {
+        bool returnVal = false;
         Debug.Log("taskID = " + taskID + " was triggered");
         // for each task in the group
         foreach (TaskBase task in taskList)
@@ -70,6 +71,7 @@ public class TaskManager : MonoBehaviour
                 {
                     outcomesScript.Outcome(taskSO.outcomeID);
                     taskList.Remove(task);
+                    returnVal = true;
                     break;
                 }
             }
@@ -83,12 +85,13 @@ public class TaskManager : MonoBehaviour
                     Debug.Log("task group is not null");
                     // if all tasks in the group have been completed, execute group finish actions, and remove from this group of tasks
                     // then break from iteration
-                    if (taskGroupSO.CheckCompletion(taskID))
+                    returnVal = taskGroupSO.CheckCompletion(taskID);
+                    if (taskGroupSO.IsGroupCompleted())
                     {
                         outcomesScript.Outcome(taskGroupSO.outcomeID);
                         taskList.Remove(task);
-                        break;
                     }
+                    break;
                 }
             }
         }
@@ -97,6 +100,7 @@ public class TaskManager : MonoBehaviour
         {
             UpdateUI();
         }
+        return returnVal;
     }
 
     // handles updating the UI text for tasks

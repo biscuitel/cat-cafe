@@ -17,6 +17,7 @@ public class TaskGroupSO : TaskBase
 
     public bool CheckCompletion(int taskID)
     {
+        bool returnVal = false;
         // for each task in the group
         foreach (TaskBase task in taskGroup)
         {
@@ -31,6 +32,7 @@ public class TaskGroupSO : TaskBase
                 {
                     taskGroup.Remove(task);
                     Debug.Log("Removed task with ID: " + taskID);
+                    returnVal = true;
                     break;
                 }
             }
@@ -41,26 +43,32 @@ public class TaskGroupSO : TaskBase
                 TaskGroupSO taskGroupSO = task as TaskGroupSO;
                 if (taskGroupSO != null)
                 {
+                    returnVal = taskGroupSO.CheckCompletion(taskID);
                     // if all tasks in the group have been completed, execute group finish actions, and remove from this group of tasks
                     // then break from iteration
-                    if (taskGroupSO.CheckCompletion(taskID))
+                    if (taskGroupSO.IsGroupCompleted())
                     {
                         taskGroup.Remove(task);
-                        break;
                     }
+                    break;
                 }
             }
         }
 
+        return returnVal;
+    }
+
+    public bool IsGroupCompleted()
+    {
         // if group is empty, all tasks in group have been completed
-        // therefore do completion actions, and return true (i.e. group has completed) to parent group or taskmanager
         if (taskGroup.Count == 0)
         {
             Debug.Log("all tasks in group completed");
             return true;
+        } else
+        {
+            return false;
         }
-
-        return false;
     }
 
     public List<TaskBase> GetTaskList()

@@ -60,38 +60,41 @@ public class Interactable : MonoBehaviour
                 {
                     if (Input.GetButtonDown("Interact"))
                     {
-                        Interact();
-                        if (dialogueTrigger != null)
+                        if (Interact())
                         {
-                            dialogueTrigger.TriggerDialogue();
-                            this.enabled = false;
+                            Debug.Log("interaction happened and completed task");
+                            if (dialogueTrigger != null)
+                            {
+                                dialogueTrigger.TriggerDialogue();
+                                this.enabled = false;
+                            }
+                            if (toggleVisAfterInteraction)
+                            {
+                                Debug.Log("toggled vis");
+                                ToggleVisibility();
+                            }
+                            else if (deleteAfterInteraction)
+                            {
+                                Debug.Log("destroyed");
+                                Destroy(gameObject);
+                            }
+                            else if (deactivateAfterInteraction)
+                            {
+                                Debug.Log("deactivated");
+                                this.enabled = false;
+                            }
                         }
-                        if (toggleVisAfterInteraction)
-                        {
-                            ToggleVisibility();
-                        }
-                        else if (deleteAfterInteraction)
-                        {
-                            Destroy(gameObject);
-                        }
-                        else if (deactivateAfterInteraction)
-                        {
-                            this.enabled = false;
-                        }
-                        
                     }
-
                 }
             }
         }
         
     }
 
-    private void Interact()
+    private bool Interact()
     {
         Debug.Log("Player interacted with me! Do a thing or smth idk");
-        taskManager.TaskComplete(taskID);
-        //do thing here
+        return taskManager.TaskComplete(taskID);
 
     }
 
