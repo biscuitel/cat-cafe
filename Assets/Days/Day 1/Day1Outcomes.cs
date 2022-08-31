@@ -8,6 +8,7 @@ public class Day1Outcomes : Outcomes
     private GameManager gm;
     private TaskManager tm;
     private DialogueManager dm;
+    private MedsEffects cameraEffects;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,7 @@ public class Day1Outcomes : Outcomes
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         dm = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
         tm = GetComponent<TaskManager>();
+        cameraEffects = GetComponent<MedsEffects>();
     }
 
     // Update is called once per frame
@@ -38,22 +40,30 @@ public class Day1Outcomes : Outcomes
                 // activate task board task
                 tm.ActivateTask(2);
                 // flip sign model here
+
+                // player allergies begin to react - do thing here
+                cameraEffects.StartDistort();
                 break;
             case 2:
-                // TODO - player's allergies begin to react
-                // player interacted with task board; populate task list
+                // player took antihistamenes for their allergies
+                // revert effects and activate next task
+                cameraEffects.StartUndistort();
                 tm.ActivateTask(3);
                 break;
             case 3:
+                // player interacted with task board; populate task list
+                tm.ActivateTask(4);
+                break;
+            case 4:
                 // player grabs vacuum cleaner, populate list with hair cleaning tasks
                 tm.ActivateGroup(0);
                 break;
-            case 4:
+            case 5:
                 // player cleaned (all) cat hair
                 // activate task to return vacuum cleaner
-                tm.ActivateTask(4);
+                tm.ActivateTask(5);
                 break;
-            case 5:
+            case 6:
                 // player returned vacuum cleaner to storage room, level end
                 gm.LoadNextScene();
                 break;
