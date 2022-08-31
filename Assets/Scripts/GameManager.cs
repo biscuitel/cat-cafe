@@ -16,14 +16,15 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        levelIndex = SceneManager.GetActiveScene().buildIndex;
         DontDestroyOnLoad(this.gameObject);
+        levelIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
     // Start is called before the first frame update
     void Start()
     {
         loadImage = GetComponentInChildren<RawImage>();
+        loadImage.enabled = true;
         loadImage.texture = loadImage.texture = loadImages[levelIndex + 1];
         dm = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
         tm = GameObject.FindGameObjectWithTag("TaskManager").GetComponent<TaskManager>();
