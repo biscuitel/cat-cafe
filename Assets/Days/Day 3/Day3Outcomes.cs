@@ -10,6 +10,8 @@ public class Day3Outcomes : Outcomes
     private DialogueManager dm;
     private MedsEffects cameraEffects;
 
+    [SerializeField] private GameObject warpTrigger;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,7 @@ public class Day3Outcomes : Outcomes
         dm = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
         tm = GetComponent<TaskManager>();
         cameraEffects = GetComponent<MedsEffects>();
+        warpTrigger.SetActive(false);
     }
 
     // Update is called once per frame
@@ -66,14 +69,18 @@ public class Day3Outcomes : Outcomes
             case 6:
                 // player returned vacuum cleaner to storage room
                 // go to staff room for finale
+                warpTrigger.SetActive(true);
                 tm.ActivateTask(6);
                 break;
             case 7:
                 // player entered staff room, teleport them to ending corridor
+                Debug.Log("player was teleported to end corridor");
                 tm.ActivateTask(7);
                 break;
             case 8:
                 // player interacted with phone at end of corridor, do thing
+                gm.LoadNextScene();
+                break;
             default:
                 break;
         }

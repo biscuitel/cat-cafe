@@ -6,7 +6,6 @@ public class Interactable : MonoBehaviour
 {
 
     private bool playerInTrigger;
-    private LineRenderer lr;
     private int raycastLayerMask;
     private Camera cam;
     private GameObject obj;
@@ -100,9 +99,12 @@ public class Interactable : MonoBehaviour
 
     private void ToggleVisibility()
     {
-        foreach (MeshRenderer renderer in meshes)
+        if (meshes != null)
         {
-            renderer.enabled = !renderer.enabled;
+            foreach (MeshRenderer renderer in meshes)
+            {
+                renderer.enabled = !renderer.enabled;
+            }
         }
     }
 
