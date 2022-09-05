@@ -27,8 +27,8 @@ public class MouseLook : MonoBehaviour
     {
         if (dm == null || !dm.IsDialogueActive())
         {
-            float mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
-            float mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
+            float mouseX = Input.GetAxis("Mouse X") * mouseSens;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSens;
 
             xRot -= mouseY;
             xRot = Mathf.Clamp(xRot, -90f, 90f);
