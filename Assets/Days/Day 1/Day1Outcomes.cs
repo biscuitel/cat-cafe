@@ -9,6 +9,7 @@ public class Day1Outcomes : Outcomes
     private TaskManager tm;
     private DialogueManager dm;
     private MedsEffects cameraEffects;
+    [SerializeField] private Animator signAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,11 @@ public class Day1Outcomes : Outcomes
                 break;
             case 1:
                 // player flipped sign to "closed" on front door
+                if (signAnim)
+                {
+                    //signAnim.SetBool("StartAnimation", true);
+                    signAnim.SetTrigger("TriggerAnimation");
+                }
                 // activate task board task
                 tm.ActivateTask(2);
                 // flip sign model here
