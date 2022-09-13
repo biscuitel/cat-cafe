@@ -23,7 +23,9 @@ MonoBehaviour:
   - Assets/ArtAssets/Models/Sanitizer.fbx
   - Assets/ArtAssets/Models/WoodenChair.fbx
   - Assets/ArtAssets/Models/BulletinBoard.fbx
-  modifiedAssetPaddingHash: aaf8cc2e16bd5f2d534ffff0ecc12491ea37ed04ecc12491169ba73cadf25916885031ee989b44e8
+  - Assets/ArtAssets/Models/CatJail.fbx
+  - Assets/ArtAssets/Models/CatBase.fbx
+  modifiedAssetPaddingHash: aaf8cc2e16bd5f2d534ffff0ecc12491ea37ed04ecc12491169ba73cadf25916885031eefdbacaa71acf09b4a459c3eb
   modifiedMeshList: []
   modifiedMeshPaddingList: 
   modifiedAssets:
@@ -453,8 +455,19 @@ MonoBehaviour:
   - meshName:
     - Board
     - TaskList
-    padding: 1e00000057000000
+    padding: 1f00000057000000
     unwrapper: 0000000000000000
+  - meshName:
+    - Cage
+    - Door
+    padding: 0900000026000000
+    unwrapper: 0000000000000000
+  - meshName:
+    - Eye.r.002
+    - Body.002
+    - Eye.l.002
+    padding: 000100005300000000010000
+    unwrapper: 000000000000000000000000
   assetList:
   - Assets/Bakery/examples/content/sponza/bush.FBX
   - Assets/Bakery/examples/content/floor_lamp.FBX
@@ -544,5 +557,5 @@ MonoBehaviour:
   renderSettingsRTPVSceneView: 0
   renderSettingsRTPVWidth: 640
   renderSettingsRTPVHeight: 360
-  modifiedMeshPaddingArray: 1e00000057000000
+  modifiedMeshPaddingArray: 1f00000057000000
   modifiedMeshUnwrapperArray: 0000000000000000
