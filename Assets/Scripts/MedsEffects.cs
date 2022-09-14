@@ -15,6 +15,10 @@ public class MedsEffects : MonoBehaviour
     private Bloom bloom;
     private ColorAdjustments colorAdjustments;
 
+    [SerializeField] private float triggerTime = 60f;
+    [SerializeField] private float timeElapsed = 0f;
+    private bool useTime = false;
+
     [SerializeField] private float distortTime = 5f;
     [SerializeField] private float maxLensDistortIntensity = -0.5f;
     [SerializeField] private float maxFocalLength = 20f;
@@ -31,6 +35,7 @@ public class MedsEffects : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // get postprocess volume and associated override properties
         volumeProfile = GameObject.FindGameObjectWithTag("PostProcessVolume").GetComponent<Volume>().profile;
         volumeProfile.TryGet<LensDistortion>(out ld);
         volumeProfile.TryGet<DepthOfField>(out dof);
@@ -39,12 +44,24 @@ public class MedsEffects : MonoBehaviour
         volumeProfile.TryGet<Vignette>(out vignette);
         volumeProfile.TryGet<Bloom>(out bloom);
         volumeProfile.TryGet<ColorAdjustments>(out colorAdjustments);
+
+        useTime = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // if using time to trigger fx (i.e. after first manual trigger in day 1)
+        // trigger fx is elapsed time >= trigger time
+        if (useTime)
+        {
+            timeElapsed += Time.deltaTime;
+            if (timeElapsed >= triggerTime)
+            {
+                StartDistort();
+                timeElapsed = 0f;
+            }
+        }
     }
 
     public void StartDistort()
@@ -59,6 +76,7 @@ public class MedsEffects : MonoBehaviour
 
     IEnumerator Distort()
     {
+        // activate desired overrides, and lerp to target values for postprocessing fx parameters
         ld.active = dof.active = chromaAb.active = paniniProj.active = vignette.active = colorAdjustments.active = true;
         float elapsed = 0f;
         while (elapsed < distortTime)
@@ -81,6 +99,7 @@ public class MedsEffects : MonoBehaviour
 
     IEnumerator Undistort()
     {
+        // lerp to target values for postprocessing fx parameters, then deactivate desired overrides
         float elapsed = 0f;
         while (elapsed < distortTime)
         {
@@ -99,5 +118,10 @@ public class MedsEffects : MonoBehaviour
             yield return null;
         }
         ld.active = dof.active = chromaAb.active = paniniProj.active = vignette.active = colorAdjustments.active = false;
+    }
+
+    public void TimeTrigger()
+    {
+        useTime = true;
     }
 }
