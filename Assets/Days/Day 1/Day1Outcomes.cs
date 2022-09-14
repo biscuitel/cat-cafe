@@ -70,19 +70,38 @@ public class Day1Outcomes : Outcomes
                 tm.ActivateTask(5);
                 break;
             case 6:
-                // player grabs poop scoop
+                // prompt player to check taskboard again
                 tm.ActivateTask(6);
                 break;
             case 7:
-                // player scoops all poops
-                tm.ActivateGroup(1);
-                break;
-            case 8:
-                //player returns scoop
+                // prompt player to grab poop scooper
                 tm.ActivateTask(7);
                 break;
+            case 8:
+                //player picked up scooper
+                //activate tasks to scoop all the poop
+                tm.ActivateGroup(1);
+                break;
             case 9:
-                // player returned vacuum cleaner to storage room, level end
+                // player scoops (all) poop
+                //player prompted to return scooper
+                tm.ActivateTask(8);
+                break;
+            case 10:
+                // prompt player to check taskboard for 3rd time
+                tm.ActivateTask(9);
+                break;
+            case 11:
+                //prompt player to collect dishes
+                tm.ActivateGroup(2);
+                break;
+            case 12:
+                //player collected dishes
+                //tell player to put dishes into sink
+                tm.ActivateTask(10);
+                break;
+            case 13:
+                // player completed all task for the day, level end
                 gm.LoadNextScene();
                 break;
             default:
