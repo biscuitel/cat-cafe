@@ -14788,7 +14788,7 @@ PrefabInstance:
     - target: {fileID: 6773458893238801003, guid: 6b306048d6c06594d8c8c069d67ebef5,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6773458893238801004, guid: 6b306048d6c06594d8c8c069d67ebef5,
         type: 3}
@@ -36137,13 +36137,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeProfile: {fileID: 0}
-  distortTime: 4
+  distortTime: 5
   maxLensDistortIntensity: -0.5
   maxFocalLength: 20
   maxChromaAberation: 0.15
   maxPaniniProj: 1
   maxVignetteIntensity: 0.4
+  minBloomIntensity: 0.25
   maxBloomIntensity: 0.75
+  postExposure: 1
+  contrast: 50
+  hueShift: -55
+  saturation: 45
 --- !u!43 &1277751887
 Mesh:
   m_ObjectHideFlags: 0

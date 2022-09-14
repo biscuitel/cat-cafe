@@ -13,6 +13,7 @@ public class MedsEffects : MonoBehaviour
     private PaniniProjection paniniProj;
     private Vignette vignette;
     private Bloom bloom;
+    private ColorAdjustments colorAdjustments;
 
     [SerializeField] private float distortTime = 5f;
     [SerializeField] private float maxLensDistortIntensity = -0.5f;
@@ -22,6 +23,10 @@ public class MedsEffects : MonoBehaviour
     [SerializeField] private float maxVignetteIntensity = 0.4f;
     [SerializeField] private float minBloomIntensity = 0.25f;
     [SerializeField] private float maxBloomIntensity = 0.75f;
+    [SerializeField] private float postExposure = 1f;
+    [SerializeField] private float contrast = 50f;
+    [SerializeField] private float hueShift = -55f;
+    [SerializeField] private float saturation = 45f;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +38,7 @@ public class MedsEffects : MonoBehaviour
         volumeProfile.TryGet<PaniniProjection>(out paniniProj);
         volumeProfile.TryGet<Vignette>(out vignette);
         volumeProfile.TryGet<Bloom>(out bloom);
+        volumeProfile.TryGet<ColorAdjustments>(out colorAdjustments);
     }
 
     // Update is called once per frame
@@ -53,7 +59,7 @@ public class MedsEffects : MonoBehaviour
 
     IEnumerator Distort()
     {
-        ld.active = dof.active = chromaAb.active = paniniProj.active = vignette.active = bloom.active = true;
+        ld.active = dof.active = chromaAb.active = paniniProj.active = vignette.active = colorAdjustments.active = true;
         float elapsed = 0f;
         while (elapsed < distortTime)
         {
@@ -64,6 +70,11 @@ public class MedsEffects : MonoBehaviour
             paniniProj.distance.Override(Mathf.Lerp(0f, maxPaniniProj, elapsed / distortTime));
             vignette.intensity.Override(Mathf.Lerp(0f, maxVignetteIntensity, elapsed / distortTime));
             bloom.intensity.Override(Mathf.Lerp(minBloomIntensity, maxBloomIntensity, elapsed / distortTime));
+
+            colorAdjustments.postExposure.Override(Mathf.Lerp(0f, postExposure, elapsed / distortTime));
+            colorAdjustments.contrast.Override(Mathf.Lerp(0f, contrast, elapsed / distortTime));
+            colorAdjustments.hueShift.Override(Mathf.Lerp(0f, hueShift, elapsed / distortTime));
+            colorAdjustments.saturation.Override(Mathf.Lerp(0f, saturation, elapsed / distortTime));
             yield return null;
         }
     }
@@ -80,8 +91,13 @@ public class MedsEffects : MonoBehaviour
             paniniProj.distance.Override(Mathf.Lerp(maxPaniniProj, 0f, elapsed / distortTime));
             vignette.intensity.Override(Mathf.Lerp(maxVignetteIntensity, 0f, elapsed / distortTime));
             bloom.intensity.Override(Mathf.Lerp(maxBloomIntensity, minBloomIntensity, elapsed / distortTime));
+
+            colorAdjustments.postExposure.Override(Mathf.Lerp(postExposure, 0f, elapsed / distortTime));
+            colorAdjustments.contrast.Override(Mathf.Lerp(contrast, 0f, elapsed / distortTime));
+            colorAdjustments.hueShift.Override(Mathf.Lerp(hueShift, 0f, elapsed / distortTime));
+            colorAdjustments.saturation.Override(Mathf.Lerp(saturation, 0f, elapsed / distortTime));
             yield return null;
         }
-        ld.active = dof.active = chromaAb.active = paniniProj.active = vignette.active = bloom.active = false;
+        ld.active = dof.active = chromaAb.active = paniniProj.active = vignette.active = colorAdjustments.active = false;
     }
 }
