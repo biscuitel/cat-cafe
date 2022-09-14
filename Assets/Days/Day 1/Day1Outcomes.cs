@@ -70,6 +70,18 @@ public class Day1Outcomes : Outcomes
                 tm.ActivateTask(5);
                 break;
             case 6:
+                // player grabs poop scoop
+                tm.ActivateTask(6);
+                break;
+            case 7:
+                // player scoops all poops
+                tm.ActivateGroup(1);
+                break;
+            case 8:
+                //player returns scoop
+                tm.ActivateTask(7);
+                break;
+            case 9:
                 // player returned vacuum cleaner to storage room, level end
                 gm.LoadNextScene();
                 break;
