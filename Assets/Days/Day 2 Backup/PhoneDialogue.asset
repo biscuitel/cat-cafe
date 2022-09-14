@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614bfb1c05c14464aaa5d2e53f6dd69d, type: 3}
+  m_Name: PhoneDialogue
+  m_EditorClassIdentifier: 
+  dialogue:
+  - '*ring ring ring*'
+  - You are really late Bob. Pathetic.
+  - "I\u2019ve had to get rid of most of the cats because you were unable to clean
+    up after them in time.\nWhat a disloyal employee you are. Don\u2019t you even
+    care for these cats?"
+  - "I bet you don\u2019t.\r\n\rWhatever."
+  - "Consider yourself lucky tonight. \r\n\rYou\u2019ll be in charge of closing up
+    again because of your incompetence."
+  - "Make sure you do your job.\r\n\rThen maybe I\u2019ll pay you."
+  characterSpeaking: 010000000100000001000000010000000100000001000000

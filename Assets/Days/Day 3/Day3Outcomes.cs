@@ -9,6 +9,7 @@ public class Day3Outcomes : Outcomes
     private TaskManager tm;
     private DialogueManager dm;
     private MedsEffects cameraEffects;
+    [SerializeField] private Animator signAnim;
 
     [SerializeField] private GameObject warpTrigger;
 
@@ -67,17 +68,47 @@ public class Day3Outcomes : Outcomes
                 tm.ActivateTask(5);
                 break;
             case 6:
-                // player returned vacuum cleaner to storage room
-                // go to staff room for finale
-                warpTrigger.SetActive(true);
+                // prompt player to check task board again
                 tm.ActivateTask(6);
                 break;
             case 7:
-                // player entered staff room, teleport them to ending corridor
-                Debug.Log("player was teleported to end corridor");
+                // prompt player to grab poop scooper
                 tm.ActivateTask(7);
                 break;
             case 8:
+                //player picked up scooper
+                //activate tasks to scoop all the poop
+                tm.ActivateGroup(1);
+                break;
+            case 9:
+                // player scoops (all) poop
+                //player prompted to return scooper
+                tm.ActivateTask(8);
+                break;
+            case 10:
+                // prompt player to check taskboard for 3rd time
+                tm.ActivateTask(9);
+                break;
+            case 11:
+                //prompt player to collect dishes
+                tm.ActivateGroup(2);
+                break;
+            case 12:
+                //player collected dishes
+                //tell player to put dishes into sink
+                tm.ActivateTask(10);
+                break;
+            case 13:
+                // prompt player to enter staff room, activate warp to final corridor
+                warpTrigger.SetActive(true);
+                Debug.Log("player was teleported to end corridor");
+                tm.ActivateTask(11);
+                break;
+            case 14:
+                //prompt player to interact with phone at end of corridor
+                tm.ActivateTask(12);
+                break;
+            case 15:
                 // player interacted with phone at end of corridor, do thing
                 gm.LoadNextScene();
                 break;
