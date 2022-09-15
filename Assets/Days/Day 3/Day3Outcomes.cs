@@ -41,6 +41,11 @@ public class Day3Outcomes : Outcomes
                 break;
             case 1:
                 // player flipped sign to "closed" on front door
+                if (signAnim)
+                {
+                    //signAnim.SetBool("StartAnimation", true);
+                    signAnim.SetTrigger("TriggerAnimation");
+                }
                 // activate task board task
                 tm.ActivateTask(2);
                 // flip sign model here
