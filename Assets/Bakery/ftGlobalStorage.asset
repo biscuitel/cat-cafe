@@ -41,7 +41,9 @@ MonoBehaviour:
   - Assets/ArtAssets/Models/SprayBottle.fbx
   - Assets/ArtAssets/Models/LightSwitch.fbx
   - Assets/ArtAssets/Models/FrontRug.fbx
-  modifiedAssetPaddingHash: aaf8cc2e16bd5f2d534ffff0d1c12491ea37ed04ecc12491169ba73cadf25916885031ee989b44e8e552ccbc7e60591606a3ddde465031eeecb4d8ac27dc894b61f08198ecc12491fe4945be78147692377e936319c2a693f927c115765617f995c2a693eec124910aa0b553567e9363
+  - Assets/ArtAssets/Models/CatHouse.fbx
+  - Assets/ArtAssets/Models/CatMat.fbx
+  modifiedAssetPaddingHash: aaf8cc2e16bd5f2d534ffff0d1c12491ea37ed04ecc12491169ba73cadf25916885031ee989b44e8e552ccbc7e60591606a3ddde465031eec8c4049c27dc894b61f08198cd318883fe4945be78147692377e936319c2a693f927c115765617f995c2a693eec124910aa0b553f8398033a35031eea35031ee
   modifiedMeshList: []
   modifiedMeshPaddingList: 
   modifiedAssets:
@@ -496,7 +498,7 @@ MonoBehaviour:
     - Plane.001
     - Plane.002
     - Cylinder
-    padding: 000100000001000000010000
+    padding: 0001000000010000ad000000
     unwrapper: 000000000000000000000000
   - meshName:
     - StaffCupboard
@@ -510,7 +512,7 @@ MonoBehaviour:
     unwrapper: 000000000000000000000000
   - meshName:
     - SugarCup
-    padding: 00010000
+    padding: bb000000
     unwrapper: 00000000
   - meshName:
     - Pepper
@@ -559,7 +561,15 @@ MonoBehaviour:
     unwrapper: 0000000000000000
   - meshName:
     - Rug
-    padding: 17000000
+    padding: 19000000
+    unwrapper: 00000000
+  - meshName:
+    - Litter
+    padding: 25000000
+    unwrapper: 00000000
+  - meshName:
+    - Cube
+    padding: 25000000
     unwrapper: 00000000
   assetList:
   - Assets/Bakery/examples/content/sponza/bush.FBX
@@ -657,5 +667,5 @@ MonoBehaviour:
   renderSettingsRTPVSceneView: 0
   renderSettingsRTPVWidth: 640
   renderSettingsRTPVHeight: 360
-  modifiedMeshPaddingArray: 17000000
+  modifiedMeshPaddingArray: bb000000
   modifiedMeshUnwrapperArray: 00000000
