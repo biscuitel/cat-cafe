@@ -43,7 +43,7 @@ MonoBehaviour:
   - Assets/ArtAssets/Models/FrontRug.fbx
   - Assets/ArtAssets/Models/CatHouse.fbx
   - Assets/ArtAssets/Models/CatMat.fbx
-  modifiedAssetPaddingHash: aaf8cc2e16bd5f2d534ffff0d1c12491ea37ed04ecc12491169ba73cadf25916885031ee989b44e8e552ccbc7e60591606a3ddde465031eec8c4049c27dc894b61f08198cd318883fe4945be78147692377e936319c2a693f927c115765617f995c2a693eec124910aa0b553f8398033a35031eea35031ee
+  modifiedAssetPaddingHash: aaf8cc2ed8a8a92e534ffff0d1c12491ea37ed04ecc124919660ddf9adf25916885031ee989b44e8e552ccbc7e605916c1d15080f757c020c8c4049c27dc894b61f08198ef37ed04fe4945be427b47595d3980337ac2a693f427c115705f17f9907f9363ecc124910aa0b553fa4dfff0a35031eea35031ee
   modifiedMeshList: []
   modifiedMeshPaddingList: 
   modifiedAssets:
@@ -436,7 +436,7 @@ MonoBehaviour:
     - Book.009
     - Book.007
     - Book.003
-    padding: 7f000000870000008a0000007b0000009800000078000000720000007700000081000000
+    padding: b5000000c1000000c4000000af000000d9000000aa000000a3000000aa000000b8000000
     unwrapper: 000000000000000000000000000000000000000000000000000000000000000000000000
   - meshName:
     - ChairCushion
@@ -459,7 +459,7 @@ MonoBehaviour:
     - HangingRack
     - Door
     - Lockers
-    padding: 4e000000000100002c00000011000000
+    padding: 53000000000100002f00000012000000
     unwrapper: 00000000000000000000000000000000
   - meshName:
     - Body
@@ -488,12 +488,13 @@ MonoBehaviour:
     unwrapper: 000000000000000000000000
   - meshName:
     - Cube
-    padding: 90000000
+    padding: ae000000
     unwrapper: 00000000
   - meshName:
     - Base
-    padding: 43000000
-    unwrapper: 00000000
+    - Lights
+    padding: 860000009f000000
+    unwrapper: 0000000000000000
   - meshName:
     - Plane.001
     - Plane.002
@@ -512,7 +513,7 @@ MonoBehaviour:
     unwrapper: 000000000000000000000000
   - meshName:
     - SugarCup
-    padding: bb000000
+    padding: 7b000000
     unwrapper: 00000000
   - meshName:
     - Pepper
@@ -525,34 +526,34 @@ MonoBehaviour:
     - IceCream
     - CakeSlice
     - PinkMacaron
-    padding: 00010000000100005e0000000001000000010000
+    padding: 0001000000010000600000000001000000010000
     unwrapper: 0000000000000000000000000000000000000000
   - meshName:
     - Cube
-    padding: 21000000
+    padding: 4b000000
     unwrapper: 00000000
   - meshName:
     - Cylinder
-    padding: 4f000000
+    padding: 31000000
     unwrapper: 00000000
   - meshName:
     - BigPlate
-    padding: 67000000
+    padding: 6a000000
     unwrapper: 00000000
   - meshName:
     - BallToyPink
     - MouseToyBlue
     - BallToyYellow
     - MouseToyRed
-    padding: 00010000fa000000e800000000010000
+    padding: 00010000fa000000ea00000000010000
     unwrapper: 00000000000000000000000000000000
   - meshName:
     - Radio
-    padding: 27000000
+    padding: 53000000
     unwrapper: 00000000
   - meshName:
     - SprayBottle
-    padding: fe000000
+    padding: 00010000
     unwrapper: 00000000
   - meshName:
     - Cube.001
@@ -561,7 +562,7 @@ MonoBehaviour:
     unwrapper: 0000000000000000
   - meshName:
     - Rug
-    padding: 19000000
+    padding: 26000000
     unwrapper: 00000000
   - meshName:
     - Litter
@@ -667,5 +668,5 @@ MonoBehaviour:
   renderSettingsRTPVSceneView: 0
   renderSettingsRTPVWidth: 640
   renderSettingsRTPVHeight: 360
-  modifiedMeshPaddingArray: bb000000
+  modifiedMeshPaddingArray: ae000000
   modifiedMeshUnwrapperArray: 00000000
