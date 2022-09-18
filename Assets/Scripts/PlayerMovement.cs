@@ -23,6 +23,10 @@ public class PlayerMovement : MonoBehaviour
     // dialogue manager to disable movement when reading dialogue
     private DialogueManager dm;
 
+    // medseffects script to handle undistorting allergy vfx
+    private MedsEffects allergyFX;
+    private bool hasMeds = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
         {
             dm = dmObj.GetComponent<DialogueManager>();
         }
+        allergyFX = GameObject.FindGameObjectWithTag("TaskManager").GetComponent<MedsEffects>();
     }
 
     // Update is called once per frame
@@ -74,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         Vector3 moveVec = this.transform.right * x + this.transform.forward * z;
-        controller.Move(moveVec * moveSpeed * Time.deltaTime);
+        moveVec.Normalize();
 
         // jump if player inputs jump and is grounded
         if (Input.GetButtonDown("Jump") && isGrounded)
@@ -84,7 +89,13 @@ public class PlayerMovement : MonoBehaviour
 
         // add gravity to player's y velocity
         vel.y += gravity * Time.deltaTime;
-        controller.Move(vel * Time.deltaTime); 
+        controller.Move(vel * Time.deltaTime);
+
+        // handle input for player taking meds
+        if (hasMeds && Input.GetButtonDown("TakeMeds"))
+        {
+            allergyFX.StartUndistort();
+        }
     }
 
 }

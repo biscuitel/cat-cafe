@@ -18,6 +18,7 @@ public class MedsEffects : MonoBehaviour
     [SerializeField] private float triggerTime = 60f;
     [SerializeField] private float timeElapsed = 0f;
     private bool useTime = false;
+    private bool active = false;
 
     [SerializeField] private float distortTime = 5f;
     [SerializeField] private float maxLensDistortIntensity = -0.5f;
@@ -53,7 +54,7 @@ public class MedsEffects : MonoBehaviour
     {
         // if using time to trigger fx (i.e. after first manual trigger in day 1)
         // trigger fx is elapsed time >= trigger time
-        if (useTime)
+        if (useTime && !active)
         {
             timeElapsed += Time.deltaTime;
             if (timeElapsed >= triggerTime)
@@ -66,12 +67,20 @@ public class MedsEffects : MonoBehaviour
 
     public void StartDistort()
     {
-        StartCoroutine(Distort());
+        if (!active)
+        {
+            active = true;
+            StartCoroutine(Distort());
+        }
     }
 
     public void StartUndistort()
     {
-        StartCoroutine(Undistort());
+        if (active)
+        {
+            active = false;
+            StartCoroutine(Undistort());
+        }
     }
 
     IEnumerator Distort()
