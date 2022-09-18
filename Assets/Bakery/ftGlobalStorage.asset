@@ -44,7 +44,9 @@ MonoBehaviour:
   - Assets/ArtAssets/Models/CatHouse.fbx
   - Assets/ArtAssets/Models/CatMat.fbx
   - Assets/ArtAssets/Models/BookShelf.fbx
-  modifiedAssetPaddingHash: aaf8cc2ed8a8a92e534ffff0d1c12491ea37ed04ecc124919660ddf9adf25916885031ee969b44e8e552ccbc7e605916c1d15080f757c020c8c4049c194efff061f08198ef37ed04fe4945be427b47595d3980337ac2a693f427c115705f17f95bc2a693ecc124910aa0b553fa4dfff0377e93633ec5d89075f23a06
+  - Assets/ArtAssets/Models/Phone.fbx
+  - Assets/ArtAssets/Models/EndTable.fbx
+  modifiedAssetPaddingHash: aaf8cc2ed8a8a92e534ffff0d1c12491ea37ed04ecc12491c9e945edadf25916885031ee4ffa2ae1e552ccbc7e605916ecc12491583de265c8c4049c194efff0b4bad3d1ef37ed04fe4945be427b4759d1c12491da7d9363ecc12491705f17f95bc2a693ecc1249193b1f838275031ee377e93633ec5d89075f23a06ebce28f538c2a693
   modifiedMeshList: []
   modifiedMeshPaddingList: 
   modifiedAssets:
@@ -460,7 +462,7 @@ MonoBehaviour:
     - HangingRack
     - Door
     - Lockers
-    padding: 53000000000100002f00000012000000
+    padding: 7f00000000010000480000001b000000
     unwrapper: 00000000000000000000000000000000
   - meshName:
     - Body
@@ -474,7 +476,7 @@ MonoBehaviour:
   - meshName:
     - Board
     - TaskList
-    padding: 1e00000055000000
+    padding: 2c000000af000000
     unwrapper: 0000000000000000
   - meshName:
     - Cage
@@ -489,12 +491,12 @@ MonoBehaviour:
     unwrapper: 000000000000000000000000
   - meshName:
     - Cube
-    padding: ae000000
+    padding: 00010000
     unwrapper: 00000000
   - meshName:
     - Base
     - Lights
-    padding: 860000009f000000
+    padding: c50000009f000000
     unwrapper: 0000000000000000
   - meshName:
     - Plane.001
@@ -510,7 +512,7 @@ MonoBehaviour:
     - Blind
     - BottomTube
     - TopTube
-    padding: 1e0000006000000047000000
+    padding: 850000000001000000010000
     unwrapper: 000000000000000000000000
   - meshName:
     - SugarCup
@@ -531,15 +533,15 @@ MonoBehaviour:
     unwrapper: 0000000000000000000000000000000000000000
   - meshName:
     - Cube
-    padding: 4b000000
+    padding: 98000000
     unwrapper: 00000000
   - meshName:
     - Cylinder
-    padding: 31000000
+    padding: 3f000000
     unwrapper: 00000000
   - meshName:
     - BigPlate
-    padding: 6a000000
+    padding: 00010000
     unwrapper: 00000000
   - meshName:
     - BallToyPink
@@ -559,11 +561,11 @@ MonoBehaviour:
   - meshName:
     - Cube.001
     - Cube
-    padding: 0001000078000000
+    padding: 000100005d000000
     unwrapper: 0000000000000000
   - meshName:
     - Rug
-    padding: 26000000
+    padding: 4d000000
     unwrapper: 00000000
   - meshName:
     - Litter
@@ -576,6 +578,15 @@ MonoBehaviour:
   - meshName:
     - Cube
     padding: 3c000000
+    unwrapper: 00000000
+  - meshName:
+    - Phone
+    - PhoneBase
+    padding: 00010000d7000000
+    unwrapper: 0000000000000000
+  - meshName:
+    - Cube
+    padding: 45000000
     unwrapper: 00000000
   assetList:
   - Assets/Bakery/examples/content/sponza/bush.FBX
@@ -673,5 +684,5 @@ MonoBehaviour:
   renderSettingsRTPVSceneView: 0
   renderSettingsRTPVWidth: 640
   renderSettingsRTPVHeight: 360
-  modifiedMeshPaddingArray: 22000000
+  modifiedMeshPaddingArray: 00010000
   modifiedMeshUnwrapperArray: 00000000
