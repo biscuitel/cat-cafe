@@ -43,7 +43,8 @@ MonoBehaviour:
   - Assets/ArtAssets/Models/FrontRug.fbx
   - Assets/ArtAssets/Models/CatHouse.fbx
   - Assets/ArtAssets/Models/CatMat.fbx
-  modifiedAssetPaddingHash: aaf8cc2ed8a8a92e534ffff0d1c12491ea37ed04ecc124919660ddf9adf25916885031ee969b44e8e552ccbc7e605916c1d15080f757c020c8c4049c194efff061f08198ef37ed04fe4945be427b47595d3980337ac2a693f427c115705f17f95bc2a693ecc124910aa0b553fa4dfff0a35031eea35031ee
+  - Assets/ArtAssets/Models/BookShelf.fbx
+  modifiedAssetPaddingHash: aaf8cc2ed8a8a92e534ffff0d1c12491ea37ed04ecc124919660ddf9adf25916885031ee969b44e8e552ccbc7e605916c1d15080f757c020c8c4049c194efff061f08198ef37ed04fe4945be427b47595d3980337ac2a693f427c115705f17f95bc2a693ecc124910aa0b553fa4dfff0377e93633ec5d89075f23a06
   modifiedMeshList: []
   modifiedMeshPaddingList: 
   modifiedAssets:
@@ -566,11 +567,15 @@ MonoBehaviour:
     unwrapper: 00000000
   - meshName:
     - Litter
-    padding: 25000000
+    padding: 21000000
     unwrapper: 00000000
   - meshName:
     - Cube
-    padding: 25000000
+    padding: 22000000
+    unwrapper: 00000000
+  - meshName:
+    - Cube
+    padding: 3c000000
     unwrapper: 00000000
   assetList:
   - Assets/Bakery/examples/content/sponza/bush.FBX
@@ -668,5 +673,5 @@ MonoBehaviour:
   renderSettingsRTPVSceneView: 0
   renderSettingsRTPVWidth: 640
   renderSettingsRTPVHeight: 360
-  modifiedMeshPaddingArray: 3b000000
+  modifiedMeshPaddingArray: 22000000
   modifiedMeshUnwrapperArray: 00000000
