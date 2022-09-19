@@ -104,16 +104,20 @@ public class Day3Outcomes : Outcomes
                 tm.ActivateTask(10);
                 break;
             case 13:
-                // prompt player to enter staff room, activate warp to final corridor
-                warpTrigger.SetActive(true);
-                Debug.Log("player was teleported to end corridor");
+                //prompt player to turn off light
                 tm.ActivateTask(11);
                 break;
             case 14:
-                //prompt player to interact with phone at end of corridor
+                // prompt player to enter staff room, activate warp to final corridor
+                warpTrigger.SetActive(true);
+                Debug.Log("player was teleported to end corridor");
                 tm.ActivateTask(12);
                 break;
             case 15:
+                //prompt player to interact with phone at end of corridor
+                tm.ActivateTask(13);
+                break;
+            case 16:
                 // player interacted with phone at end of corridor, do thing
                 gm.LoadNextScene();
                 break;

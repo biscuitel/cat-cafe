@@ -101,6 +101,10 @@ public class Day1Outcomes : Outcomes
                 tm.ActivateTask(10);
                 break;
             case 13:
+                //turn light switch off
+                tm.ActivateTask(11);
+                break;
+            case 14:
                 // player completed all task for the day, level end
                 gm.LoadNextScene();
                 break;
