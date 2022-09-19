@@ -103,7 +103,7 @@ public class Interactable : MonoBehaviour
         {
             foreach (MeshRenderer renderer in meshes)
             {
-                renderer.enabled = !renderer.enabled;
+                //renderer.enabled = !renderer.enabled;
             }
         }
     }
