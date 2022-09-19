@@ -7,78 +7,99 @@ public class ImageDisplayer : MonoBehaviour
 {
     [SerializeField] private List<Texture> images;
     [SerializeField] private float displayTime = 5.0f;
-    [SerializeField] private float transitionTime = 1.0f;
-    [SerializeField] private RawImage imageUI;
+    [SerializeField] private float fadeTime = 1.0f;
+    private RawImage imageUI;
 
     private int imageIndex;
     private bool displaying;
-    private float elapsed;
 
     // Start is called before the first frame update
     void Start()
     {
         imageIndex = 0;
-        elapsed = 0.0f;
         displaying = false;
         if (!imageUI)
         {
-            imageUI = this.GetComponent<RawImage>();
+            imageUI = this.GetComponentInChildren<RawImage>();
+            imageUI.CrossFadeAlpha(0, 0, false);
         }
+        Debug.Log("image count = " + images.Count);
+        StartCutscene();
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (displaying)
-        {
-            elapsed += Time.deltaTime;
-            // if elapsed time is greater than max display time, start transition
-            if (elapsed >= displayTime)
-            {
-                elapsed = 0f;
-                displaying = false;
-                StartCoroutine(Transition());
-            }
-        }
+
     }
 
     void StartCutscene()
     {
+        Debug.Log("Started cutscene");
         displaying = true;
+        imageUI.texture = images[imageIndex];
+        imageUI.SetNativeSize();
+        StartCoroutine(FadeIn());
     }
 
-    IEnumerator Transition()
+    void nextImage()
     {
-        displaying = false;
-        float transitionElapsed = 0.0f;
-        float transitionMax = transitionTime / 2.0f;
+        // set UI to next cutscene image
+        if (imageIndex <= images.Count - 1)
+        {
+            imageIndex++;
+            Debug.Log("swapping to image " + imageIndex);
+            imageUI.texture = images[imageIndex];
+            imageUI.SetNativeSize();
+            StartCoroutine(ImageTimer());
+        } else
+        {
+            Debug.Log("Fading out");
+            StartCoroutine(FadeOut());
+        }
+        
+    }
+
+    IEnumerator FadeIn()
+    {
+        Debug.Log("Fading in");
+        float elapsed = 0.0f;
+        imageUI.CrossFadeAlpha(1, fadeTime, false);
+        while (elapsed < fadeTime)
+        {
+            elapsed += Time.deltaTime;
+
+            yield return null;
+        }
+        StartCoroutine(ImageTimer());
+    }
+
+    IEnumerator FadeOut()
+    {
+        float elapsed = 0.0f;
+        imageUI.CrossFadeAlpha(0, fadeTime, false);
+        while (elapsed < fadeTime)
+        {
+            elapsed += Time.deltaTime;
+
+            yield return null;
+        }
+        // load next scene or w/e
+    }
+
+    IEnumerator ImageTimer()
+    {
+        float elapsed = 0.0f;
 
         // fade out
-        imageUI.CrossFadeAlpha(0f, transitionTime / 2f, false);
-        while (transitionElapsed < transitionMax)
+        while (elapsed < displayTime)
         {
-            transitionElapsed += Time.deltaTime;
+            elapsed += Time.deltaTime;
             
             yield return null;
         }
-        
-        // set UI to next cutscene image
-        if (imageIndex >= images.Count - 1)
-        {
-            imageUI.texture = images[imageIndex++];
-        }
 
-        // fade in
-        imageUI.CrossFadeAlpha(1f, transitionTime / 2f, false);
-        transitionElapsed = 0.0f;
-        while (transitionElapsed < transitionMax)
-        {
-            transitionElapsed += Time.deltaTime;
-            yield return null;
-        }
-
-        // end transition
-        displaying = true;
+        nextImage();
     }
 }
