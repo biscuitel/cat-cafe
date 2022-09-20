@@ -15,27 +15,32 @@ public class Day1Outcomes : Outcomes
     // The items that will appear in the players hand. They are seperate to the object the player interacts with to begin the task
     // Instead they are attached to the camera or player (depending on whether or not they should follow where the player looks)
     [Header("Hand Items")]
-    public GameObject Vacuum;
-    public GameObject Scooper;
-    public GameObject Cup1;
-    public GameObject Cup2;
-    public GameObject Cup3;
-    public GameObject Poop1;
-    public GameObject Poop2;
-    public GameObject Poop3;
+    [SerializeField] private GameObject Vacuum;
+    [SerializeField] private GameObject Scooper;
+    [SerializeField] private GameObject Cup1;
+    [SerializeField] private GameObject Cup2;
+    [SerializeField] private GameObject Cup3;
+    [SerializeField] private GameObject Poop1;
+    [SerializeField] private GameObject Poop2;
+    [SerializeField] private GameObject Poop3;
 
     //These are the objects that the player interacts with the start the task, e.g. the vacuum in the storage room
     //I'm using these variables for the purpose of changing their material to an outline shader
     [Header("Base Items")]
-    public GameObject BaseVacuum;
-    public GameObject BaseScooper;
+    [SerializeField] private GameObject BaseVacuum;
+    [SerializeField] private GameObject BaseScooper;
+
+    [Header("Placed Items")]
+
+    [SerializeField] private GameObject PlacedMugs;
 
     //Since each object needs to change materials, I'm storing their original materials here, as well as the outline material.
     [Header("Materials")]
-    public Material OutlineMat;
+    [SerializeField] private Material OutlineMat;
 
-    public Material VacuumMat;
-    public Material ScooperMat;
+    [SerializeField] private Material VacuumMat;
+    [SerializeField] private Material ScooperMat;
+    [SerializeField] private Material CupMat;
 
     // Start is called before the first frame update
     void Start()
@@ -181,10 +186,26 @@ public class Day1Outcomes : Outcomes
                 //player collected dishes
                 //tell player to put dishes into sink
                 tm.ActivateTask(10);
+
+
+                //Turns on the outline of where the mugs should be placed
+                foreach (MeshRenderer renderer in PlacedMugs.GetComponentsInChildren<MeshRenderer>())
+                {
+                    renderer.enabled = true;
+                    renderer.material = OutlineMat;
+                }
+
                 break;
             case 13:
                 //turn light switch off
                 tm.ActivateTask(11);
+
+                //once mugs are placed, change their material back to normal
+                foreach (MeshRenderer renderer in PlacedMugs.GetComponentsInChildren<MeshRenderer>())
+                {
+                    
+                    renderer.material = CupMat;
+                }
                 break;
             case 14:
                 // player completed all task for the day, level end
