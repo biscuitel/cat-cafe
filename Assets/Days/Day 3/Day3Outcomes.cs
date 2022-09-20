@@ -20,28 +20,28 @@ public class Day3Outcomes : Outcomes
     //the items that will appear in the players hand. They are seperate to the object the player interacts with to begin the task
     // Instead they are attached to the camera or player (depending on whether or not they should follow where the player looks)
     [Header("Hand Items")]
-    public GameObject Vacuum;
-    public GameObject Scooper;
-    public GameObject Cup1;
-    public GameObject Cup2;
-    public GameObject Cup3;
-    public GameObject Poop1;
-    public GameObject Poop2;
-    public GameObject Poop3;
+    [SerializeField] private GameObject Vacuum;
+    [SerializeField] private GameObject Scooper;
+    [SerializeField] private GameObject Cup1;
+    [SerializeField] private GameObject Cup2;
+    [SerializeField] private GameObject Cup3;
+    [SerializeField] private GameObject Poop1;
+    [SerializeField] private GameObject Poop2;
+    [SerializeField] private GameObject Poop3;
 
 
     //These are the objects that the player interacts with the start the task, e.g. the vacuum in the storage room
     //I'm using these variables for the purpose of changing their material to an outline shader
     [Header("Base Items")]
-    public GameObject BaseVacuum;
-    public GameObject BaseScooper;
+    [SerializeField] private GameObject BaseVacuum;
+    [SerializeField] private GameObject BaseScooper;
 
     //Since each object needs to change materials, I'm storing their original materials here, as well as the outline material.
     [Header("Materials")]
-    public Material OutlineMat;
+    [SerializeField] private Material OutlineMat;
 
-    public Material VacuumMat;
-    public Material ScooperMat;
+    [SerializeField] private Material VacuumMat;
+    [SerializeField] private Material ScooperMat;
 
     // Start is called before the first frame update
     void Start()
