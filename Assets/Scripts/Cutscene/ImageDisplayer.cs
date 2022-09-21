@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ImageDisplayer : MonoBehaviour
 {
     [SerializeField] private List<Texture> images;
-    [SerializeField] private float displayTime = 5.0f;
+    [SerializeField] private List<float> imageDisplayTimes;
     [SerializeField] private float fadeTime = 1.0f;
     private RawImage imageUI;
+    private GameManager gm;
 
     private int imageIndex;
     private bool displaying;
@@ -16,6 +18,7 @@ public class ImageDisplayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         imageIndex = 0;
         displaying = false;
         if (!imageUI)
@@ -46,7 +49,7 @@ public class ImageDisplayer : MonoBehaviour
     void nextImage()
     {
         // set UI to next cutscene image
-        if (imageIndex <= images.Count - 1)
+        if (imageIndex < images.Count - 1)
         {
             imageIndex++;
             Debug.Log("swapping to image " + imageIndex);
@@ -86,6 +89,7 @@ public class ImageDisplayer : MonoBehaviour
             yield return null;
         }
         // load next scene or w/e
+        gm.LoadNextScene();
     }
 
     IEnumerator ImageTimer()
@@ -93,7 +97,7 @@ public class ImageDisplayer : MonoBehaviour
         float elapsed = 0.0f;
 
         // fade out
-        while (elapsed < displayTime)
+        while (elapsed < imageDisplayTimes[imageIndex])
         {
             elapsed += Time.deltaTime;
             
