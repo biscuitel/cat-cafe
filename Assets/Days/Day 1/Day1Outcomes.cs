@@ -11,6 +11,7 @@ public class Day1Outcomes : Outcomes
     private MedsEffects cameraEffects;
 
     private int poopCounter = 0;
+    private int cupCounter = 0;
     [SerializeField] private Animator signAnim;
 
 
@@ -25,6 +26,7 @@ public class Day1Outcomes : Outcomes
     [SerializeField] private GameObject Poop1;
     [SerializeField] private GameObject Poop2;
     [SerializeField] private GameObject Poop3;
+    [SerializeField] private GameObject CupsParent;
 
     //These are the objects that the player interacts with the start the task, e.g. the vacuum in the storage room
     //I'm using these variables for the purpose of changing their material to an outline shader
@@ -204,10 +206,11 @@ public class Day1Outcomes : Outcomes
 
                 //once mugs are placed, change their material back to normal
                 foreach (MeshRenderer renderer in PlacedMugs.GetComponentsInChildren<MeshRenderer>())
-                {
-                    
+                {                    
                     renderer.material = CupMat;
                 }
+
+                CupsParent.SetActive(false);
                 break;
             case 14:
                 // player completed all task for the day, level end
@@ -215,7 +218,6 @@ public class Day1Outcomes : Outcomes
                 break;
             case -2:
                 // player completed all task for the day, level end
-                
 
                 poopCounter++;
 
@@ -233,6 +235,24 @@ public class Day1Outcomes : Outcomes
                 }
 
                 break;
+            case -3:
+                cupCounter++;
+
+                if (cupCounter == 1)
+                {
+                    Cup1.SetActive(true);
+                }
+                else if (cupCounter == 2)
+                {
+                    Cup2.SetActive(true);
+                }
+                else if (cupCounter == 3)
+                {
+                    Cup3.SetActive(true);
+                }
+
+                break;
+
             default:
                 break;
         }

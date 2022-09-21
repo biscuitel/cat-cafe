@@ -9,6 +9,9 @@ public class Day2Outcomes : Outcomes
     private TaskManager tm;
     private DialogueManager dm;
     private MedsEffects cameraEffects;
+
+    private int poopCounter = 0;
+    private int cupCounter = 0;
     [SerializeField] private Animator signAnim;
 
 
@@ -23,6 +26,7 @@ public class Day2Outcomes : Outcomes
     [SerializeField] private GameObject Poop1;
     [SerializeField] private GameObject Poop2;
     [SerializeField] private GameObject Poop3;
+    [SerializeField] private GameObject CupsParent;
 
     //These are the objects that the player interacts with the start the task, e.g. the vacuum in the storage room
     //I'm using these variables for the purpose of changing their material to an outline shader
@@ -46,6 +50,7 @@ public class Day2Outcomes : Outcomes
     // Start is called before the first frame update
     void Start()
     {
+
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         dm = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
         tm = GetComponent<TaskManager>();
@@ -205,10 +210,50 @@ public class Day2Outcomes : Outcomes
                 {
                     renderer.material = CupMat;
                 }
+
+                CupsParent.SetActive(false);
+                    
                 break;
             case 14:
                 // player completed all task for the day, level end
                 gm.LoadNextScene();
+                break;
+            case -2:
+                
+                poopCounter++;
+
+                if (poopCounter == 1)
+                {
+                    Poop1.SetActive(true);
+                }
+                else if (poopCounter == 2)
+                {
+                    Poop2.SetActive(true);
+                }
+                else if (poopCounter == 3)
+                {
+                    Poop3.SetActive(true);
+                }
+
+                break;
+
+            case -3:
+                  
+                cupCounter++;
+
+                if (cupCounter == 1)
+                {
+                    Cup1.SetActive(true);
+                }
+                else if (cupCounter == 2)
+                {
+                    Cup2.SetActive(true);
+                }
+                else if (cupCounter == 3)
+                {
+                    Cup3.SetActive(true);
+                }
+
                 break;
             default:
                 break;
