@@ -181,17 +181,10 @@ public class Day3Outcomes : Outcomes
                 break;
             case 11:
                 //prompt player to collect dishes
-                tm.ActivateGroup(2);
+                tm.ActivateTask(13);
+                warpTrigger.SetActive(true);
                 break;
-            case 12:
-                //player collected dishes
-                //tell player to put dishes into sink
-                tm.ActivateTask(10);
-                break;
-            case 13:
-                //prompt player to turn off light
-                tm.ActivateTask(11);
-                break;
+           
             case 14:
                 // prompt player to enter staff room, activate warp to final corridor
                 warpTrigger.SetActive(true);
