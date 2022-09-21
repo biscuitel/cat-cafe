@@ -37,7 +37,7 @@ public class TaskManager : MonoBehaviour
             TaskGroupSO taskGroupSO = task as TaskGroupSO;
             if (taskGroupSO != null)
             {
-                taskGroupSO.Initialize();
+                taskGroupSO.Initialize(this);
             }
         }
 
@@ -46,7 +46,7 @@ public class TaskManager : MonoBehaviour
             TaskGroupSO taskGroupSO = task as TaskGroupSO;
             if (taskGroupSO != null)
             {
-                taskGroupSO.Initialize();
+                taskGroupSO.Initialize(this);
             }
         }
 
@@ -230,6 +230,11 @@ public class TaskManager : MonoBehaviour
     {
         Debug.Log(text);
         taskText.text = text;
+    }
+
+    public void CompletionFromGroup(int outcomeID)
+    {
+        outcomesScript.Outcome(outcomeID);
     }
 
 }

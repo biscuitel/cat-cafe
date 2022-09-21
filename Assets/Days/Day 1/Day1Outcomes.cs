@@ -211,6 +211,10 @@ public class Day1Outcomes : Outcomes
                 // player completed all task for the day, level end
                 gm.LoadNextScene();
                 break;
+            case -2:
+                // player completed all task for the day, level end
+                Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAH");
+                break;
             default:
                 break;
         }

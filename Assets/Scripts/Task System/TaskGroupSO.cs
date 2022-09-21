@@ -9,10 +9,13 @@ public class TaskGroupSO : TaskBase
     public int outcomeID;
     private List<TaskBase> taskGroup;
     public List<TaskBase> tasks;
+    private TaskManager tm;
 
-    public void Initialize()
+    public void Initialize(TaskManager taskManager)
     {
         taskGroup = new List<TaskBase>(tasks);
+        tm = taskManager;
+
     }
 
     public bool CheckCompletion(int taskID)
@@ -30,6 +33,7 @@ public class TaskGroupSO : TaskBase
             {
                 if (taskSO.taskID == taskID)
                 {
+                    tm.CompletionFromGroup(taskSO.outcomeID);
                     taskGroup.Remove(task);
                     Debug.Log("Removed task with ID: " + taskID);
                     returnVal = true;
