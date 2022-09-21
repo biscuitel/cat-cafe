@@ -9,6 +9,8 @@ public class Day1Outcomes : Outcomes
     private TaskManager tm;
     private DialogueManager dm;
     private MedsEffects cameraEffects;
+
+    private int poopCounter = 0;
     [SerializeField] private Animator signAnim;
 
 
@@ -213,7 +215,23 @@ public class Day1Outcomes : Outcomes
                 break;
             case -2:
                 // player completed all task for the day, level end
-                Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAH");
+                
+
+                poopCounter++;
+
+                if (poopCounter == 1)
+                {
+                    Poop1.SetActive(true);
+                }
+                else if (poopCounter == 2)
+                {
+                    Poop2.SetActive(true);
+                }
+                else if (poopCounter == 3)
+                {
+                    Poop3.SetActive(true);
+                }
+
                 break;
             default:
                 break;
