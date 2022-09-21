@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 0dc5f832228ff974c8317bd7a846e686,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -21429,7 +21429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskList:
-  - {fileID: 11400000, guid: 7102367672ef5f447a00786ec8c2b8f6, type: 2}
+  - {fileID: 11400000, guid: 5805567a2a5cf73458645a2676cf0dda, type: 2}
   reserveTaskList:
   - {fileID: 11400000, guid: 9b6a1e456221f944c9c08f8db1d10266, type: 2}
   - {fileID: 11400000, guid: 2fa447e533a9a164ba6f3397271dca71, type: 2}
@@ -21441,10 +21441,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5805567a2a5cf73458645a2676cf0dda, type: 2}
   - {fileID: 11400000, guid: 9cce1e0669af8914a96f20494b999ffc, type: 2}
   - {fileID: 11400000, guid: 196e0438455ba5c46bf1c1b117ad86df, type: 2}
-  - {fileID: 11400000, guid: dae91717752ee284fb3c01f087c185c2, type: 2}
   - {fileID: 11400000, guid: b4424103187d34d45b6b9afeb8bad95a, type: 2}
+  - {fileID: 11400000, guid: 36fcd3d3c578123469ce945150c548c8, type: 2}
   - {fileID: 11400000, guid: 4d0317c87732bf94789bbab022b0a4c7, type: 2}
-  - {fileID: 11400000, guid: c3321c11933b871408ccfb5496cba1b9, type: 2}
+  - {fileID: 11400000, guid: 4ba58e9e89db3ca489afe346bbfdfa55, type: 2}
   - {fileID: 11400000, guid: 1f9a3ddf207d50748a1eae6e4e4172f7, type: 2}
   taskText: {fileID: 1853792122}
   jsonName: day2tasks
