@@ -12,6 +12,8 @@ public class Day2Outcomes : Outcomes
     private int poopCounter = 0;
     private int cupCounter = 0;
     [SerializeField] private Animator signAnim;
+    [SerializeField] private Animator binAnim;
+    [SerializeField] private Animator phoneAnim;
 
 
     // The items that will appear in the players hand. They are seperate to the object the player interacts with to begin the task
@@ -69,10 +71,17 @@ public class Day2Outcomes : Outcomes
             case 0:
                 // player interacted with phone, initial conversation on day 1 is handled by dialoguemanager
                 // activate next task
+                if (phoneAnim)
+                {
+                    //phoneAnim.SetBool("StartAnimation", true);
+                    phoneAnim.SetTrigger("phoneStop");
+                }
                 tm.ActivateTask(1);
                 break;
             case 1:
                 // player flipped sign to "closed" on front door
+                
+
                 if (signAnim)
                 {
                     //signAnim.SetBool("StartAnimation", true);
@@ -166,6 +175,11 @@ public class Day2Outcomes : Outcomes
             //the reason this is here is because placing a new task in the middle of the already created tasks is a long and arduous process
             //so I didn't feel like moving every single task up or down a digit in the outcome IDs - Xavier
             case -10:
+                if (binAnim)
+                {
+                    //binAnim.SetBool("StartAnimation", true);
+                    binAnim.SetTrigger("LidSpin");
+                }
 
                 Debug.Log("Bruh");
                 PoopParent.SetActive(false);

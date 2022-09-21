@@ -10,6 +10,8 @@ public class Day3Outcomes : Outcomes
     private DialogueManager dm;
     private MedsEffects cameraEffects;
     [SerializeField] private Animator signAnim;
+    [SerializeField] private Animator binAnim;
+    [SerializeField] private Animator phone3Anim;
 
     [SerializeField] private GameObject warpTrigger;
 
@@ -67,6 +69,11 @@ public class Day3Outcomes : Outcomes
             case 0:
                 // player interacted with phone, initial conversation on day 1 is handled by dialoguemanager
                 // activate next task
+                if (phone3Anim)
+                {
+                    //phoneAnim.SetBool("StartAnimation", true);
+                    phone3Anim.SetTrigger("phoneoff");
+                }
                 tm.ActivateTask(1);
                 break;
             case 1:
@@ -155,6 +162,11 @@ public class Day3Outcomes : Outcomes
             case 9:
                 // player scoops (all) poop
                 //player prompted to return scooper
+                if (binAnim)
+                {
+                    //phoneAnim.SetBool("StartAnimation", true);
+                    binAnim.SetTrigger("LidSpin");
+                }
                 tm.ActivateTask(8);
 
                 foreach (MeshRenderer renderer in BaseScooper.GetComponentsInChildren<MeshRenderer>())
@@ -168,7 +180,7 @@ public class Day3Outcomes : Outcomes
             case 10:
                 // prompt player to check taskboard for 3rd time
                 tm.ActivateTask(9);
-
+                
                 //turns off scooper in players hand
                 Scooper.SetActive(false);
 
