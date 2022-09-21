@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Day1Outcomes : Outcomes
 {
-
     private GameManager gm;
     private TaskManager tm;
     private DialogueManager dm;
@@ -26,6 +25,7 @@ public class Day1Outcomes : Outcomes
     [SerializeField] private GameObject Poop1;
     [SerializeField] private GameObject Poop2;
     [SerializeField] private GameObject Poop3;
+    [SerializeField] private GameObject PoopParent;
     [SerializeField] private GameObject CupsParent;
 
     //These are the objects that the player interacts with the start the task, e.g. the vacuum in the storage room
@@ -154,22 +154,34 @@ public class Day1Outcomes : Outcomes
                 }
 
                 break;
+            
             case 9:
                 // player scoops (all) poop
                 //player prompted to return scooper
                 tm.ActivateTask(8);
 
-                foreach (MeshRenderer renderer in BaseScooper.GetComponentsInChildren<MeshRenderer>())
+               
+
+                break;
+            //the reason this is here is because placing a new task in the middle of the already created tasks is a long and arduous process
+            //so I didn't feel like moving every single task up or down a digit in the outcome IDs - Xavier
+            case -10:
+
+                Debug.Log("Bruh");
+                PoopParent.SetActive(false);
+                tm.ActivateTask(9);
+
+                 foreach (MeshRenderer renderer in BaseScooper.GetComponentsInChildren<MeshRenderer>())
                 {
                     renderer.enabled = true;
                     renderer.material = OutlineMat;
                 }
-
                 break;
+
 
             case 10:
                 // prompt player to check taskboard for 3rd time
-                tm.ActivateTask(9);
+                tm.ActivateTask(10);
 
                 //turns off scooper in players hand
                 Scooper.SetActive(false);
@@ -189,7 +201,7 @@ public class Day1Outcomes : Outcomes
             case 12:
                 //player collected dishes
                 //tell player to put dishes into sink
-                tm.ActivateTask(10);
+                tm.ActivateTask(11);
 
 
                 //Turns on the outline of where the mugs should be placed
@@ -202,7 +214,7 @@ public class Day1Outcomes : Outcomes
                 break;
             case 13:
                 //turn light switch off
-                tm.ActivateTask(11);
+                tm.ActivateTask(12);
 
                 //once mugs are placed, change their material back to normal
                 foreach (MeshRenderer renderer in PlacedMugs.GetComponentsInChildren<MeshRenderer>())
@@ -255,6 +267,9 @@ public class Day1Outcomes : Outcomes
 
             default:
                 break;
+
+            
+
         }
     }
 
