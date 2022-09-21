@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 0dc5f832228ff974c8317bd7a846e686,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -29038,7 +29038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskList:
-  - {fileID: 11400000, guid: caf8b406bb5c87f45bf7178b921d7040, type: 2}
+  - {fileID: 11400000, guid: 5c6729fa702d3fb438675d07e98394bd, type: 2}
   reserveTaskList:
   - {fileID: 11400000, guid: 9994147bc36f9dd44832bb795ee632ce, type: 2}
   - {fileID: 11400000, guid: 11dd2d817e7519d43b6cbbd3338abe92, type: 2}
