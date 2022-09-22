@@ -24,7 +24,7 @@ public class ImageDisplayer : MonoBehaviour
         if (!imageUI)
         {
             imageUI = this.GetComponentInChildren<RawImage>();
-            imageUI.CrossFadeAlpha(0, 0, false);
+            //imageUI.CrossFadeAlpha(0, 0, false);
         }
         Debug.Log("image count = " + images.Count);
         StartCutscene();
@@ -42,7 +42,7 @@ public class ImageDisplayer : MonoBehaviour
         Debug.Log("Started cutscene");
         displaying = true;
         imageUI.texture = images[imageIndex];
-        imageUI.SetNativeSize();
+        //imageUI.SetNativeSize();
         StartCoroutine(FadeIn());
     }
 
@@ -54,7 +54,7 @@ public class ImageDisplayer : MonoBehaviour
             imageIndex++;
             Debug.Log("swapping to image " + imageIndex);
             imageUI.texture = images[imageIndex];
-            imageUI.SetNativeSize();
+            //imageUI.SetNativeSize();
             StartCoroutine(ImageTimer());
         } else
         {
@@ -66,9 +66,9 @@ public class ImageDisplayer : MonoBehaviour
 
     IEnumerator FadeIn()
     {
-        Debug.Log("Fading in");
+        //Debug.Log("Fading in");
         float elapsed = 0.0f;
-        imageUI.CrossFadeAlpha(1, fadeTime, false);
+        //imageUI.CrossFadeAlpha(1, fadeTime, false);
         while (elapsed < fadeTime)
         {
             elapsed += Time.deltaTime;
@@ -81,7 +81,7 @@ public class ImageDisplayer : MonoBehaviour
     IEnumerator FadeOut()
     {
         float elapsed = 0.0f;
-        imageUI.CrossFadeAlpha(0, fadeTime, false);
+        //imageUI.CrossFadeAlpha(0, fadeTime, false);
         while (elapsed < fadeTime)
         {
             elapsed += Time.deltaTime;
