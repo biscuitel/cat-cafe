@@ -27,14 +27,18 @@ public class MouseLook : MonoBehaviour
     {
         if (dm == null || !dm.IsDialogueActive())
         {
-            float mouseX = Input.GetAxis("Mouse X") * mouseSens;
-            float mouseY = Input.GetAxis("Mouse Y") * mouseSens;
+            //if the pause menu is showing don't allow the camera to move
+            if (PauseMenu.GameIsPaused == false)
+            {
+                float mouseX = Input.GetAxis("Mouse X") * mouseSens;
+                float mouseY = Input.GetAxis("Mouse Y") * mouseSens;
 
-            xRot -= mouseY;
-            xRot = Mathf.Clamp(xRot, -90f, 90f);
+                xRot -= mouseY;
+                xRot = Mathf.Clamp(xRot, -90f, 90f);
 
-            transform.localRotation = Quaternion.Euler(xRot, 0f, 0f);
-            playerBody.Rotate(Vector3.up * mouseX);
+                transform.localRotation = Quaternion.Euler(xRot, 0f, 0f);
+                playerBody.Rotate(Vector3.up * mouseX);
+            }
         }
     }
 }

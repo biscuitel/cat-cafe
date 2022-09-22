@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour
     private int dialogueIndex = 0;
     private int listIndex = 0;
     public Text dialogueText;
+    public GameObject DialogueUI;
     
 
     [SerializeField] private List<DialogueSO> dialogue;
@@ -16,7 +17,7 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        //DialogueUI.SetActive(true);
     }
 
     // Update is called once per frame
@@ -34,10 +35,14 @@ public class DialogueManager : MonoBehaviour
         if (dialogueIndex < dialogue[listIndex].GetDialogue().Count)
         {
             Debug.Log(dialogueIndex);
+            //show the dialog canvas
+            ShowDialog(true);
             UpdateUI();
             dialogueIndex++;
         } else
         {
+            //hide the dialog canvas
+            ShowDialog(false);
             dialogueIndex = 0;
             dialogueText.text = "";
             dialogueActive = false;
@@ -47,7 +52,6 @@ public class DialogueManager : MonoBehaviour
 
     void UpdateUI()
     {
-        // dialogueUI.characterSpeaking = dialogue.GetSpeaker()[dialogueIndex];
         Debug.Log(dialogue[listIndex].GetDialogue()[dialogueIndex]);
         dialogueText.text = dialogue[listIndex].GetDialogue()[dialogueIndex];
     }
@@ -65,5 +69,15 @@ public class DialogueManager : MonoBehaviour
     public bool IsDialogueActive()
     {
         return dialogueActive;
+    }
+
+    public void ShowDialog(bool show)
+    {
+        DialogueUI.SetActive(show);
+        // also set the children of this object to be the same active status
+        foreach (Transform t in DialogueUI.transform)
+        {
+            t.gameObject.SetActive(show); 
+        }
     }
 }

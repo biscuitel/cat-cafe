@@ -10,27 +10,32 @@ public class GameManager : MonoBehaviour
     private RawImage loadImage;
     [SerializeField] private List<Texture> loadImages;
     [SerializeField] private float fadeTime;
+    private bool gameEnded;
 
     private DialogueManager dm;
     private TaskManager tm;
-    //private PauseMenu pm;
 
-    private void Awake()
+    void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
-        levelIndex = SceneManager.GetActiveScene().buildIndex;
+        if (gameEnded != true)
+        {
+            DontDestroyOnLoad(this.gameObject);
+            levelIndex = SceneManager.GetActiveScene().buildIndex;
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        loadImage = GetComponentInChildren<RawImage>();
-        loadImage.enabled = true;
-        loadImage.texture = loadImage.texture = loadImages[levelIndex + 1];
-        dm = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
-        tm = GameObject.FindGameObjectWithTag("TaskManager").GetComponent<TaskManager>();
-        //pm = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
-        StartCoroutine(FadeIn());
+        if (gameEnded != true)
+        {
+            loadImage = GetComponentInChildren<RawImage>();
+            loadImage.enabled = true;
+            loadImage.texture = loadImage.texture = loadImages[levelIndex];
+            dm = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
+            tm = GameObject.FindGameObjectWithTag("TaskManager").GetComponent<TaskManager>();
+            StartCoroutine(FadeIn());
+        }
     }
 
     // Update is called once per frame
@@ -38,16 +43,22 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Load"))
         {
-            LoadNextScene();
+            if (levelIndex < SceneManager.sceneCountInBuildSettings)
+            {
+                LoadNextScene();
+            }
         } else if (Input.GetButtonDown("Reload"))
         {
             ReloadScene();
-        } //else if (Input.GetButtonDown("Cancel"))
-       // {
-            //escape button has been pressed
-            //show the Pause screen
-            //pm.Pause();
-       // }
+        } 
+    }
+
+    public void EndOfGame()
+    {
+        //End the game, free the cursor, show the main menu
+        gameEnded = true;
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene("Menu/Menu");
     }
 
     public void LoadNextScene()
@@ -57,10 +68,7 @@ public class GameManager : MonoBehaviour
 
     public void ReloadScene()
     {
-        StartCoroutine(Load(true));
-        //StartCoroutine(FadeOut());
-        //StartCoroutine(FadeIn(load));
-        
+        StartCoroutine(Load(true));     
     }
 
     IEnumerator Load(bool reload)
@@ -80,15 +88,19 @@ public class GameManager : MonoBehaviour
         if (reload)
         {
             load = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
-        } else
+        }
+        else
         {
-            if (levelIndex >= SceneManager.sceneCountInBuildSettings - 1)
+            if (levelIndex >= SceneManager.sceneCountInBuildSettings)
             {
-                levelIndex = 0;
+                levelIndex = 3;
             }
             else
             {
-                levelIndex++;
+                if (levelIndex < 3)
+                {
+                    levelIndex++;
+                }
             }
             load = SceneManager.LoadSceneAsync(levelIndex);
         }
@@ -96,8 +108,7 @@ public class GameManager : MonoBehaviour
         dm = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
 
         // fade in
-        int imageIndex = levelIndex + 1 > SceneManager.sceneCountInBuildSettings ? levelIndex = 0 : levelIndex + 1;
-        Debug.Log(imageIndex);
+        int imageIndex = levelIndex;
         loadImage.texture = loadImages[imageIndex];
         loadImage.CrossFadeAlpha(0f, fadeTime, false);
         elapsed = 0f;
@@ -106,12 +117,14 @@ public class GameManager : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
+
     }
 
     IEnumerator FadeIn()
     {
-        int imageIndex = levelIndex + 1 > SceneManager.sceneCountInBuildSettings ? levelIndex = 0 : levelIndex + 1;
-        Debug.Log(imageIndex);
+       
+
+        int imageIndex = levelIndex;
         loadImage.texture = loadImages[imageIndex];
         loadImage.CrossFadeAlpha(0f, fadeTime, false);
         float elapsed = 0f;

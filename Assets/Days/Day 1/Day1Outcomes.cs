@@ -113,8 +113,10 @@ public class Day1Outcomes : Outcomes
     {
         while (dm.IsDialogueActive())
         {
+            
             yield return null;
         }
+
         gm.StartFadeIn();
     }
 }

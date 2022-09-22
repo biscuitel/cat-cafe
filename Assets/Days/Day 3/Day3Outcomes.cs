@@ -115,7 +115,7 @@ public class Day3Outcomes : Outcomes
                 break;
             case 15:
                 // player interacted with phone at end of corridor, do thing
-                gm.LoadNextScene();
+                gm.EndOfGame();
                 break;
             default:
                 break;
