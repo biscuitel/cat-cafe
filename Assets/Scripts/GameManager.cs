@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     private DialogueManager dm;
     private TaskManager tm;
-    private PauseMenu pm;
+    //private PauseMenu pm;
 
     private void Awake()
     {
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         loadImage.texture = loadImage.texture = loadImages[levelIndex + 1];
         dm = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
         tm = GameObject.FindGameObjectWithTag("TaskManager").GetComponent<TaskManager>();
-        pm = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
+        //pm = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
         StartCoroutine(FadeIn());
     }
 
@@ -42,12 +42,12 @@ public class GameManager : MonoBehaviour
         } else if (Input.GetButtonDown("Reload"))
         {
             ReloadScene();
-        } else if (Input.GetButtonDown("Cancel"))
-        {
+        } //else if (Input.GetButtonDown("Cancel"))
+       // {
             //escape button has been pressed
             //show the Pause screen
-            pm.Pause();
-        }
+            //pm.Pause();
+       // }
     }
 
     public void LoadNextScene()
