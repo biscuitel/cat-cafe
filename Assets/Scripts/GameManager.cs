@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    private static GameManager gmInstance;
+
     private int levelIndex;
     private RawImage loadImage;
     [SerializeField] private List<Texture> loadImages;
@@ -22,6 +24,17 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
             levelIndex = SceneManager.GetActiveScene().buildIndex;
         }
+        DontDestroyOnLoad(this.gameObject);
+        levelIndex = SceneManager.GetActiveScene().buildIndex;
+
+        if (gmInstance == null)
+        {
+            gmInstance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     // Start is called before the first frame update
@@ -29,9 +42,11 @@ public class GameManager : MonoBehaviour
     {
         if (gameEnded != true)
         {
+            levelIndex = 0;
             loadImage = GetComponentInChildren<RawImage>();
             loadImage.enabled = true;
-            loadImage.texture = loadImage.texture = loadImages[levelIndex];
+            loadImage.texture = loadImages[levelIndex];
+            Debug.Log(levelIndex);
             dm = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
             tm = GameObject.FindGameObjectWithTag("TaskManager").GetComponent<TaskManager>();
             StartCoroutine(FadeIn());
@@ -105,7 +120,10 @@ public class GameManager : MonoBehaviour
             load = SceneManager.LoadSceneAsync(levelIndex);
         }
 
-        dm = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
+        while(!load.isDone)
+        {
+            yield return null;
+        }
 
         // fade in
         int imageIndex = levelIndex;
@@ -138,5 +156,20 @@ public class GameManager : MonoBehaviour
     public void StartFadeIn()
     {
         StartCoroutine(FadeIn());
+    }
+
+    private void GetDayImage(int sceneID)
+    {
+        switch (sceneID)
+        {
+            case 2:
+                break;
+            case 4:
+                break;
+            case 6:
+                break;
+            default:
+                break;
+        }
     }
 }
