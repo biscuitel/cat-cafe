@@ -170,6 +170,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        levelIndex = 0;
         StartCoroutine(FadeOutToMain());
     }
 
