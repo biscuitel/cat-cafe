@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class MedsEffects : MonoBehaviour
 {
@@ -17,8 +18,10 @@ public class MedsEffects : MonoBehaviour
 
     [SerializeField] private float triggerTime = 60f;
     [SerializeField] private float timeElapsed = 0f;
+    [SerializeField] private float promptTime = 10f;
     private bool useTime = false;
     private bool active = false;
+    private bool hasMeds = false;
 
     [SerializeField] private float distortTime = 5f;
     [SerializeField] private float maxLensDistortIntensity = -0.5f;
@@ -33,6 +36,8 @@ public class MedsEffects : MonoBehaviour
     [SerializeField] private float hueShift = -55f;
     [SerializeField] private float saturation = 45f;
 
+    public Text promptText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +51,7 @@ public class MedsEffects : MonoBehaviour
         volumeProfile.TryGet<Bloom>(out bloom);
         volumeProfile.TryGet<ColorAdjustments>(out colorAdjustments);
 
-        useTime = true;
+    useTime = true;
     }
 
     // Update is called once per frame
@@ -67,7 +72,8 @@ public class MedsEffects : MonoBehaviour
             }
             
         } else {
-            if (Input.GetButtonDown("TakeMeds")) {
+            if (hasMeds && Input.GetButtonDown("TakeMeds")) {
+                DeactivatePrompt();
                 StartUndistort();
             }
         }
@@ -79,6 +85,10 @@ public class MedsEffects : MonoBehaviour
         {
             active = true;
             StartCoroutine(Distort());
+            if (hasMeds)
+            {
+                StartCoroutine(PromptTimer());
+            }
         }
     }
 
@@ -91,12 +101,39 @@ public class MedsEffects : MonoBehaviour
         }
     }
 
+    public void StartPromptTimer()
+    {
+        StartCoroutine(PromptTimer());
+    }
+
+    IEnumerator PromptTimer()
+    {
+        float elapsed = 0f;
+        while (elapsed < promptTime)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        ActivatePrompt();
+
+    }
+
+    private void ActivatePrompt()
+    {
+        promptText.text = "Press Q to take an antihistamene.";
+    }
+
+    private void DeactivatePrompt()
+    {
+        promptText.text = "";
+    }
+
     IEnumerator Distort()
     {
         // activate desired overrides, and lerp to target values for postprocessing fx parameters
         ld.active = dof.active = chromaAb.active = paniniProj.active = vignette.active = colorAdjustments.active = true;
         float elapsed = 0f;
-        while (elapsed < distortTime)
+        while (elapsed <= distortTime)
         {
             elapsed += Time.deltaTime;
             ld.intensity.Override(Mathf.Lerp(0f, maxLensDistortIntensity, elapsed/distortTime));
@@ -118,7 +155,7 @@ public class MedsEffects : MonoBehaviour
     {
         // lerp to target values for postprocessing fx parameters, then deactivate desired overrides
         float elapsed = 0f;
-        while (elapsed < distortTime)
+        while (elapsed <= distortTime)
         {
             elapsed += Time.deltaTime;
             ld.intensity.Override(Mathf.Lerp(maxLensDistortIntensity, 0f, elapsed / distortTime));
@@ -140,5 +177,10 @@ public class MedsEffects : MonoBehaviour
     public void TimeTrigger()
     {
         useTime = true;
+    }
+
+    public void SetHasMeds(bool hasMeds)
+    {
+        this.hasMeds = hasMeds;
     }
 }

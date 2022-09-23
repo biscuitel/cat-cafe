@@ -90,7 +90,9 @@ public class Day3Outcomes : Outcomes
                 // flip sign model here
                 break;
             case 2:
-                // player took antihistamenes for their allergies
+                // player grabbed antihistamenes for their allergies
+                cameraEffects.SetHasMeds(true);
+                cameraEffects.StartPromptTimer();
                 // revert effects and activate next task
                 tm.ActivateTask(3);
                 break;

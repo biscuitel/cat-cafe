@@ -21953,6 +21953,7 @@ MonoBehaviour:
   volumeProfile: {fileID: 0}
   triggerTime: 60
   timeElapsed: 0
+  promptTime: 10
   distortTime: 4
   maxLensDistortIntensity: -0.5
   maxFocalLength: 20
@@ -21965,6 +21966,7 @@ MonoBehaviour:
   contrast: 50
   hueShift: -55
   saturation: 45
+  promptText: {fileID: 1853792125}
 --- !u!1 &1675923506
 GameObject:
   m_ObjectHideFlags: 0
@@ -23380,6 +23382,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 371460921802968092, guid: 1d4abda6bb9c326498787fddcb5c8753,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7026935049653985020, guid: 1d4abda6bb9c326498787fddcb5c8753,
         type: 3}
       propertyPath: m_Pivot.x
@@ -23527,6 +23534,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1853792121}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1853792125 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 671659016081763019, guid: 1d4abda6bb9c326498787fddcb5c8753,
+    type: 3}
+  m_PrefabInstance: {fileID: 1853792121}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1875331643
 GameObject:
   m_ObjectHideFlags: 0

@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 308b834596db7f64bbd72c2966a17cc9,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -25348,6 +25348,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 371460921802968092, guid: 1d4abda6bb9c326498787fddcb5c8753,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7026935049653985020, guid: 1d4abda6bb9c326498787fddcb5c8753,
         type: 3}
       propertyPath: m_Pivot.x
@@ -29370,13 +29375,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeProfile: {fileID: 0}
+  triggerTime: 60
+  timeElapsed: 0
+  promptTime: 5
   distortTime: 4
   maxLensDistortIntensity: -0.5
   maxFocalLength: 20
   maxChromaAberation: 0.15
   maxPaniniProj: 1
   maxVignetteIntensity: 0.4
+  minBloomIntensity: 0.25
   maxBloomIntensity: 0.75
+  postExposure: 1
+  contrast: 50
+  hueShift: -55
+  saturation: 45
+  promptText: {fileID: 2009181742}
 --- !u!1 &1271154450
 GameObject:
   m_ObjectHideFlags: 0
@@ -46790,6 +46804,18 @@ Transform:
   m_Father: {fileID: 1914915097}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2009181742 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 671659016081763019, guid: 1d4abda6bb9c326498787fddcb5c8753,
+    type: 3}
+  m_PrefabInstance: {fileID: 1187682674}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2028120767
 MonoBehaviour:
   m_ObjectHideFlags: 0
