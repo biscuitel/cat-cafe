@@ -71,13 +71,13 @@ public class PlayerMovement : MonoBehaviour
     void Inputs()
     {
         //if the game is paused, don't allow the character to move
-        if (PauseMenu.GameIsPaused == false)
+        //if (PauseMenu.GameIsPaused == false)
         {
             // get inputs, create movement vector, move player character
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
             Vector3 moveVec = this.transform.right * x + this.transform.forward * z;
-            moveVec.Normalize();
+            if (moveVec.sqrMagnitude > 1f) moveVec.Normalize();
             controller.Move(moveVec * moveSpeed * Time.deltaTime);
 
             // jump if player inputs jump and is grounded

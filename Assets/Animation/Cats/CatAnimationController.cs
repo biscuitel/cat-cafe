@@ -12,9 +12,10 @@ public class CatAnimationController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
-        //Invoke("StartAnimation", Random.Range(minRandom, maxRandom)); 
-        animator.SetFloat("Offset", Random.Range(minRandom, maxRandom));
+        if (TryGetComponent(out Animator animator)) {
+            //Invoke("StartAnimation", Random.Range(minRandom, maxRandom)); 
+            animator.SetFloat("Offset", Random.Range(minRandom, maxRandom));
+        }
 
     }
 
