@@ -111,6 +111,10 @@ public class MedsEffects : MonoBehaviour
         float elapsed = 0f;
         while (elapsed < promptTime)
         {
+            if (Input.GetButtonDown("TakeMeds"))
+            {
+                yield break;
+            }
             elapsed += Time.deltaTime;
             yield return null;
         }
