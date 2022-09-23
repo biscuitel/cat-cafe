@@ -116,7 +116,7 @@ public class TaskManager : MonoBehaviour
     // iterates over task list, and recursively calls itself for groups of tasks
     // getting task ID + name + desc for tasks, and constructing string for UI text
     void GetAllTaskText(List<TaskBase> list, ref StringBuilder sb)
-    {
+    { 
         foreach (TaskBase task in list)
         {
             TaskSO taskSO = task as TaskSO;
@@ -129,7 +129,13 @@ public class TaskManager : MonoBehaviour
                 TaskGroupSO taskGroupSO = task as TaskGroupSO;
                 if (taskGroupSO != null)
                 {
-                    GetAllTaskText(taskGroupSO.GetTaskList(), ref sb);
+                    //GetAllTaskText(taskGroupSO.GetTaskList(), ref sb);
+                    //don't recursively call this function as the gameui doesn't like it ;-)
+                    List<TaskBase> list1 = taskGroupSO.GetTaskList();
+                    TaskBase task1 = list1[0];
+                    TaskSO taskSO1 = task1 as TaskSO;
+
+                    sb.AppendLine(taskSO1.taskName + " " +  taskGroupSO.GetTaskList().Count + " to go...");
                 }
             }
         }
@@ -138,8 +144,8 @@ public class TaskManager : MonoBehaviour
 
     void GetTaskText(TaskSO task, ref StringBuilder sb)
     {
-        sb.AppendLine(/*"ID: " + task.taskID + " - " + */task.taskName);
-        sb.AppendLine(task.taskDesc);
+        //sb.AppendLine("ID: " + task.taskID + " - " + task.taskName);
+        sb.AppendLine(task.taskName + ". " + task.taskDesc);
         sb.AppendLine();
     }
 
@@ -228,7 +234,7 @@ public class TaskManager : MonoBehaviour
 
     public void SetUIText(string text)
     {
-        Debug.Log(text);
+        Debug.Log("TM" + text);
         taskText.text = text;
     }
 

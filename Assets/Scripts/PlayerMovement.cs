@@ -70,21 +70,25 @@ public class PlayerMovement : MonoBehaviour
     }
     void Inputs()
     {
-        // get inputs, create movement vector, move player character
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-        Vector3 moveVec = this.transform.right * x + this.transform.forward * z;
-        controller.Move(moveVec * moveSpeed * Time.deltaTime);
-
-        // jump if player inputs jump and is grounded
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        //if the game is paused, don't allow the character to move
+        if (PauseMenu.GameIsPaused == false)
         {
-            vel.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
+            // get inputs, create movement vector, move player character
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
+            Vector3 moveVec = this.transform.right * x + this.transform.forward * z;
+            controller.Move(moveVec * moveSpeed * Time.deltaTime);
 
-        // add gravity to player's y velocity
-        vel.y += gravity * Time.deltaTime;
-        controller.Move(vel * Time.deltaTime); 
+            // jump if player inputs jump and is grounded
+            if (Input.GetButtonDown("Jump") && isGrounded)
+            {
+                vel.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            }
+
+            // add gravity to player's y velocity
+            vel.y += gravity * Time.deltaTime;
+            controller.Move(vel * Time.deltaTime);
+        }
     }
 
 }

@@ -220,6 +220,8 @@ public class Day3Outcomes : Outcomes
                     animator.SetBool("Open", true);
                 }
                 gm.LoadNextScene();
+                // player interacted with phone at end of corridor, do thing
+                gm.EndOfGame();
                 break;
             default:
                 break;
