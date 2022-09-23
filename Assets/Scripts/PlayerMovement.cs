@@ -77,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
             Vector3 moveVec = this.transform.right * x + this.transform.forward * z;
+            moveVec.Normalize();
             controller.Move(moveVec * moveSpeed * Time.deltaTime);
 
             // jump if player inputs jump and is grounded
