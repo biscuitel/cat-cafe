@@ -66,9 +66,10 @@ public class GameManager : MonoBehaviour
     public void EndOfGame()
     {
         //End the game, free the cursor, show the main menu
+        Debug.Log("game has been ended");
         gameEnded = true;
         Cursor.lockState = CursorLockMode.None;
-        SceneManager.LoadScene("Menu/Menu");
+        StartCoroutine(FadeOutToMain());
     }
 
     public void LoadNextScene()
@@ -101,13 +102,14 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            if (levelIndex >= SceneManager.sceneCountInBuildSettings)
+            if (levelIndex >= SceneManager.sceneCountInBuildSettings - 1)
             {
                 levelIndex = 0;
+                EndOfGame();
             }
             else
             {
-                if (levelIndex < SceneManager.sceneCountInBuildSettings)
+                if (levelIndex < SceneManager.sceneCountInBuildSettings - 1)
                 {
                     levelIndex++;
                 }
@@ -168,6 +170,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        levelIndex = 0;
         StartCoroutine(FadeOutToMain());
     }
 

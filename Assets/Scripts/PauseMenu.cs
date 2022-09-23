@@ -60,8 +60,8 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
 
         //end the game and return to the main menu
-        Destroy(this.gameObject);
         gm.LoadMainMenu();
+        Destroy(this.gameObject);
 
     }
 }
