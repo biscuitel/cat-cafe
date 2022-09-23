@@ -54,13 +54,21 @@ public class MedsEffects : MonoBehaviour
     {
         // if using time to trigger fx (i.e. after first manual trigger in day 1)
         // trigger fx is elapsed time >= trigger time
-        if (useTime && !active)
+        if (!active)
         {
-            timeElapsed += Time.deltaTime;
-            if (timeElapsed >= triggerTime)
+            if (useTime)
             {
-                StartDistort();
-                timeElapsed = 0f;
+                timeElapsed += Time.deltaTime;
+                if (timeElapsed >= triggerTime)
+                {
+                    StartDistort();
+                    timeElapsed = 0f;
+                }
+            }
+            
+        } else {
+            if (Input.GetButtonDown("TakeMeds")) {
+                StartUndistort();
             }
         }
     }

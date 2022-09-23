@@ -90,6 +90,7 @@ public class Day1Outcomes : Outcomes
                 // flip sign model here
 
                 // player allergies begin to react - do thing here
+                cameraEffects.TimeTrigger();
                 cameraEffects.StartDistort();
                 break;
             case 2:

@@ -55,6 +55,7 @@ public class Day2Outcomes : Outcomes
         dm = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
         tm = GetComponent<TaskManager>();
         cameraEffects = GetComponent<MedsEffects>();
+        cameraEffects.TimeTrigger();
     }
 
     // Update is called once per frame
@@ -91,8 +92,6 @@ public class Day2Outcomes : Outcomes
                 tm.ActivateTask(2);
                 // flip sign model here
 
-                // player allergies begin to react - do thing here
-                cameraEffects.StartDistort();
                 break;
             case 2:
                 // player took antihistamenes for their allergies

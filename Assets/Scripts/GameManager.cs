@@ -47,8 +47,6 @@ public class GameManager : MonoBehaviour
             loadImage.enabled = true;
             loadImage.texture = loadImages[levelIndex];
             Debug.Log(levelIndex);
-            dm = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
-            tm = GameObject.FindGameObjectWithTag("TaskManager").GetComponent<TaskManager>();
             StartCoroutine(FadeIn());
         }
     }
@@ -108,11 +106,11 @@ public class GameManager : MonoBehaviour
         {
             if (levelIndex >= SceneManager.sceneCountInBuildSettings)
             {
-                levelIndex = 3;
+                levelIndex = 0;
             }
             else
             {
-                if (levelIndex < 3)
+                if (levelIndex < SceneManager.sceneCountInBuildSettings)
                 {
                     levelIndex++;
                 }
@@ -127,7 +125,7 @@ public class GameManager : MonoBehaviour
 
         // fade in
         int imageIndex = levelIndex;
-        loadImage.texture = loadImages[imageIndex];
+        loadImage.texture = loadImages[GetDayImage(imageIndex)];
         loadImage.CrossFadeAlpha(0f, fadeTime, false);
         elapsed = 0f;
         while (elapsed < fadeTime)
@@ -140,10 +138,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator FadeIn()
     {
-       
-
         int imageIndex = levelIndex;
-        loadImage.texture = loadImages[imageIndex];
+        loadImage.texture = loadImages[GetDayImage(imageIndex)];
         loadImage.CrossFadeAlpha(0f, fadeTime, false);
         float elapsed = 0f;
         while (elapsed < fadeTime)
@@ -158,17 +154,21 @@ public class GameManager : MonoBehaviour
         StartCoroutine(FadeIn());
     }
 
-    private void GetDayImage(int sceneID)
+    private int GetDayImage(int sceneID)
     {
         switch (sceneID)
         {
             case 2:
+                return 1;
                 break;
             case 4:
+                return 2;
                 break;
             case 6:
+                return 3;
                 break;
             default:
+                return 0;
                 break;
         }
     }

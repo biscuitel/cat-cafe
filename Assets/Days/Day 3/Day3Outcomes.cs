@@ -52,6 +52,8 @@ public class Day3Outcomes : Outcomes
         dm = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
         tm = GetComponent<TaskManager>();
         cameraEffects = GetComponent<MedsEffects>();
+        // have allergies use time instead of manual trigger by default
+        cameraEffects.TimeTrigger();
         warpTrigger.SetActive(false);
     }
 
@@ -86,9 +88,6 @@ public class Day3Outcomes : Outcomes
                 // activate task board task
                 tm.ActivateTask(2);
                 // flip sign model here
-
-                // player allergies begin to react - do thing here
-                cameraEffects.StartDistort();
                 break;
             case 2:
                 // player took antihistamenes for their allergies
