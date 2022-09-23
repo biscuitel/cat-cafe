@@ -14,9 +14,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float fadeTime;
     private bool gameEnded;
 
-    private DialogueManager dm;
-    private TaskManager tm;
-
     void Awake()
     {
         if (gameEnded != true)
@@ -42,10 +39,10 @@ public class GameManager : MonoBehaviour
     {
         if (gameEnded != true)
         {
-            levelIndex = 0;
+            levelIndex = SceneManager.GetActiveScene().buildIndex;
             loadImage = GetComponentInChildren<RawImage>();
             loadImage.enabled = true;
-            loadImage.texture = loadImages[levelIndex];
+            loadImage.texture = loadImages[GetDayImage(levelIndex)];
             Debug.Log(levelIndex);
             StartCoroutine(FadeIn());
         }
@@ -117,6 +114,7 @@ public class GameManager : MonoBehaviour
             }
             load = SceneManager.LoadSceneAsync(levelIndex);
         }
+        Debug.Log(levelIndex);
 
         while(!load.isDone)
         {
@@ -151,7 +149,26 @@ public class GameManager : MonoBehaviour
 
     public void StartFadeIn()
     {
-        StartCoroutine(FadeIn());
+        StartCoroutine(FadeOutToMain());
+    }
+
+    IEnumerator FadeOutToMain()
+    {
+        loadImage.texture = loadImages[0];
+        loadImage.CrossFadeAlpha(0f, fadeTime, false);
+        float elapsed = 0f;
+        while (elapsed < fadeTime)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        SceneManager.LoadSceneAsync(0);
+
+    }
+
+    public void LoadMainMenu()
+    {
+        StartCoroutine(FadeOutToMain());
     }
 
     private int GetDayImage(int sceneID)

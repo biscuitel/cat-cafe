@@ -90,13 +90,12 @@ public class Day1Outcomes : Outcomes
                 // flip sign model here
 
                 // player allergies begin to react - do thing here
-                cameraEffects.TimeTrigger();
                 cameraEffects.StartDistort();
+                cameraEffects.TimeTrigger();
                 break;
             case 2:
                 // player took antihistamenes for their allergies
                 // revert effects and activate next task
-                cameraEffects.StartUndistort();
                 tm.ActivateTask(3);
                 break;
             case 3:

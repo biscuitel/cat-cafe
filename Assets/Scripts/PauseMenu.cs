@@ -9,6 +9,13 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
+    private GameManager gm;
+
+    private void Start()
+    {
+        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+    }
+
     public void Update()
     {
         //if the esc key is press pause or resume the game
@@ -54,7 +61,7 @@ public class PauseMenu : MonoBehaviour
 
         //end the game and return to the main menu
         Destroy(this.gameObject);
-        SceneManager.LoadScene("Menu/Menu");
+        gm.LoadMainMenu();
 
     }
 }

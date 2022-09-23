@@ -55,6 +55,7 @@ public class Day2Outcomes : Outcomes
         dm = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
         tm = GetComponent<TaskManager>();
         cameraEffects = GetComponent<MedsEffects>();
+        // have allergies use time instead of manual trigger by default
         cameraEffects.TimeTrigger();
     }
 
@@ -96,7 +97,6 @@ public class Day2Outcomes : Outcomes
             case 2:
                 // player took antihistamenes for their allergies
                 // revert effects and activate next task
-                cameraEffects.StartUndistort();
                 tm.ActivateTask(3);
                 break;
             case 3:

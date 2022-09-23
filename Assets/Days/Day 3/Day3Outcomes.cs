@@ -92,7 +92,6 @@ public class Day3Outcomes : Outcomes
             case 2:
                 // player took antihistamenes for their allergies
                 // revert effects and activate next task
-                cameraEffects.StartUndistort();
                 tm.ActivateTask(3);
                 break;
             case 3:
