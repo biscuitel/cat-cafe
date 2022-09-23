@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 854008bcec0a0ef47b7bd62a46c95080,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -21951,9 +21951,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeProfile: {fileID: 0}
-  triggerTime: 60
+  triggerTime: 45
   timeElapsed: 0
-  promptTime: 10
+  promptTime: 7.5
   distortTime: 4
   maxLensDistortIntensity: -0.5
   maxFocalLength: 20

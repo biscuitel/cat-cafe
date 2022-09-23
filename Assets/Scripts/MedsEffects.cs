@@ -16,9 +16,9 @@ public class MedsEffects : MonoBehaviour
     private Bloom bloom;
     private ColorAdjustments colorAdjustments;
 
-    [SerializeField] private float triggerTime = 60f;
+    [SerializeField] private float triggerTime = 45f;
     [SerializeField] private float timeElapsed = 0f;
-    [SerializeField] private float promptTime = 10f;
+    [SerializeField] private float promptTime = 7.5f;
     private bool useTime = false;
     private bool active = false;
     private bool hasMeds = false;
@@ -111,7 +111,7 @@ public class MedsEffects : MonoBehaviour
         float elapsed = 0f;
         while (elapsed < promptTime)
         {
-            if (Input.GetButtonDown("TakeMeds"))
+            if (hasMeds && Input.GetButtonDown("TakeMeds"))
             {
                 yield break;
             }
@@ -186,5 +186,6 @@ public class MedsEffects : MonoBehaviour
     public void SetHasMeds(bool hasMeds)
     {
         this.hasMeds = hasMeds;
+        if (active) StartPromptTimer();
     }
 }
