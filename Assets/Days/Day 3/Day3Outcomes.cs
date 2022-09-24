@@ -12,11 +12,13 @@ public class Day3Outcomes : Outcomes
     [SerializeField] private Animator signAnim;
     [SerializeField] private Animator binAnim;
     [SerializeField] private Animator phone3Anim;
+    [SerializeField] private Animator scoophitAnim;
 
     [SerializeField] private GameObject warpTrigger;
 
     [SerializeField] private GameObject BigButton;
     [SerializeField] private GameObject CatCagesParent;
+    
 
 
     //the items that will appear in the players hand. They are seperate to the object the player interacts with to begin the task
@@ -153,9 +155,8 @@ public class Day3Outcomes : Outcomes
                 foreach (MeshRenderer renderer in BaseScooper.GetComponentsInChildren<MeshRenderer>())
                 {
                     renderer.enabled = false;
-
-                }
-
+                    
+                }               
                 break;
             case 9:
                 // player scoops (all) poop
