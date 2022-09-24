@@ -7,7 +7,7 @@ public class WarpTrigger : MonoBehaviour
 
     private TaskManager taskManager;
     [SerializeField] private int taskID;
-    [SerializeField] private Transform destination;
+    private Transform destination;
 
     // Start is called before the first frame update
     void Start()
@@ -29,10 +29,11 @@ public class WarpTrigger : MonoBehaviour
             {
                 CharacterController cc = other.GetComponent<CharacterController>();
                 cc.enabled = false;
-                other.gameObject.transform.position = destination.position;
+                other.transform.position = new Vector3(other.transform.position.x, 67f, other.transform.position.z);
                 cc.enabled = true;
-                Debug.Log("Warped to " + destination.position);
-                taskManager.TaskComplete(taskID);
+                Debug.Log("WARPED????!1");
+                //taskManager.TaskComplete(taskID);
             }
         }
+        
     }}

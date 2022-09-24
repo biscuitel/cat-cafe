@@ -24,12 +24,7 @@ public class Day3Outcomes : Outcomes
     [Header("Hand Items")]
     [SerializeField] private GameObject Vacuum;
     [SerializeField] private GameObject Scooper;
-    [SerializeField] private GameObject Cup1;
-    [SerializeField] private GameObject Cup2;
-    [SerializeField] private GameObject Cup3;
-    [SerializeField] private GameObject Poop1;
-    [SerializeField] private GameObject Poop2;
-    [SerializeField] private GameObject Poop3;
+    
 
 
     //These are the objects that the player interacts with the start the task, e.g. the vacuum in the storage room
@@ -44,6 +39,10 @@ public class Day3Outcomes : Outcomes
 
     [SerializeField] private Material VacuumMat;
     [SerializeField] private Material ScooperMat;
+
+    [Header("Ending Switch Variables")]
+    [SerializeField] private GameObject EndingScene;
+    [SerializeField] private GameObject NormalScene;
 
     // Start is called before the first frame update
     void Start()
@@ -194,12 +193,18 @@ public class Day3Outcomes : Outcomes
                 //prompt player to collect dishes
                 tm.ActivateTask(13);
                 warpTrigger.SetActive(true);
+
+                
+                
                 break;
            
             case 14:
                 // prompt player to enter staff room, activate warp to final corridor
-                warpTrigger.SetActive(true);
+                
                 Debug.Log("player was teleported to end corridor");
+
+                
+
                 tm.ActivateTask(12);
                 break;
             case 15:
