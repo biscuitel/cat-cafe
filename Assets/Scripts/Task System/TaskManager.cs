@@ -145,7 +145,7 @@ public class TaskManager : MonoBehaviour
     void GetTaskText(TaskSO task, ref StringBuilder sb)
     {
         //sb.AppendLine("ID: " + task.taskID + " - " + task.taskName);
-        sb.AppendLine(task.taskName + ". " + task.taskDesc);
+        sb.AppendLine(task.taskName + task.taskDesc);
         sb.AppendLine();
     }
 

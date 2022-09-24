@@ -36,6 +36,8 @@ public class MedsEffects : MonoBehaviour
     [SerializeField] private float hueShift = -55f;
     [SerializeField] private float saturation = 45f;
 
+    [SerializeField] private Animator pillAnimator;
+
     public Text promptText;
 
     // Start is called before the first frame update
@@ -75,6 +77,9 @@ public class MedsEffects : MonoBehaviour
             if (hasMeds && Input.GetButtonDown("TakeMeds")) {
                 DeactivatePrompt();
                 StartUndistort();
+                pillAnimator.SetTrigger("PillSwallow");
+                pillAnimator.SetTrigger("PillReset");
+
             }
         }
     }
@@ -98,6 +103,7 @@ public class MedsEffects : MonoBehaviour
         {
             active = false;
             StartCoroutine(Undistort());
+            
         }
     }
 
@@ -124,7 +130,7 @@ public class MedsEffects : MonoBehaviour
 
     private void ActivatePrompt()
     {
-        promptText.text = "Press Q to take an antihistamene.";
+        promptText.text = "Press Q to take an antihistamine.";
     }
 
     private void DeactivatePrompt()
