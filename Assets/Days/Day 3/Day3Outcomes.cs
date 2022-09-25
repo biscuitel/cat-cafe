@@ -227,6 +227,13 @@ public class Day3Outcomes : Outcomes
                 gm.LoadNextScene();
                 // player interacted with phone at end of corridor, do thing
                 break;
+
+            case -2:
+
+                Debug.Log("???");
+                scoophitAnim.Play("scoop bop");
+
+                break;
             default:
                 break;
         }
