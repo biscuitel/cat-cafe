@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.1800971, g: 0.22052827, b: 0.27812055, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 854008bcec0a0ef47b7bd62a46c95080,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -10620,7 +10620,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1793126
+  m_Name: pb_Mesh387050
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17739,12 +17739,13 @@ GameObject:
   - component: {fileID: 1280767711}
   - component: {fileID: 1280767713}
   - component: {fileID: 1280767712}
+  - component: {fileID: 1280767714}
   m_Layer: 9
   m_Name: Switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1280767711
 Transform:
@@ -17753,13 +17754,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1280767710}
-  m_LocalRotation: {x: -0.000000059604638, y: 0.73332673, z: -0.6798764, w: -0.000000029802319}
-  m_LocalPosition: {x: -0, y: 0, z: -0.0076067}
+  m_LocalRotation: {x: 0.0000001556735, y: 0.8323607, z: -0.5542344, w: 0.0000002337937}
+  m_LocalPosition: {x: 0.0000047413423, y: 0.216, z: -0.020229274}
   m_LocalScale: {x: -71.770164, y: -15.440596, z: -100}
   m_Children: []
   m_Father: {fileID: 1985312180}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 85.66801, y: 180.00002, z: 0}
+  m_LocalEulerAnglesHint: {x: 67.316, y: 179.99998, z: 0}
 --- !u!23 &1280767712
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17807,6 +17808,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1280767710}
   m_Mesh: {fileID: 4493585093827132993, guid: ba2d39db26a979f4e852723ca25874e8, type: 3}
+--- !u!95 &1280767714
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280767710}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3ec23b4fc39d0b4ab379952506d3515, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1307259170
 GameObject:
   m_ObjectHideFlags: 0
@@ -21979,6 +21999,7 @@ MonoBehaviour:
   signAnim: {fileID: 385590900}
   binAnim: {fileID: 4393346738799026733}
   phoneAnim: {fileID: 1316593134}
+  switchAnim: {fileID: 1280767714}
   Vacuum: {fileID: 1788082312}
   Scooper: {fileID: 1540390135}
   Cup1: {fileID: 675967302}
@@ -25573,7 +25594,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1793290
+  m_Name: pb_Mesh387214
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

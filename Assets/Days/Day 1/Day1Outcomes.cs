@@ -14,6 +14,8 @@ public class Day1Outcomes : Outcomes
     [SerializeField] private Animator signAnim;
     [SerializeField] private Animator binAnim;
     [SerializeField] private Animator phoneAnim;
+    [SerializeField] private Animator switchAnim;
+
 
 
     // The items that will appear in the players hand. They are seperate to the object the player interacts with to begin the task
@@ -239,6 +241,11 @@ public class Day1Outcomes : Outcomes
                 CupsParent.SetActive(false);
                 break;
             case 14:
+                if (switchAnim)
+                {
+                    //switchAnim.SetBool("StartAnimation", true);
+                    switchAnim.SetTrigger("switchoff");
+                }
                 // player completed all task for the day, level end
                 gm.LoadNextScene();
                 break;
