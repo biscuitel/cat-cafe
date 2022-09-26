@@ -46,7 +46,8 @@ MonoBehaviour:
   - Assets/ArtAssets/Models/BookShelf.fbx
   - Assets/ArtAssets/Models/Phone.fbx
   - Assets/ArtAssets/Models/EndTable.fbx
-  modifiedAssetPaddingHash: aaf8cc2e16bd5f2d534ffff0d1c12491ea37ed04ecc124919660ddf9adf25916885031eefe4945bead9ec4b27e60591606a3ddde88e2d5dcc8c4049ccedb894b61f08198cd318883fe4945be78147692d1c1249119c2a693f927c115765617f995c2a6932aa3ddde07b0e142275031ee377e93633ec5d89075f23a06ebce28f538c2a693
+  - Assets/ArtAssets/Models/Antihistamines.fbx
+  modifiedAssetPaddingHash: aaf8cc2e16bd5f2d534ffff0d1c12491ea37ed04ecc124919660ddf9adf25916885031eefe4945bead9ec4b27e60591606a3ddde88e2d5dcc8c4049ccedb894bb5e630f6cd318883fe4945be78147692d1c1249119c2a693f927c115765617f995c2a6932aa3ddde07b0e142275031ee377e93633ec5d89075f23a06ebce28f538c2a693dd4945be
   modifiedMeshList: []
   modifiedMeshPaddingList: 
   modifiedAssets:
@@ -512,7 +513,7 @@ MonoBehaviour:
     - Blind
     - BottomTube
     - TopTube
-    padding: 1e0000006000000047000000
+    padding: 130000003c0000002c000000
     unwrapper: 000000000000000000000000
   - meshName:
     - SugarCup
@@ -588,6 +589,11 @@ MonoBehaviour:
     - Cube
     padding: 45000000
     unwrapper: 00000000
+  - meshName:
+    - Tablet
+    - AntihistamineBox
+    padding: 000100009a000000
+    unwrapper: 0000000000000000
   assetList:
   - Assets/Bakery/examples/content/sponza/bush.FBX
   - Assets/Bakery/examples/content/floor_lamp.FBX
@@ -686,5 +692,5 @@ MonoBehaviour:
   renderSettingsRTPVSceneView: 0
   renderSettingsRTPVWidth: 640
   renderSettingsRTPVHeight: 360
-  modifiedMeshPaddingArray: 0001000000010000
+  modifiedMeshPaddingArray: 000100009a000000
   modifiedMeshUnwrapperArray: 0000000000000000
