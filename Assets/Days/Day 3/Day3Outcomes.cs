@@ -9,6 +9,8 @@ public class Day3Outcomes : Outcomes
     private TaskManager tm;
     private DialogueManager dm;
     private MedsEffects cameraEffects;
+
+    [SerializeField] private Animator vacuumAnim;
     [SerializeField] private Animator signAnim;
     [SerializeField] private Animator binAnim;
     [SerializeField] private Animator phone3Anim;
@@ -18,7 +20,6 @@ public class Day3Outcomes : Outcomes
 
     [SerializeField] private GameObject BigButton;
     [SerializeField] private GameObject CatCagesParent;
-    
 
 
     //the items that will appear in the players hand. They are seperate to the object the player interacts with to begin the task
@@ -34,6 +35,7 @@ public class Day3Outcomes : Outcomes
     [Header("Base Items")]
     [SerializeField] private GameObject BaseVacuum;
     [SerializeField] private GameObject BaseScooper;
+    [SerializeField] private GameObject AntihistamineBox;
 
     //Since each object needs to change materials, I'm storing their original materials here, as well as the outline material.
     [Header("Materials")]
@@ -93,6 +95,7 @@ public class Day3Outcomes : Outcomes
             case 2:
                 // player grabbed antihistamenes for their allergies
                 cameraEffects.SetHasMeds(true);
+                AntihistamineBox.SetActive(false);
                 // revert effects and activate next task
                 tm.ActivateTask(3);
                 break;
@@ -226,6 +229,12 @@ public class Day3Outcomes : Outcomes
                 }
                 gm.LoadNextScene();
                 // player interacted with phone at end of corridor, do thing
+                break;
+
+            case -1:
+
+                vacuumAnim.Play("VacuumHit");
+                Debug.Log("Hggsffegw");
                 break;
 
             case -2:

@@ -36,6 +36,7 @@ public class Day2Outcomes : Outcomes
     [Header("Base Items")]
     [SerializeField] private GameObject BaseVacuum;
     [SerializeField] private GameObject BaseScooper;
+    [SerializeField] private GameObject AntihistamineBox;
 
     [Header("Placed Items")]
 
@@ -98,7 +99,10 @@ public class Day2Outcomes : Outcomes
             case 2:
                 // player grabbed antihistamenes for their allergies
                 cameraEffects.SetHasMeds(true);
+
                 // revert effects and activate next task
+
+                AntihistamineBox.SetActive(false);
                 tm.ActivateTask(3);
                 break;
             case 3:
