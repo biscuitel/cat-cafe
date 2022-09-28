@@ -13,11 +13,16 @@ MonoBehaviour:
   m_Name: PhoneDialogue
   m_EditorClassIdentifier: 
   dialogue:
-  - "So, you\u2019re finally doing things for yourself Bob, and you chose to do the
-    closing shift."
-  - "Good. Now you\u2019ll finally be of some use around here."
-  - "I expect you to clean up the place like I\u2019ve already taught you."
-  - "You stupidly forget, so I\u2019ve even went as far as to write every little
-    task you need to complete."
-  - "Don\u2019t mess this up."
-  characterSpeaking: 0100000001000000010000000100000001000000
+  - 'BOB! '
+  - I know it's your first shift, but this shouldn't be too hard, even for you.
+  - There isn't a whole lot to it. Close the cafe, clean up-
+  - 'Hang on, why am I even telling you this? Everything you need to do is written
+    on the task board. '
+  - I should also mention that you don't need to feed the cats tonight. Money's tight,
+    and cat food doesn't come cheap.
+  - Oh, that reminds me! Your payslip won't come in till next month. You know how
+    it is. The economy and all that.
+  - 'Anyway, I need to get going. Just remember, I''ll know if you cut any corners.
+    I always know. '
+  - '*click*'
+  characterSpeaking: 01000000010000000100000001000000010000000100000001000000
