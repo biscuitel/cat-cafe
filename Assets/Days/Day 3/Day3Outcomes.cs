@@ -227,7 +227,7 @@ public class Day3Outcomes : Outcomes
                 {
                     animator.SetBool("Open", true);
                 }
-                gm.LoadNextScene();
+                Invoke("gm.LoadNextScene()", 3f);
                 // player interacted with phone at end of corridor, do thing
                 break;
 

@@ -60,7 +60,7 @@ public class MedsEffects : MonoBehaviour
         chromaAb.intensity.Override(0f);
         paniniProj.distance.Override(0f);
         vignette.intensity.Override(0f);
-        bloom.intensity.Override(0f);
+        bloom.intensity.Override(0.07f);
 
         colorAdjustments.postExposure.Override(0f);
         colorAdjustments.contrast.Override(0f);
