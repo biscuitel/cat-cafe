@@ -18,7 +18,7 @@ public class MedsEffects : MonoBehaviour
 
     [SerializeField] private float triggerTime = 45f;
     [SerializeField] private float timeElapsed = 0f;
-    [SerializeField] private float promptTime = 7.5f;
+    [SerializeField] private float promptTime = 5f;
     private bool useTime = false;
     private bool active = false;
     private bool hasMeds = false;
@@ -40,6 +40,8 @@ public class MedsEffects : MonoBehaviour
 
     public Text promptText;
 
+    private Coroutine distortCoroutine;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,7 +55,17 @@ public class MedsEffects : MonoBehaviour
         volumeProfile.TryGet<Bloom>(out bloom);
         volumeProfile.TryGet<ColorAdjustments>(out colorAdjustments);
 
-    useTime = true;
+        ld.intensity.Override(0f);
+        dof.focalLength.Override(0f);
+        chromaAb.intensity.Override(0f);
+        paniniProj.distance.Override(0f);
+        vignette.intensity.Override(0f);
+        bloom.intensity.Override(0f);
+
+        colorAdjustments.postExposure.Override(0f);
+        colorAdjustments.contrast.Override(0f);
+        colorAdjustments.hueShift.Override(0f);
+        colorAdjustments.saturation.Override(0f);
     }
 
     // Update is called once per frame
@@ -89,7 +101,7 @@ public class MedsEffects : MonoBehaviour
         if (!active)
         {
             active = true;
-            StartCoroutine(Distort());
+            distortCoroutine = StartCoroutine(Distort());
             if (hasMeds)
             {
                 StartCoroutine(PromptTimer());
@@ -102,6 +114,7 @@ public class MedsEffects : MonoBehaviour
         if (active)
         {
             active = false;
+            StopCoroutine(distortCoroutine);
             StartCoroutine(Undistort());
             
         }
@@ -142,21 +155,29 @@ public class MedsEffects : MonoBehaviour
     {
         // activate desired overrides, and lerp to target values for postprocessing fx parameters
         ld.active = dof.active = chromaAb.active = paniniProj.active = vignette.active = colorAdjustments.active = true;
+
+        float currDistort = ld.intensity.value;
+        float currFocal = dof.focalLength.value;
+        float currChroma = chromaAb.intensity.value;
+        float currPanini = paniniProj.distance.value;
+        float currVignette = vignette.intensity.value;
+        float currBloom = bloom.intensity.value;
+
         float elapsed = 0f;
         while (elapsed <= distortTime)
         {
             elapsed += Time.deltaTime;
-            ld.intensity.Override(Mathf.Lerp(0f, maxLensDistortIntensity, elapsed/distortTime));
-            dof.focalLength.Override(Mathf.Lerp(0f, maxFocalLength, elapsed/distortTime));
-            chromaAb.intensity.Override(Mathf.Lerp(0f, maxChromaAberation, elapsed/distortTime));
-            paniniProj.distance.Override(Mathf.Lerp(0f, maxPaniniProj, elapsed / distortTime));
-            vignette.intensity.Override(Mathf.Lerp(0f, maxVignetteIntensity, elapsed / distortTime));
-            bloom.intensity.Override(Mathf.Lerp(minBloomIntensity, maxBloomIntensity, elapsed / distortTime));
+            ld.intensity.Override(Mathf.Lerp(currDistort, maxLensDistortIntensity, elapsed/distortTime));
+            dof.focalLength.Override(Mathf.Lerp(currFocal, maxFocalLength, elapsed/distortTime));
+            chromaAb.intensity.Override(Mathf.Lerp(currChroma, maxChromaAberation, elapsed/distortTime));
+            paniniProj.distance.Override(Mathf.Lerp(currPanini, maxPaniniProj, elapsed / distortTime));
+            vignette.intensity.Override(Mathf.Lerp(currVignette, maxVignetteIntensity, elapsed / distortTime));
+            bloom.intensity.Override(Mathf.Lerp(currBloom, maxBloomIntensity, elapsed / distortTime));
 
-            colorAdjustments.postExposure.Override(Mathf.Lerp(0f, postExposure, elapsed / distortTime));
+            /*colorAdjustments.postExposure.Override(Mathf.Lerp(0f, postExposure, elapsed / distortTime));
             colorAdjustments.contrast.Override(Mathf.Lerp(0f, contrast, elapsed / distortTime));
             colorAdjustments.hueShift.Override(Mathf.Lerp(0f, hueShift, elapsed / distortTime));
-            colorAdjustments.saturation.Override(Mathf.Lerp(0f, saturation, elapsed / distortTime));
+            colorAdjustments.saturation.Override(Mathf.Lerp(0f, saturation, elapsed / distortTime));*/
             yield return null;
         }
     }
@@ -165,20 +186,28 @@ public class MedsEffects : MonoBehaviour
     {
         // lerp to target values for postprocessing fx parameters, then deactivate desired overrides
         float elapsed = 0f;
+
+        float currDistort = ld.intensity.value;
+        float currFocal = dof.focalLength.value;
+        float currChroma = chromaAb.intensity.value;
+        float currPanini = paniniProj.distance.value;
+        float currVignette = vignette.intensity.value;
+        float currBloom = bloom.intensity.value;
+
         while (elapsed <= distortTime)
         {
             elapsed += Time.deltaTime;
-            ld.intensity.Override(Mathf.Lerp(maxLensDistortIntensity, 0f, elapsed / distortTime));
-            dof.focalLength.Override(Mathf.Lerp(maxFocalLength, 0f, elapsed / distortTime));
-            chromaAb.intensity.Override(Mathf.Lerp(maxChromaAberation, 0f, elapsed / distortTime));
-            paniniProj.distance.Override(Mathf.Lerp(maxPaniniProj, 0f, elapsed / distortTime));
-            vignette.intensity.Override(Mathf.Lerp(maxVignetteIntensity, 0f, elapsed / distortTime));
-            bloom.intensity.Override(Mathf.Lerp(maxBloomIntensity, minBloomIntensity, elapsed / distortTime));
+            ld.intensity.Override(Mathf.Lerp(currDistort, 0f, elapsed / distortTime));
+            dof.focalLength.Override(Mathf.Lerp(currFocal, 0f, elapsed / distortTime));
+            chromaAb.intensity.Override(Mathf.Lerp(currChroma, 0f, elapsed / distortTime));
+            paniniProj.distance.Override(Mathf.Lerp(currPanini, 0f, elapsed / distortTime));
+            vignette.intensity.Override(Mathf.Lerp(currVignette, 0f, elapsed / distortTime));
+            bloom.intensity.Override(Mathf.Lerp(currBloom, minBloomIntensity, elapsed / distortTime));
 
-            colorAdjustments.postExposure.Override(Mathf.Lerp(postExposure, 0f, elapsed / distortTime));
+            /*colorAdjustments.postExposure.Override(Mathf.Lerp(postExposure, 0f, elapsed / distortTime));
             colorAdjustments.contrast.Override(Mathf.Lerp(contrast, 0f, elapsed / distortTime));
             colorAdjustments.hueShift.Override(Mathf.Lerp(hueShift, 0f, elapsed / distortTime));
-            colorAdjustments.saturation.Override(Mathf.Lerp(saturation, 0f, elapsed / distortTime));
+            colorAdjustments.saturation.Override(Mathf.Lerp(saturation, 0f, elapsed / distortTime));*/
             yield return null;
         }
         ld.active = dof.active = chromaAb.active = paniniProj.active = vignette.active = colorAdjustments.active = false;
