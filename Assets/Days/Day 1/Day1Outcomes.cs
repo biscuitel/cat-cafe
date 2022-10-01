@@ -15,6 +15,7 @@ public class Day1Outcomes : Outcomes
     [SerializeField] private Animator binAnim;
     [SerializeField] private Animator phoneAnim;
     [SerializeField] private Animator switchAnim;
+    private Animator vacuumAnimator;
 
 
 
@@ -58,6 +59,8 @@ public class Day1Outcomes : Outcomes
         dm = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
         tm = GetComponent<TaskManager>();
         cameraEffects = GetComponent<MedsEffects>();
+
+        vacuumAnimator = Vacuum.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -251,6 +254,12 @@ public class Day1Outcomes : Outcomes
                 }
                 // player completed all task for the day, level end
                 gm.LoadNextScene();
+                break;
+
+            case -1:
+
+                vacuumAnimator.Play("VacuumSlideDay1");
+
                 break;
             case -2:
                 // player completed all task for the day, level end

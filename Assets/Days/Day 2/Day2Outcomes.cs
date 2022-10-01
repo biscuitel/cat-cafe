@@ -11,11 +11,12 @@ public class Day2Outcomes : Outcomes
 
     private int poopCounter = 0;
     private int cupCounter = 0;
+    [Header("Animators")]
     [SerializeField] private Animator signAnim;
     [SerializeField] private Animator binAnim;
     [SerializeField] private Animator phoneAnim;
     [SerializeField] private Animator switchAnim;
-
+    private Animator vacuumAnimator;
 
     // The items that will appear in the players hand. They are seperate to the object the player interacts with to begin the task
     // Instead they are attached to the camera or player (depending on whether or not they should follow where the player looks)
@@ -59,6 +60,8 @@ public class Day2Outcomes : Outcomes
         cameraEffects = GetComponent<MedsEffects>();
         // have allergies use time instead of manual trigger by default
         cameraEffects.TimeTrigger();
+
+        vacuumAnimator = Vacuum.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -251,6 +254,12 @@ public class Day2Outcomes : Outcomes
                 }
                 // player completed all task for the day, level end
                 gm.LoadNextScene();
+                break;
+
+            case -1:
+
+                vacuumAnimator.Play("VacuumSlideDay2");
+
                 break;
             case -2:
                 // player completed all task for the day, level end
