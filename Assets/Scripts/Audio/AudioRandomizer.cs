@@ -7,6 +7,7 @@ public class AudioRandomizer : MonoBehaviour
 
     [SerializeField] private List<AudioClip> clips;
     private AudioSource audioSource;
+    private List<int> randIndices;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,10 @@ public class AudioRandomizer : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.playOnAwake = false;
         audioSource.loop = false;
+        for (int i = 0; i < clips.Count - 1; i++)
+        {
+            randIndices.Add(i);
+        }
     }
 
     // Update is called once per frame
@@ -24,9 +29,11 @@ public class AudioRandomizer : MonoBehaviour
 
     public void PlayRandomClip()
     {
-        int rand = Random.Range(0, clips.Count - 1);
-        audioSource.clip = clips[rand];
+
+        int rand = Random.Range(0, randIndices.Count - 1);
+        audioSource.clip = clips[randIndices[rand]];
         audioSource.Play();
+        randIndices.RemoveAt(rand);
     }
 
 }

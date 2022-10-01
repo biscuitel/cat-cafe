@@ -19,8 +19,8 @@ public class Interactable : MonoBehaviour
 
     [SerializeField] private MeshRenderer[] meshes;
 
-    private AudioRandomizer audioRand;
-    private AudioSource audioSource;
+    [SerializeField] private AudioRandomizer audioRand;
+    [SerializeField] AudioSource audioSource;
 
 
     // max distance that player can interact from
@@ -38,7 +38,7 @@ public class Interactable : MonoBehaviour
         meshes = this.GetComponentsInChildren<MeshRenderer>();
 
         audioRand = GetComponent<AudioRandomizer>();
-        if (!audioRand)
+        if (audioRand)
         {
             audioSource = GetComponent<AudioSource>();
         } else
@@ -76,7 +76,11 @@ public class Interactable : MonoBehaviour
                         if (Interact())
                         {
                             Debug.Log("interaction happened and completed task");
-                            if (audioSource && audioSource.isPlaying) audioSource.Stop();
+                            if (audioSource && audioSource.isPlaying)
+                            {
+                                audioSource.Stop();
+                                Debug.Log("stopped audio");
+                            }
                             if (audioRand) audioRand.PlayRandomClip();
                             if (dialogueTrigger != null)
                             {

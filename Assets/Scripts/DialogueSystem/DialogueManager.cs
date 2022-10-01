@@ -49,7 +49,11 @@ public class DialogueManager : MonoBehaviour
             dialogueIndex = 0;
             dialogueText.text = "";
             dialogueActive = false;
-            if (dialogue[listIndex].isOnPhone() && phoneAudioSource) phoneAudioSource.PlayOneShot(phoneHangUp);
+            if (dialogue[listIndex].isOnPhone() && phoneAudioSource)
+            {
+                phoneAudioSource.clip = phoneHangUp;
+                phoneAudioSource.Play();
+            }
             Debug.Log("dialogue deactivated");
         }
     }
@@ -62,7 +66,12 @@ public class DialogueManager : MonoBehaviour
 
     public void ActivateDialogue(int index)
     {
-        if (dialogue[listIndex].isOnPhone() && phoneAudioSource) phoneAudioSource.PlayOneShot(phonePickUp);
+        if (dialogue[listIndex].isOnPhone() && phoneAudioSource)
+        {
+            phoneAudioSource.loop = false;
+            phoneAudioSource.clip = phonePickUp;
+            phoneAudioSource.Play();
+        }
         dialogueActive = true;
         if (index >= 0 && index < dialogue.Count)
         {
