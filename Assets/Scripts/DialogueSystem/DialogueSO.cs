@@ -13,6 +13,7 @@ public class DialogueSO : ScriptableObject
 
     [SerializeField] [TextArea] private List<string> dialogue;
     [SerializeField] private List<Speaker> characterSpeaking;
+    [SerializeField] private bool onPhone = true;
 
     public List<string> GetDialogue()
     {
@@ -22,5 +23,10 @@ public class DialogueSO : ScriptableObject
     public List<Speaker> GetSpeaker()
     {
         return characterSpeaking;
+    }
+
+    public bool isOnPhone()
+    {
+        return onPhone;
     }
 }

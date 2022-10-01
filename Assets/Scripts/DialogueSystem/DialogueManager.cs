@@ -13,6 +13,9 @@ public class DialogueManager : MonoBehaviour
     
 
     [SerializeField] private List<DialogueSO> dialogue;
+    [SerializeField] private AudioClip phonePickUp;
+    [SerializeField] private AudioClip phoneHangUp;
+    [SerializeField] private AudioSource phoneAudioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +49,7 @@ public class DialogueManager : MonoBehaviour
             dialogueIndex = 0;
             dialogueText.text = "";
             dialogueActive = false;
+            if (dialogue[listIndex].isOnPhone() && phoneAudioSource) phoneAudioSource.PlayOneShot(phoneHangUp);
             Debug.Log("dialogue deactivated");
         }
     }
@@ -58,6 +62,7 @@ public class DialogueManager : MonoBehaviour
 
     public void ActivateDialogue(int index)
     {
+        if (dialogue[listIndex].isOnPhone() && phoneAudioSource) phoneAudioSource.PlayOneShot(phonePickUp);
         dialogueActive = true;
         if (index >= 0 && index < dialogue.Count)
         {
