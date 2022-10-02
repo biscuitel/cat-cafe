@@ -9,14 +9,21 @@ public class ClickableObject : MonoBehaviour
     private int raycastLayerMask;
     [SerializeField] private float interactionRange = 10.0f;
     private Camera cam;
+    private AudioSource audioSource;
 
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource)
+        {
+            audioSource.loop = false;
+            audioSource.playOnAwake = false;
+        }
+    }
 
-    
     // Start is called before the first frame update
     void Start()
     {
-
-        
         raycastLayerMask = LayerMask.GetMask("ClickableObject");
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         
@@ -43,7 +50,7 @@ public class ClickableObject : MonoBehaviour
             {
                 
                 Debug.Log("Clickable object CLICKED!!!?????");
-                
+                if (audioSource) audioSource.Play();
                 hit.transform.GetComponent<Animator>().Play("Interaction");
 
             }   
