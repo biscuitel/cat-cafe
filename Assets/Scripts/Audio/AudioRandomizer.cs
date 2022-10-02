@@ -15,10 +15,6 @@ public class AudioRandomizer : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.playOnAwake = false;
         audioSource.loop = false;
-        for (int i = 0; i < clips.Count - 1; i++)
-        {
-            randIndices.Add(i);
-        }
     }
 
     // Update is called once per frame
@@ -30,10 +26,9 @@ public class AudioRandomizer : MonoBehaviour
     public void PlayRandomClip()
     {
 
-        int rand = Random.Range(0, randIndices.Count - 1);
-        audioSource.clip = clips[randIndices[rand]];
+        int rand = Random.Range(0, clips.Count - 1);
+        audioSource.clip = clips[rand];
         audioSource.Play();
-        randIndices.RemoveAt(rand);
     }
 
 }
