@@ -12,14 +12,15 @@ public class HairParticles : MonoBehaviour
         particles = particlesParent.GetComponent<ParticleSystem>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
+   
     private void OnDestroy()
     {
-        particlesParent.transform.position = this.transform.position;
-        particles.Play();
+        if (particlesParent)
+        {
+            particlesParent.transform.position = this.transform.position;
+            particles.Play();
+        }
+        
     }
 }
