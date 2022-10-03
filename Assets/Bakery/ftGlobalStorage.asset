@@ -614,8 +614,8 @@ MonoBehaviour:
   uvOverlapAssetList: 00000000ffffffff0000000000000000010100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   xatlasWarningShown: 0
   foundCompatibleSetup: 1
-  gpuName: NVIDIA GeForce RTX 3070
-  runsNonRTX: 0
+  gpuName: NVIDIA GeForce GTX 1080
+  runsNonRTX: 1
   runsOptix5: 0
   runsOptix6: 0
   runsOptix7: 1
@@ -681,7 +681,7 @@ MonoBehaviour:
   renderSettingsHoleFilling: 0
   renderSettingsBeepOnFinish: 0
   renderSettingsExportTerrainAsHeightmap: 1
-  renderSettingsRTXMode: 1
+  renderSettingsRTXMode: 0
   renderSettingsLightProbeMode: 1
   renderSettingsClientMode: 0
   renderSettingsServerAddress: 127.0.0.1
