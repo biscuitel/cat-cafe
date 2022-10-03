@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +9,7 @@ public class ClickableObject : MonoBehaviour
     private int raycastLayerMask;
     [SerializeField] private float interactionRange = 10.0f;
     private Camera cam;
+    private Vector3 camPos;
     private AudioSource audioSource;
 
     private void Awake()
@@ -26,6 +27,8 @@ public class ClickableObject : MonoBehaviour
     {
         raycastLayerMask = LayerMask.GetMask("ClickableObject");
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
+        
         
     }
 
@@ -34,27 +37,38 @@ public class ClickableObject : MonoBehaviour
     {
 
         InteractionCheck();
-
+        
     }
 
     void InteractionCheck()
     {
-    
-        if (Input.GetButtonDown("Interact"))
+        if (GetComponent<Renderer>().isVisible)
+        camPos = cam.gameObject.transform.position;
+
         {
-
-        Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-        RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, interactionRange, raycastLayerMask, QueryTriggerInteraction.Collide))
+            if (Vector3.Distance(this.transform.position, camPos) < 2)
             {
-                
-                Debug.Log("Clickable object CLICKED!!!?????");
-                if (audioSource) audioSource.Play();
-                hit.transform.GetComponent<Animator>().Play("Interaction");
+                Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+                RaycastHit hit;
 
-            }   
+                
+                
+                if (Physics.Raycast(ray, out hit, interactionRange, raycastLayerMask, QueryTriggerInteraction.Collide))
+                {
+                    if (Input.GetButtonDown("Interact"))
+                    {
+                        Debug.Log("Clickable object CLICKED!!!?????");
+                        if (audioSource) audioSource.Play();
+                        hit.transform.GetComponent<Animator>().Play("Interaction");
+
+                    }
+                    
+
+                }
+                
+            }
         }
+        
 
     }
 }
