@@ -1128,7 +1128,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: eeb33017a3524974cb10edb36d074a8b,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: eeb33017a3524974cb10edb36d074a8b,
         type: 3}
@@ -1277,7 +1277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 91708370}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: HandItems
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2662,7 +2662,7 @@ GameObject:
   - component: {fileID: 175326771}
   - component: {fileID: 175326773}
   - component: {fileID: 175326772}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3199,6 +3199,112 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &249675487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 249675488}
+  - component: {fileID: 249675491}
+  - component: {fileID: 249675489}
+  m_Layer: 0
+  m_Name: HandItemsCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &249675488
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249675487}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 692015252}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &249675489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249675487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 1
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+--- !u!20 &249675491
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249675487}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.01
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4096
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &263290790
 GameObject:
   m_ObjectHideFlags: 0
@@ -3574,7 +3680,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 303350543}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CoffeeMug (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8715,7 +8821,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 106da2e266f876149ae6e806fafa91b7,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 106da2e266f876149ae6e806fafa91b7,
         type: 3}
@@ -8812,7 +8918,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 675967303}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CoffeeMug (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10871,7 +10977,7 @@ GameObject:
   - component: {fileID: 809716484}
   - component: {fileID: 809716486}
   - component: {fileID: 809716485}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11395,7 +11501,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: eeb33017a3524974cb10edb36d074a8b,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: eeb33017a3524974cb10edb36d074a8b,
         type: 3}
@@ -11642,7 +11748,7 @@ GameObject:
   - component: {fileID: 845650639}
   - component: {fileID: 845650641}
   - component: {fileID: 845650640}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11722,7 +11828,7 @@ GameObject:
   - component: {fileID: 854767599}
   - component: {fileID: 854767598}
   - component: {fileID: 854767597}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AnimatedPill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18676,6 +18782,16 @@ PrefabInstance:
       propertyPath: m_RenderShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 480988642564591833, guid: c9b7bf83b7291704ab54c393937e9a35,
+        type: 3}
+      propertyPath: m_Cameras.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 480988642564591833, guid: c9b7bf83b7291704ab54c393937e9a35,
+        type: 3}
+      propertyPath: m_Cameras.Array.data[0]
+      value: 
+      objectReference: {fileID: 249675491}
     - target: {fileID: 480988642564591834, guid: c9b7bf83b7291704ab54c393937e9a35,
         type: 3}
       propertyPath: m_Depth
@@ -19366,7 +19482,7 @@ GameObject:
   - component: {fileID: 1166070165}
   - component: {fileID: 1166070167}
   - component: {fileID: 1166070166}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21181,7 +21297,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1341785584}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CoffeeMug (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22415,7 +22531,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: eeb33017a3524974cb10edb36d074a8b,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: eeb33017a3524974cb10edb36d074a8b,
         type: 3}
@@ -23049,7 +23165,7 @@ GameObject:
   - component: {fileID: 1484619175}
   - component: {fileID: 1484619177}
   - component: {fileID: 1484619176}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23126,7 +23242,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1503046993}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CupsParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23652,7 +23768,7 @@ GameObject:
   - component: {fileID: 1552873720}
   - component: {fileID: 1552873722}
   - component: {fileID: 1552873721}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24099,7 +24215,7 @@ PrefabInstance:
     - target: {fileID: 3552776953873222117, guid: 2eccdf0b4a73d4842914e2b2610e0e4d,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3845367352099639516, guid: 2eccdf0b4a73d4842914e2b2610e0e4d,
         type: 3}
@@ -24109,7 +24225,7 @@ PrefabInstance:
     - target: {fileID: 3845367352099639516, guid: 2eccdf0b4a73d4842914e2b2610e0e4d,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3845367352099639516, guid: 2eccdf0b4a73d4842914e2b2610e0e4d,
         type: 3}
@@ -24179,7 +24295,7 @@ PrefabInstance:
     - target: {fileID: 4780341215421254494, guid: 2eccdf0b4a73d4842914e2b2610e0e4d,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2eccdf0b4a73d4842914e2b2610e0e4d, type: 3}
@@ -31383,7 +31499,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1879338091}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: HandItems
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32094,7 +32210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1963616832}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: PoopParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
