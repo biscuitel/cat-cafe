@@ -19,6 +19,7 @@ public class Day1Outcomes : Outcomes
     [SerializeField] private Animator phoneAnim;
     [SerializeField] private Animator switchAnim;
     private Animator vacuumAnimator;
+    private Animator scoopAnimator;
 
 
 
@@ -64,6 +65,7 @@ public class Day1Outcomes : Outcomes
         cameraEffects = GetComponent<MedsEffects>();
 
         vacuumAnimator = Vacuum.GetComponent<Animator>();
+        scoopAnimator = Scooper.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -268,7 +270,7 @@ public class Day1Outcomes : Outcomes
                 break;
             case -2:
                 // player completed all task for the day, level end
-
+                scoopAnimator.Play("Day1Scoop");
                 poopCounter++;
 
                 if (poopCounter == 1)
