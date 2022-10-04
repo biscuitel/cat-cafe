@@ -11,6 +11,9 @@ public class Day1Outcomes : Outcomes
 
     private int poopCounter = 0;
     private int cupCounter = 0;
+
+    [SerializeField] private GameObject taskUI;
+
     [SerializeField] private Animator signAnim;
     [SerializeField] private Animator binAnim;
     [SerializeField] private Animator phoneAnim;
@@ -253,6 +256,8 @@ public class Day1Outcomes : Outcomes
                     switchAnim.SetTrigger("switchoff");
                 }
                 // player completed all task for the day, level end
+
+                Destroy(taskUI);
                 gm.LoadNextScene();
                 break;
 

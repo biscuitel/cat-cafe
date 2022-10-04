@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.1800971, g: 0.22052827, b: 0.27812055, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10341,7 +10341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &786541999
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10680,6 +10680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 14521095}
   DialogueUI: {fileID: 1626375136}
+  taskUI: {fileID: 786541998}
   dialogue:
   - {fileID: 11400000, guid: aefb618b299339640932c6ad429a546a, type: 2}
 --- !u!4 &803432285
@@ -24364,6 +24365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d378a24f25923da4086e856b68478797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskUI: {fileID: 786541998}
   signAnim: {fileID: 385590900}
   binAnim: {fileID: 4393346738799026733}
   phoneAnim: {fileID: 1316593134}

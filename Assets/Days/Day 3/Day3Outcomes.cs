@@ -10,6 +10,8 @@ public class Day3Outcomes : Outcomes
     private DialogueManager dm;
     private MedsEffects cameraEffects;
 
+    [SerializeField] private GameObject taskUI;
+
     [SerializeField] private Animator vacuumAnim;
     [SerializeField] private Animator signAnim;
     [SerializeField] private Animator binAnim;
@@ -198,6 +200,7 @@ public class Day3Outcomes : Outcomes
                 tm.ActivateTask(13);
                 warpTrigger.SetActive(true);
 
+                taskUI.SetActive(false);
                 
                 
                 break;
@@ -219,6 +222,7 @@ public class Day3Outcomes : Outcomes
                 // player interacted with phone at end of corridor, make button appear!
                 tm.ActivateTask(14);
                 BigButton.SetActive(true);
+                Destroy(taskUI);
                 break;
             case 17:
                 // player pressed the button, open the cages

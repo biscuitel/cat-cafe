@@ -8,8 +8,11 @@ public class DialogueManager : MonoBehaviour
     private bool dialogueActive = false;
     private int dialogueIndex = 0;
     private int listIndex = 0;
+
+    private int dialogueID;
     public Text dialogueText;
     public GameObject DialogueUI;
+    public GameObject taskUI;
     
 
     [SerializeField] private List<DialogueSO> dialogue;
@@ -18,6 +21,7 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         //DialogueUI.SetActive(true);
+        
     }
 
     // Update is called once per frame
@@ -39,6 +43,8 @@ public class DialogueManager : MonoBehaviour
             ShowDialog(true);
             UpdateUI();
             dialogueIndex++;
+
+            
         } else
         {
             //hide the dialog canvas
@@ -47,6 +53,14 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text = "";
             dialogueActive = false;
             Debug.Log("dialogue deactivated");
+
+            if (taskUI)
+            {
+                taskUI.SetActive(true);
+            }
+            
+            
+            
         }
     }
 

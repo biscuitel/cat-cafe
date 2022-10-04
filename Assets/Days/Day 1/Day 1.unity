@@ -1251,7 +1251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &51589084
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5896,6 +5896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 7026935051582323768}
   DialogueUI: {fileID: 2052722234}
+  taskUI: {fileID: 51589083}
   dialogue:
   - {fileID: 11400000, guid: 59dac9bf55d783541afcf6e8507d26a4, type: 2}
 --- !u!4 &143088548
@@ -52492,6 +52493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf72ab97699c5642956c005bd02bf6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskUI: {fileID: 51589083}
   signAnim: {fileID: 459626446}
   binAnim: {fileID: 845888224}
   phoneAnim: {fileID: 2040820683}
