@@ -60,7 +60,7 @@ public class Interactable : MonoBehaviour
             {
                 if (GameObject.ReferenceEquals(obj, hit.transform.gameObject))
                 {
-                    if (Input.GetButtonDown("Interact") && interactedWith)
+                    if (Input.GetButtonDown("Interact") && !interactedWith)
                     {
                         if (Interact())
                         {
