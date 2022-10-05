@@ -76,7 +76,7 @@ public class Interactable : MonoBehaviour
                             else if (deleteAfterInteraction)
                             {
                                 Debug.Log("destroyed");
-                                Invoke(Destroy(gameObject), destroyAfter);
+                                Invoke("InvokeDestroy", destroyAfter);
                             }
                             else if (deactivateAfterInteraction)
                             {
@@ -96,6 +96,11 @@ public class Interactable : MonoBehaviour
         Debug.Log("Player interacted with me! Do a thing or smth idk");
         return taskManager.TaskComplete(taskID);
 
+    }
+
+    private void InvokeDestroy()
+    {
+        Destroy(gameObject);
     }
 
     private void ToggleVisibility()
