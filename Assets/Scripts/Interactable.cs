@@ -11,6 +11,7 @@ public class Interactable : MonoBehaviour
     private GameObject obj;
     private TaskManager taskManager;
     private DialogueTrigger dialogueTrigger;
+    private bool interactedWith;
 
     [SerializeField] private int taskID;
     [SerializeField] private bool deactivateAfterInteraction = false;
@@ -34,6 +35,7 @@ public class Interactable : MonoBehaviour
         taskManager = GameObject.FindGameObjectWithTag("TaskManager").GetComponent<TaskManager>();
         dialogueTrigger = this.GetComponent<DialogueTrigger>();
         meshes = this.GetComponentsInChildren<MeshRenderer>();
+        interactedWith = false;
     }
 
     // Update is called once per frame
@@ -58,10 +60,11 @@ public class Interactable : MonoBehaviour
             {
                 if (GameObject.ReferenceEquals(obj, hit.transform.gameObject))
                 {
-                    if (Input.GetButtonDown("Interact"))
+                    if (Input.GetButtonDown("Interact") && !interactedWith)
                     {
                         if (Interact())
                         {
+                            interactedWith = true;
                             Debug.Log("interaction happened and completed task");
                             if (dialogueTrigger != null)
                             {
@@ -76,7 +79,7 @@ public class Interactable : MonoBehaviour
                             else if (deleteAfterInteraction)
                             {
                                 Debug.Log("destroyed");
-                                Invoke("InvokeDestroy", destroyAfter);
+                                StartCoroutine(DelayDestroy(destroyAfter));
                             }
                             else if (deactivateAfterInteraction)
                             {
@@ -98,8 +101,14 @@ public class Interactable : MonoBehaviour
 
     }
 
-    private void InvokeDestroy()
+    IEnumerator DelayDestroy(float delayTime)
     {
+        float elapsed = 0f;
+        while (elapsed < delayTime)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
         Destroy(gameObject);
     }
 
