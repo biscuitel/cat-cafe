@@ -254,7 +254,7 @@ public class Day3Outcomes : Outcomes
 
     private void LoadEnd()
     {
-        gm.LoadNextScene()
+        gm.LoadNextScene();
     }
 
     IEnumerator PlayerInDialogue()
