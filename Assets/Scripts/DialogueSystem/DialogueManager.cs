@@ -51,6 +51,7 @@ public class DialogueManager : MonoBehaviour
             dialogueActive = false;
             if (dialogue[listIndex].isOnPhone() && phoneAudioSource)
             {
+                phoneAudioSource.volume = 0.75f;
                 phoneAudioSource.clip = phoneHangUp;
                 phoneAudioSource.Play();
             }
@@ -68,6 +69,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (dialogue[listIndex].isOnPhone() && phoneAudioSource)
         {
+            phoneAudioSource.volume = 0.75f;
             phoneAudioSource.loop = false;
             phoneAudioSource.clip = phonePickUp;
             phoneAudioSource.Play();
