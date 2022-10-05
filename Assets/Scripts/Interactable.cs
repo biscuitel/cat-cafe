@@ -15,6 +15,7 @@ public class Interactable : MonoBehaviour
     [SerializeField] private int taskID;
     [SerializeField] private bool deactivateAfterInteraction = false;
     [SerializeField] private bool deleteAfterInteraction = false;
+    [SerializeField] private float destroyAfter = 0f;
     [SerializeField] private bool toggleVisAfterInteraction = false;
 
     [SerializeField] private MeshRenderer[] meshes;
@@ -75,7 +76,7 @@ public class Interactable : MonoBehaviour
                             else if (deleteAfterInteraction)
                             {
                                 Debug.Log("destroyed");
-                                Destroy(gameObject);
+                                Invoke(Destroy(gameObject), destroyAfter);
                             }
                             else if (deactivateAfterInteraction)
                             {
