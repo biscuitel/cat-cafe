@@ -231,7 +231,7 @@ public class Day3Outcomes : Outcomes
                 {
                     animator.SetBool("Open", true);
                 }
-                Invoke("gm.LoadNextScene()", 3f);
+                Invoke("LoadEnd()", 3f);
                 // player interacted with phone at end of corridor, do thing
                 break;
 
@@ -250,6 +250,11 @@ public class Day3Outcomes : Outcomes
             default:
                 break;
         }
+    }
+
+    private void LoadEnd()
+    {
+        gm.LoadNextScene()
     }
 
     IEnumerator PlayerInDialogue()
