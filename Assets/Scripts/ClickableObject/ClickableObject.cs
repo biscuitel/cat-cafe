@@ -67,8 +67,6 @@ public class ClickableObject : MonoBehaviour
                         hit.transform.GetComponent<Animator>().Play("Interaction");
 
                     }
-
-
                 }
                 else
                 {

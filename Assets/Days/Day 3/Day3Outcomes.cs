@@ -20,9 +20,10 @@ public class Day3Outcomes : Outcomes
 
     [SerializeField] private GameObject warpTrigger;
 
+    [Header("Objects")]
     [SerializeField] private GameObject BigButton;
     [SerializeField] private GameObject CatCagesParent;
-
+    [SerializeField] private GameObject WindowCatsParent;
 
     //the items that will appear in the players hand. They are seperate to the object the player interacts with to begin the task
     // Instead they are attached to the camera or player (depending on whether or not they should follow where the player looks)
@@ -92,7 +93,8 @@ public class Day3Outcomes : Outcomes
                 }
                 // activate task board task
                 tm.ActivateTask(2);
-                // flip sign model here
+
+                WindowCatsParent.SetActive(true);
                 break;
             case 2:
                 // player grabbed antihistamenes for their allergies
