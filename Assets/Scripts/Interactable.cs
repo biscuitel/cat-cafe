@@ -76,7 +76,7 @@ public class Interactable : MonoBehaviour
                             else if (deleteAfterInteraction)
                             {
                                 Debug.Log("destroyed");
-                                Invoke("InvokeDestroy", destroyAfter);
+                                StartCoroutine(DelayDestroy(destroyAfter));
                             }
                             else if (deactivateAfterInteraction)
                             {
@@ -98,8 +98,14 @@ public class Interactable : MonoBehaviour
 
     }
 
-    private void InvokeDestroy()
+    IEnumerator DelayDestroy(float delayTime)
     {
+        float elapsed = 0f;
+        while (elapsed < delayTime)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
         Destroy(gameObject);
     }
 

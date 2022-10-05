@@ -231,7 +231,7 @@ public class Day3Outcomes : Outcomes
                 {
                     animator.SetBool("Open", true);
                 }
-                Invoke("LoadEnd()", 3f);
+                StartCoroutine(DelayLoadEnd(3f));
                 // player interacted with phone at end of corridor, do thing
                 break;
 
@@ -252,8 +252,14 @@ public class Day3Outcomes : Outcomes
         }
     }
 
-    private void LoadEnd()
+    IEnumerator DelayLoadEnd(float delayTime)
     {
+        float elapsed = 0f;
+        while (elapsed < delayTime)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
         gm.LoadNextScene();
     }
 
