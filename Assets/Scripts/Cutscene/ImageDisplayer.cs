@@ -14,6 +14,7 @@ public class ImageDisplayer : MonoBehaviour
 
     private int imageIndex;
     private bool displaying;
+    private bool advance;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class ImageDisplayer : MonoBehaviour
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         imageIndex = 0;
         displaying = false;
+        advance = true;
         if (!imageUI)
         {
             imageUI = this.GetComponentInChildren<RawImage>();
@@ -34,7 +36,10 @@ public class ImageDisplayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetButtonDown("Interact"))
+        {
+            advance = true;
+        }
     }
 
     void StartCutscene()
@@ -80,6 +85,11 @@ public class ImageDisplayer : MonoBehaviour
 
     IEnumerator FadeOut()
     {
+        while (!advance)
+        {
+            yield return null;
+        }
+
         float elapsed = 0.0f;
         //imageUI.CrossFadeAlpha(0, fadeTime, false);
         while (elapsed < fadeTime)
