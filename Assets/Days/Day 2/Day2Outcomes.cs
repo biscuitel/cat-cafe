@@ -20,6 +20,7 @@ public class Day2Outcomes : Outcomes
     [SerializeField] private Animator phoneAnim;
     [SerializeField] private Animator switchAnim;
     private Animator vacuumAnimator;
+    private Animator scoopAnimator;
 
     // The items that will appear in the players hand. They are seperate to the object the player interacts with to begin the task
     // Instead they are attached to the camera or player (depending on whether or not they should follow where the player looks)
@@ -65,6 +66,7 @@ public class Day2Outcomes : Outcomes
         cameraEffects.TimeTrigger();
 
         vacuumAnimator = Vacuum.GetComponent<Animator>();
+        scoopAnimator = Scooper.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -269,6 +271,7 @@ public class Day2Outcomes : Outcomes
                 // player completed all task for the day, level end
 
                 poopCounter++;
+                scoopAnimator.Play("Day2Scoop");
 
                 if (poopCounter == 1)
                 {
