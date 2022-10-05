@@ -1,16 +1,17 @@
 ﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class ClickableObject : MonoBehaviour
 {
 
-    
+
     private int raycastLayerMask;
     [SerializeField] private float interactionRange = 10.0f;
     private Camera cam;
     private Vector3 camPos;
     private AudioSource audioSource;
+    private Graphic interactionCrosshair;
 
     private void Awake()
     {
@@ -27,9 +28,13 @@ public class ClickableObject : MonoBehaviour
     {
         raycastLayerMask = LayerMask.GetMask("ClickableObject");
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        interactionCrosshair = GameObject.FindGameObjectWithTag("InteractionCrosshair").GetComponent<Graphic>();
 
-        
-        
+
+        interactionCrosshair.color = new Color(interactionCrosshair.color.r, interactionCrosshair.color.g, interactionCrosshair.color.b, 0);
+
+
+
     }
 
     // Update is called once per frame
@@ -37,13 +42,13 @@ public class ClickableObject : MonoBehaviour
     {
 
         InteractionCheck();
-        
+
     }
 
     void InteractionCheck()
     {
         if (GetComponent<Renderer>().isVisible)
-        camPos = cam.gameObject.transform.position;
+            camPos = cam.gameObject.transform.position;
 
         {
             if (Vector3.Distance(this.transform.position, camPos) < 2)
@@ -51,10 +56,10 @@ public class ClickableObject : MonoBehaviour
                 Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
                 RaycastHit hit;
 
-                
-                
                 if (Physics.Raycast(ray, out hit, interactionRange, raycastLayerMask, QueryTriggerInteraction.Collide))
                 {
+                    interactionCrosshair.color = new Color(interactionCrosshair.color.r, interactionCrosshair.color.g, interactionCrosshair.color.b, 1);
+
                     if (Input.GetButtonDown("Interact"))
                     {
                         Debug.Log("Clickable object CLICKED!!!?????");
@@ -62,13 +67,17 @@ public class ClickableObject : MonoBehaviour
                         hit.transform.GetComponent<Animator>().Play("Interaction");
 
                     }
-                    
+
 
                 }
-                
-            }
-        }
-        
+                else
+                {
+                    interactionCrosshair.color = new Color(interactionCrosshair.color.r, interactionCrosshair.color.g, interactionCrosshair.color.b, 0);
 
+                }
+            }
+
+
+        }
     }
 }
