@@ -64,7 +64,7 @@ public class ClickableObject : MonoBehaviour
                     {
                         Debug.Log("Clickable object CLICKED!!!?????");
                         if (audioSource) audioSource.Play();
-                        hit.transform.GetComponent<Animator>().Play("Interaction");
+                        hit.transform.GetComponent<Animator>().SetTrigger("Interaction");
 
                     }
                 }
