@@ -14,6 +14,9 @@ public class Day2Outcomes : Outcomes
 
     [SerializeField] private GameObject taskUI;
 
+    [Header("Objects")]
+    [SerializeField] private Renderer TaskList;
+
     [Header("Animators")]
     [SerializeField] private Animator signAnim;
     [SerializeField] private Animator binAnim;
@@ -54,6 +57,12 @@ public class Day2Outcomes : Outcomes
     [SerializeField] private Material VacuumMat;
     [SerializeField] private Material ScooperMat;
     [SerializeField] private Material CupMat;
+
+    [Header("Task Board Materials")]
+    [SerializeField] private Material Taskboard1stTaskDoneMat;
+    [SerializeField] private Material Taskboard2ndTaskDoneMat;
+    [SerializeField] private Material Taskboard3rdTaskDoneMat;
+    [SerializeField] private Material Taskboard4thTaskDoneMat;
 
     // Start is called before the first frame update
     void Start()
@@ -116,6 +125,7 @@ public class Day2Outcomes : Outcomes
             case 3:
                 // player interacted with task board; populate task list
                 tm.ActivateTask(4);
+                TaskList.material = Taskboard1stTaskDoneMat;
                 break;
             case 4:
                 // player grabs vacuum cleaner, populate list with hair cleaning tasks
@@ -160,6 +170,7 @@ public class Day2Outcomes : Outcomes
             case 7:
                 // prompt player to grab poop scooper
                 tm.ActivateTask(7);
+                TaskList.material = Taskboard2ndTaskDoneMat;
                 break;
             case 8:
                 //player picked up scooper
@@ -224,6 +235,7 @@ public class Day2Outcomes : Outcomes
             case 11:
                 //prompt player to collect dishes
                 tm.ActivateGroup(2);
+                TaskList.material = Taskboard3rdTaskDoneMat;
                 break;
             case 12:
                 //player collected dishes

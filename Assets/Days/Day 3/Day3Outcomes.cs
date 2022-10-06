@@ -24,6 +24,8 @@ public class Day3Outcomes : Outcomes
     [SerializeField] private GameObject BigButton;
     [SerializeField] private GameObject CatCagesParent;
     [SerializeField] private GameObject WindowCatsParent;
+    
+    [SerializeField] private Renderer TaskList;
 
     //the items that will appear in the players hand. They are seperate to the object the player interacts with to begin the task
     // Instead they are attached to the camera or player (depending on whether or not they should follow where the player looks)
@@ -46,6 +48,12 @@ public class Day3Outcomes : Outcomes
 
     [SerializeField] private Material VacuumMat;
     [SerializeField] private Material ScooperMat;
+
+    [Header("Task Board Materials")]
+    [SerializeField] private Material Taskboard1stTaskDoneMat;
+    [SerializeField] private Material Taskboard2ndTaskDoneMat;
+    [SerializeField] private Material Taskboard3rdTaskDoneMat;
+    [SerializeField] private Material Taskboard4thTaskDoneMat;
 
     [Header("Ending Switch Variables")]
     [SerializeField] private GameObject EndingScene;
@@ -106,6 +114,7 @@ public class Day3Outcomes : Outcomes
             case 3:
                 // player interacted with task board; populate task list
                 tm.ActivateTask(4);
+                TaskList.material = Taskboard1stTaskDoneMat;
                 break;
             case 4:
                 // player grabs vacuum cleaner, populate list with hair cleaning tasks
@@ -150,6 +159,7 @@ public class Day3Outcomes : Outcomes
             case 7:
                 // prompt player to grab poop scooper
                 tm.ActivateTask(7);
+                TaskList.material = Taskboard2ndTaskDoneMat;
                 break;
             case 8:
                 //player picked up scooper

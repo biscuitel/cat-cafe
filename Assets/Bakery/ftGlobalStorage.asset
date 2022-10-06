@@ -47,7 +47,8 @@ MonoBehaviour:
   - Assets/ArtAssets/Models/Phone.fbx
   - Assets/ArtAssets/Models/EndTable.fbx
   - Assets/ArtAssets/Models/Antihistamines.fbx
-  modifiedAssetPaddingHash: aaf8cc2e16bd5f2d534ffff0d1c12491ea37ed04ecc124919660ddf9adf25916885031eefe4945bead9ec4b27e60591606a3ddde88e2d5dcc8c4049ccedb894bb5e630f6cd318883fe4945be78147692d1c1249119c2a693f927c115765617f995c2a6932aa3ddde07b0e142275031ee377e93633ec5d89075f23a06ebce28f538c2a693dd4945be
+  - Assets/ArtAssets/Models/Clock.fbx
+  modifiedAssetPaddingHash: aaf8cc2e16bd5f2d534ffff0d1c12491ea37ed04ecc124919660ddf9adf25916885031eefe4945bead9ec4b27e60591606a3ddde88e2d5dcc8c4049ccedb894bb5e630f6cd318883fe4945be78147692d1c1249119c2a693f927c115765617f995c2a6932aa3ddde07b0e142275031ee377e93633ec5d89075f23a06ebce28f538c2a693dd4945bef0a3d8ac
   modifiedMeshList: []
   modifiedMeshPaddingList: 
   modifiedAssets:
@@ -594,6 +595,12 @@ MonoBehaviour:
     - AntihistamineBox
     padding: 000100009a000000
     unwrapper: 0000000000000000
+  - meshName:
+    - MinuteHand
+    - ClockBase
+    - MinuteHand.001
+    padding: 00010000fc00000000010000
+    unwrapper: 000000000000000000000000
   assetList:
   - Assets/Bakery/examples/content/sponza/bush.FBX
   - Assets/Bakery/examples/content/floor_lamp.FBX
@@ -614,7 +621,8 @@ MonoBehaviour:
   - Assets/ArtAssets/Models/Car.fbx
   - Assets/ArtAssets/Models/EOTMFrame.fbx
   - Assets/ArtAssets/Models/SatelliteDish.fbx
-  uvOverlapAssetList: 00000000ffffffff0000000000000000010100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  - Assets/ArtAssets/Models/Tasklist.fbx
+  uvOverlapAssetList: 00000000ffffffff000000000000000001010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   xatlasWarningShown: 0
   foundCompatibleSetup: 1
   gpuName: NVIDIA GeForce RTX 3070
@@ -700,5 +708,5 @@ MonoBehaviour:
   renderSettingsRTPVSceneView: 0
   renderSettingsRTPVWidth: 640
   renderSettingsRTPVHeight: 360
-  modifiedMeshPaddingArray: 45000000
-  modifiedMeshUnwrapperArray: 00000000
+  modifiedMeshPaddingArray: 00010000fc00000000010000
+  modifiedMeshUnwrapperArray: 000000000000000000000000

@@ -14,6 +14,10 @@ public class Day1Outcomes : Outcomes
 
     [SerializeField] private GameObject taskUI;
 
+    [Header("Objects")]
+    [SerializeField] private Renderer TaskList;
+
+    [Header("Animators")]
     [SerializeField] private Animator signAnim;
     [SerializeField] private Animator binAnim;
     [SerializeField] private Animator phoneAnim;
@@ -22,7 +26,7 @@ public class Day1Outcomes : Outcomes
     private Animator scoopAnimator;
 
 
-
+    
     // The items that will appear in the players hand. They are seperate to the object the player interacts with to begin the task
     // Instead they are attached to the camera or player (depending on whether or not they should follow where the player looks)
     [Header("Hand Items")]
@@ -55,6 +59,12 @@ public class Day1Outcomes : Outcomes
     [SerializeField] private Material VacuumMat;
     [SerializeField] private Material ScooperMat;
     [SerializeField] private Material CupMat;
+
+    [Header("Task Board Materials")]
+    [SerializeField] private Material Taskboard1stTaskDoneMat;
+    [SerializeField] private Material Taskboard2ndTaskDoneMat;
+    [SerializeField] private Material Taskboard3rdTaskDoneMat;
+    [SerializeField] private Material Taskboard4thTaskDoneMat;
 
     // Start is called before the first frame update
     void Start()
@@ -98,11 +108,14 @@ public class Day1Outcomes : Outcomes
                 }
                 // activate task board task
                 tm.ActivateTask(2);
-                // flip sign model here
+                
 
                 // player allergies begin to react - do thing here
                 cameraEffects.StartDistort();
                 cameraEffects.TimeTrigger();
+
+                
+
                 break;
             case 2:
                 // player grabbed antihistamenes for their allergies
@@ -116,6 +129,7 @@ public class Day1Outcomes : Outcomes
             case 3:
                 // player interacted with task board; populate task list
                 tm.ActivateTask(4);
+                TaskList.material = Taskboard1stTaskDoneMat;
                 break;
             case 4:
                 // player grabs vacuum cleaner, populate list with hair cleaning tasks
@@ -147,7 +161,7 @@ public class Day1Outcomes : Outcomes
             case 6:
                 // prompt player to check taskboard again
                 tm.ActivateTask(6);
-
+                
                 //turns off vacuum in players hand
                 Vacuum.SetActive(false);
 
@@ -160,6 +174,7 @@ public class Day1Outcomes : Outcomes
             case 7:
                 // prompt player to grab poop scooper
                 tm.ActivateTask(7);
+                TaskList.material = Taskboard2ndTaskDoneMat;
                 break;
             case 8:
                 //player picked up scooper
@@ -194,7 +209,7 @@ public class Day1Outcomes : Outcomes
                     binAnim.SetTrigger("LidSpin");
                 }
 
-                Debug.Log("Bruh");
+                Debug.Log("The lid spins.");
                 PoopParent.SetActive(false);
                 tm.ActivateTask(9);
 
@@ -219,11 +234,13 @@ public class Day1Outcomes : Outcomes
                     renderer.material = ScooperMat;
                 }
 
+                
                 break;
 
             case 11:
                 //prompt player to collect dishes
                 tm.ActivateGroup(2);
+                TaskList.material = Taskboard3rdTaskDoneMat;
                 break;
             case 12:
                 //player collected dishes
@@ -248,7 +265,7 @@ public class Day1Outcomes : Outcomes
                 {                    
                     renderer.material = CupMat;
                 }
-
+                
                 CupsParent.SetActive(false);
                 break;
             case 14:
