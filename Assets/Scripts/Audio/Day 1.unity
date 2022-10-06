@@ -53181,6 +53181,8 @@ MonoBehaviour:
   VacuumMat: {fileID: 2100000, guid: 52f2f2148386f9740973139f6c92d712, type: 2}
   ScooperMat: {fileID: 2100000, guid: 4a4c54ecd6951c749b988cfe2a2c33ae, type: 2}
   CupMat: {fileID: 2100000, guid: f39ddf3643a9535409ea53b561fac941, type: 2}
+  musicTargetPitch: 1
+  pitchSlideTime: 0
 --- !u!114 &1270610830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85138,6 +85140,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BackgroundMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 1203061009394824793, guid: e60054c9159124b458a96b25b79dbcb6,
+        type: 3}
+      propertyPath: m_TagString
+      value: BGM
       objectReference: {fileID: 0}
     - target: {fileID: 1203061009394824795, guid: e60054c9159124b458a96b25b79dbcb6,
         type: 3}

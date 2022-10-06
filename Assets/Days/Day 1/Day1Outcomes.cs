@@ -51,6 +51,10 @@ public class Day1Outcomes : Outcomes
     [SerializeField] private Material ScooperMat;
     [SerializeField] private Material CupMat;
 
+    private AudioSource bgm;
+    [SerializeField] private float musicTargetPitch = 1f;
+    [SerializeField] private float pitchSlideTime = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +62,8 @@ public class Day1Outcomes : Outcomes
         dm = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
         tm = GetComponent<TaskManager>();
         cameraEffects = GetComponent<MedsEffects>();
+        bgm = GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>();
+        if (bgm) StartCoroutine(PitchSlide(bgm, musicTargetPitch, pitchSlideTime));
     }
 
     // Update is called once per frame

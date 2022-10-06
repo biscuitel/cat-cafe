@@ -50,6 +50,10 @@ public class Day2Outcomes : Outcomes
     [SerializeField] private Material ScooperMat;
     [SerializeField] private Material CupMat;
 
+    private AudioSource bgm;
+    [SerializeField] private float musicTargetPitch = 1f;
+    [SerializeField] private float pitchSlideTime = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +63,8 @@ public class Day2Outcomes : Outcomes
         cameraEffects = GetComponent<MedsEffects>();
         // have allergies use time instead of manual trigger by default
         cameraEffects.TimeTrigger();
+        bgm = GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>();
+        if (bgm) StartCoroutine(PitchSlide(bgm, musicTargetPitch, pitchSlideTime));
     }
 
     // Update is called once per frame
