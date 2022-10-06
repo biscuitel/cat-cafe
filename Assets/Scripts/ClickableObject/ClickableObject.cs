@@ -7,11 +7,13 @@ public class ClickableObject : MonoBehaviour
 
 
     private int raycastLayerMask;
-    [SerializeField] private float interactionRange = 10.0f;
+    private float interactionRange = 1.5f;
     private Camera cam;
     private Vector3 camPos;
     private AudioSource audioSource;
     private Graphic interactionCrosshair;
+    private GameObject obj;
+    [SerializeField] private ParticleSystem particles;
 
     private void Awake()
     {
@@ -33,7 +35,7 @@ public class ClickableObject : MonoBehaviour
 
         interactionCrosshair.color = new Color(interactionCrosshair.color.r, interactionCrosshair.color.g, interactionCrosshair.color.b, 0);
 
-
+        obj = this.gameObject;
 
     }
 
@@ -51,31 +53,30 @@ public class ClickableObject : MonoBehaviour
             camPos = cam.gameObject.transform.position;
 
         {
-            if (Vector3.Distance(this.transform.position, camPos) < 2)
+            if (Vector3.Distance(this.transform.position, camPos) < 3)
             {
+
                 Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
                 RaycastHit hit;
 
                 if (Physics.Raycast(ray, out hit, interactionRange, raycastLayerMask, QueryTriggerInteraction.Collide))
                 {
-                    interactionCrosshair.color = new Color(interactionCrosshair.color.r, interactionCrosshair.color.g, interactionCrosshair.color.b, 1);
+                    if (GameObject.ReferenceEquals(obj, hit.transform.gameObject))
+                    {                     
+                        if (Input.GetButtonDown("Interact"))
+                        {
+                            Debug.Log("Clickable object CLICKED!!!?????");
 
-                    if (Input.GetButtonDown("Interact"))
-                    {
-                        Debug.Log("Clickable object CLICKED!!!?????");
-                        if (audioSource) audioSource.Play();
-                        hit.transform.GetComponent<Animator>().SetTrigger("Interaction");
+                            if (audioSource) audioSource.Play();
 
-                    }
-                }
-                else
-                {
-                    interactionCrosshair.color = new Color(interactionCrosshair.color.r, interactionCrosshair.color.g, interactionCrosshair.color.b, 0);
+                            if (GetComponent<Animator>()) hit.transform.GetComponent<Animator>().SetTrigger("Interaction");
 
+                            if (particles) particles.Play();
+
+                        }
+                    } 
                 }
             }
-
-
-        }
+        }    
     }
 }
