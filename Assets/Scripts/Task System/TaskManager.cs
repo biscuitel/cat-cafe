@@ -137,7 +137,7 @@ public class TaskManager : MonoBehaviour
                     TaskBase task1 = list1[0];
                     TaskSO taskSO1 = task1 as TaskSO;
 
-                    sb.AppendLine(taskSO1.taskName + " " +  taskGroupSO.GetTaskList().Count + " to go...");
+                    sb.Append(taskSO1.taskDesc + " " +  taskGroupSO.GetTaskList().Count + " to go...");
                 }
             }
         }

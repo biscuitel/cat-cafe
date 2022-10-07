@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class MedsEffects : MonoBehaviour
 {
+    public GameObject PromptUI;
     [SerializeField] private VolumeProfile volumeProfile;
     private LensDistortion ld;
     private DepthOfField dof;
@@ -150,14 +151,14 @@ public class MedsEffects : MonoBehaviour
 
     }
 
-    private void ActivatePrompt()
+    public void ActivatePrompt()
     {
-        promptText.text = "Press Q to take an antihistamine.";
+        PromptUI.SetActive(true);
     }
 
-    private void DeactivatePrompt()
+    public void DeactivatePrompt()
     {
-        promptText.text = "";
+        PromptUI.SetActive(false);
     }
 
     IEnumerator Distort()

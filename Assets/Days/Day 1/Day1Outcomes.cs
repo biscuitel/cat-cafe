@@ -137,6 +137,8 @@ public class Day1Outcomes : Outcomes
                 cameraEffects.StartPromptTimer();
 
                 AntihistamineBox.SetActive(false);
+
+                cameraEffects.ActivatePrompt();
                 // revert effects and activate next task
                 tm.ActivateTask(3);
                 break;
