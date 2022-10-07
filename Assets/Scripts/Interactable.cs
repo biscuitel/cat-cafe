@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Interactable : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Interactable : MonoBehaviour
     private TaskManager taskManager;
     private DialogueTrigger dialogueTrigger;
     private bool interactedWith;
+    private Graphic interactionCrosshair;
 
     [SerializeField] private int taskID;
     [SerializeField] private bool deactivateAfterInteraction = false;
@@ -20,7 +22,7 @@ public class Interactable : MonoBehaviour
     [SerializeField] private bool toggleVisAfterInteraction = false;
 
     [SerializeField] private MeshRenderer[] meshes;
-
+     
 
     // max distance that player can interact from
     [SerializeField]  private float interactionRange = 10.0f;
@@ -36,6 +38,7 @@ public class Interactable : MonoBehaviour
         dialogueTrigger = this.GetComponent<DialogueTrigger>();
         meshes = this.GetComponentsInChildren<MeshRenderer>();
         interactedWith = false;
+        interactionCrosshair = GameObject.FindGameObjectWithTag("InteractionCrosshair").GetComponent<Graphic>();
     }
 
     // Update is called once per frame
@@ -60,6 +63,12 @@ public class Interactable : MonoBehaviour
             {
                 if (GameObject.ReferenceEquals(obj, hit.transform.gameObject))
                 {
+
+                    if (taskManager.CheckForTask(taskID))
+                    {
+                        interactionCrosshair.color = new Color(interactionCrosshair.color.r, interactionCrosshair.color.g, interactionCrosshair.color.b, 1);
+                    }
+
                     if (Input.GetButtonDown("Interact") && !interactedWith)
                     {
                         if (Interact())
@@ -89,6 +98,9 @@ public class Interactable : MonoBehaviour
                         }
                     }
                 }
+            } else
+            {
+                interactionCrosshair.color = new Color(interactionCrosshair.color.r, interactionCrosshair.color.g, interactionCrosshair.color.b, 0);
             }
         }
         
