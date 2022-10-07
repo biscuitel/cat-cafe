@@ -50299,6 +50299,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0988a1e8dad3d7743a6bbde1d1c41092, type: 3}
+--- !u!82 &1491008400938859280 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1204717013414632609, guid: 0988a1e8dad3d7743a6bbde1d1c41092,
+    type: 3}
+  m_PrefabInstance: {fileID: 1491008400938859279}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &1558358414168968151
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -101821,6 +101827,11 @@ PrefabInstance:
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 1853792123}
+    - target: {fileID: 6552089119340455818, guid: a77b9787b8ef97f4c830d96cfc0b3e38,
+        type: 3}
+      propertyPath: phoneAudioSource
+      value: 
+      objectReference: {fileID: 1491008400938859280}
     - target: {fileID: 6552089119340455819, guid: a77b9787b8ef97f4c830d96cfc0b3e38,
         type: 3}
       propertyPath: m_RootOrder

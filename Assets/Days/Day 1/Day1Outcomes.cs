@@ -123,11 +123,6 @@ public class Day1Outcomes : Outcomes
                 Vacuum.SetActive(true);
 
                 //turns the base vacuum off by going through each childs meshes are disabling the renderer
-                foreach (MeshRenderer renderer in BaseVacuum.GetComponentsInChildren<MeshRenderer>())
-                {
-                    renderer.enabled = false;
-                    
-                }
                 break;
             case 5:
                 // player cleaned (all) cat hair
@@ -151,7 +146,6 @@ public class Day1Outcomes : Outcomes
 
                 foreach (MeshRenderer renderer in BaseVacuum.GetComponentsInChildren<MeshRenderer>())
                 {
-                    renderer.enabled = true;
                     renderer.material = VacuumMat;
                 }
                 break;

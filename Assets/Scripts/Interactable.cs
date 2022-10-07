@@ -46,7 +46,6 @@ public class Interactable : MonoBehaviour
             audioRand = GetComponentInChildren<AudioRandomizer>();
             audioSource = GetComponentInChildren<AudioSource>();
         }
-        
     }
 
     // Update is called once per frame
@@ -92,7 +91,7 @@ public class Interactable : MonoBehaviour
                                 Debug.Log("toggled vis");
                                 ToggleVisibility();
                             }
-                            else if (deleteAfterInteraction)
+                            if (deleteAfterInteraction)
                             {
                                 Debug.Log("destroyed");
                                 Destroy(gameObject);
@@ -121,8 +120,10 @@ public class Interactable : MonoBehaviour
     {
         if (meshes != null)
         {
+            Debug.Log("lmao");
             foreach (MeshRenderer renderer in meshes)
             {
+                Debug.Log("renderer enabled = " + renderer.enabled);
                 renderer.enabled = !renderer.enabled;
             }
         }

@@ -82,7 +82,7 @@ MonoBehaviour:
   taskID: 5
   deactivateAfterInteraction: 0
   deleteAfterInteraction: 0
-  toggleVisAfterInteraction: 1
+  toggleVisAfterInteraction: 0
   meshes: []
   audioRand: {fileID: 0}
   audioSource: {fileID: 0}
@@ -127,7 +127,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -8510566945205667914, guid: c223fec2a03f2614abe26b88e7224690,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 87ff6b94de99b1744bc8ea5b3bc38243, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
