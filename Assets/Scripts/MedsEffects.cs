@@ -15,6 +15,7 @@ public class MedsEffects : MonoBehaviour
     private Vignette vignette;
     private Bloom bloom;
     private ColorAdjustments colorAdjustments;
+    private PlayerMovement pm;
 
     [SerializeField] private float triggerTime = 45f;
     [SerializeField] private float timeElapsed = 0f;
@@ -36,6 +37,9 @@ public class MedsEffects : MonoBehaviour
     [SerializeField] private float hueShift = -55f;
     [SerializeField] private float saturation = 45f;
 
+    [SerializeField] private float minSpeed = 1f;
+    private float normalSpeed;
+
     [SerializeField] private Animator pillAnimator;
 
     public Text promptText;
@@ -45,6 +49,8 @@ public class MedsEffects : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+
         // get postprocess volume and associated override properties
         volumeProfile = GameObject.FindGameObjectWithTag("PostProcessVolume").GetComponent<Volume>().profile;
         volumeProfile.TryGet<LensDistortion>(out ld);
@@ -66,6 +72,9 @@ public class MedsEffects : MonoBehaviour
         colorAdjustments.contrast.Override(0f);
         colorAdjustments.hueShift.Override(0f);
         colorAdjustments.saturation.Override(0f);
+
+        pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        normalSpeed = pm.moveSpeed;
     }
 
     // Update is called once per frame
@@ -163,6 +172,8 @@ public class MedsEffects : MonoBehaviour
         float currVignette = vignette.intensity.value;
         float currBloom = bloom.intensity.value;
 
+        float currMoveSpeed = pm.moveSpeed;
+
         float elapsed = 0f;
         while (elapsed <= distortTime)
         {
@@ -174,6 +185,7 @@ public class MedsEffects : MonoBehaviour
             vignette.intensity.Override(Mathf.Lerp(currVignette, maxVignetteIntensity, elapsed / distortTime));
             bloom.intensity.Override(Mathf.Lerp(currBloom, maxBloomIntensity, elapsed / distortTime));
 
+            pm.moveSpeed = Mathf.Lerp(currMoveSpeed, minSpeed, elapsed / distortTime);
             /*colorAdjustments.postExposure.Override(Mathf.Lerp(0f, postExposure, elapsed / distortTime));
             colorAdjustments.contrast.Override(Mathf.Lerp(0f, contrast, elapsed / distortTime));
             colorAdjustments.hueShift.Override(Mathf.Lerp(0f, hueShift, elapsed / distortTime));
@@ -193,6 +205,7 @@ public class MedsEffects : MonoBehaviour
         float currPanini = paniniProj.distance.value;
         float currVignette = vignette.intensity.value;
         float currBloom = bloom.intensity.value;
+        float currMoveSpeed = pm.moveSpeed;
 
         while (elapsed <= distortTime)
         {
@@ -204,6 +217,7 @@ public class MedsEffects : MonoBehaviour
             vignette.intensity.Override(Mathf.Lerp(currVignette, 0f, elapsed / distortTime));
             bloom.intensity.Override(Mathf.Lerp(currBloom, minBloomIntensity, elapsed / distortTime));
 
+            pm.moveSpeed = Mathf.Lerp(currMoveSpeed, normalSpeed, elapsed / distortTime);
             /*colorAdjustments.postExposure.Override(Mathf.Lerp(postExposure, 0f, elapsed / distortTime));
             colorAdjustments.contrast.Override(Mathf.Lerp(contrast, 0f, elapsed / distortTime));
             colorAdjustments.hueShift.Override(Mathf.Lerp(hueShift, 0f, elapsed / distortTime));
