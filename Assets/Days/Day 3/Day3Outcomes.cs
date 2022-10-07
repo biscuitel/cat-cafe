@@ -15,7 +15,7 @@ public class Day3Outcomes : Outcomes
     [SerializeField] private Animator vacuumAnim;
     [SerializeField] private Animator signAnim;
     [SerializeField] private Animator binAnim;
-    [SerializeField] private Animator phone3Anim;
+    [SerializeField] private Animator phoneAnim;
     [SerializeField] private Animator scoophitAnim;
 
     [SerializeField] private GameObject warpTrigger;
@@ -85,10 +85,10 @@ public class Day3Outcomes : Outcomes
             case 0:
                 // player interacted with phone, initial conversation on day 1 is handled by dialoguemanager
                 // activate next task
-                if (phone3Anim)
+                if (phoneAnim)
                 {
                     //phoneAnim.SetBool("StartAnimation", true);
-                    phone3Anim.SetTrigger("phoneoff");
+                    phoneAnim.SetTrigger("phoneoff");
                 }
                 tm.ActivateTask(1);
                 break;
@@ -100,13 +100,35 @@ public class Day3Outcomes : Outcomes
                     signAnim.SetTrigger("TriggerAnimation");
                 }
                 // activate task board task
-                tm.ActivateTask(2);
 
-                WindowCatsParent.SetActive(true);
+
+
+                // player allergies begin to react - do thing here
+                cameraEffects.StartDistort();
+                cameraEffects.TimeTrigger();
+
+                if (cameraEffects.HasMeds())
+                {
+                    tm.ActivateTask(3);
+                    cameraEffects.StartPromptTimer();
+                }
+                else
+                {
+                    tm.ActivateTask(2);
+                }
+
+                tm.DeactivateTask(100);
+                break;
+            //20 is the task that is always active in the background so that the player can pick up the antihistmines at any time before the task telling them to do so.
+            case 100:
+                cameraEffects.SetHasMeds(true);
+                AntihistamineBox.SetActive(false);
                 break;
             case 2:
-                // player grabbed antihistamenes for their allergies
+                // player grabbed antihistamines for their allergies
                 cameraEffects.SetHasMeds(true);
+                cameraEffects.StartPromptTimer();
+
                 AntihistamineBox.SetActive(false);
                 // revert effects and activate next task
                 tm.ActivateTask(3);

@@ -111,6 +111,8 @@ public class TaskManager : MonoBehaviour
         StringBuilder sb = new StringBuilder();
         GetAllTaskText(taskList, ref sb);
         taskText.text = sb.ToString();
+        
+        
     }
 
     // iterates over task list, and recursively calls itself for groups of tasks
@@ -145,8 +147,10 @@ public class TaskManager : MonoBehaviour
     void GetTaskText(TaskSO task, ref StringBuilder sb)
     {
         //sb.AppendLine("ID: " + task.taskID + " - " + task.taskName);
-        sb.AppendLine(task.taskName + task.taskDesc);
-        sb.AppendLine();
+
+        
+        sb.Append(task.taskName + task.taskDesc);
+        //sb.AppendLine();
     }
 
     void ToJson(List<TaskBase> taskList, ref StringBuilder sb, string fileName)
@@ -203,6 +207,22 @@ public class TaskManager : MonoBehaviour
                 {
                     taskList.Add(task);
                     reserveTaskList.Remove(task);
+                    break;
+                }
+            }
+        }
+    }
+    public void DeactivateTask(int taskID)
+    {
+        foreach (TaskBase task in taskList)
+        {
+            TaskSO taskSO = task as TaskSO;
+            if (taskSO != null)
+            {
+                if (taskSO.taskID == taskID)
+                {
+                    taskList.Remove(task);
+                    
                     break;
                 }
             }

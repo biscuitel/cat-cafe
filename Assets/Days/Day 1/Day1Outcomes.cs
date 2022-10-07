@@ -107,14 +107,29 @@ public class Day1Outcomes : Outcomes
                     signAnim.SetTrigger("TriggerAnimation");
                 }
                 // activate task board task
-                tm.ActivateTask(2);
+                
                 
 
                 // player allergies begin to react - do thing here
                 cameraEffects.StartDistort();
                 cameraEffects.TimeTrigger();
-                
 
+                if (cameraEffects.HasMeds())
+                {
+                    tm.ActivateTask(3);
+                    cameraEffects.StartPromptTimer();
+                } 
+                else
+                {
+                    tm.ActivateTask(2);
+                }
+
+                tm.DeactivateTask(100);
+                break;
+                //20 is the task that is always active in the background so that the player can pick up the antihistmines at any time before the task telling them to do so.
+            case 100:
+                cameraEffects.SetHasMeds(true);
+                AntihistamineBox.SetActive(false);
                 break;
             case 2:
                 // player grabbed antihistamenes for their allergies

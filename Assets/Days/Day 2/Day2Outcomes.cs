@@ -101,25 +101,43 @@ public class Day2Outcomes : Outcomes
                 break;
             case 1:
                 // player flipped sign to "closed" on front door
-                
-
                 if (signAnim)
                 {
                     //signAnim.SetBool("StartAnimation", true);
                     signAnim.SetTrigger("TriggerAnimation");
                 }
-                // activate task board task
-                tm.ActivateTask(2);
-                // flip sign model here
+                
+                // player allergies begin to react - do thing here
+                cameraEffects.StartDistort();
+                cameraEffects.TimeTrigger();
 
+                if (cameraEffects.HasMeds())
+                {
+                    tm.ActivateTask(3);
+                    cameraEffects.StartPromptTimer();
+                }
+                else
+                {
+                    tm.ActivateTask(2);
+                    
+                }
+
+                tm.DeactivateTask(100);
+                
+                break;
+            //20 is the task that is always active in the background so that the player can pick up the antihistmines at any time before the task telling them to do so.
+            case 100:
+                cameraEffects.SetHasMeds(true);
+                AntihistamineBox.SetActive(false);
+                
                 break;
             case 2:
                 // player grabbed antihistamenes for their allergies
                 cameraEffects.SetHasMeds(true);
-
-                // revert effects and activate next task
+                cameraEffects.StartPromptTimer();
 
                 AntihistamineBox.SetActive(false);
+                // revert effects and activate next task
                 tm.ActivateTask(3);
                 break;
             case 3:
