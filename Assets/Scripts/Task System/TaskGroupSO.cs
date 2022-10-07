@@ -62,6 +62,36 @@ public class TaskGroupSO : TaskBase
         return returnVal;
     }
 
+    public bool CheckForTask(int taskID)
+    {
+        bool returnVal = false;
+        foreach (TaskBase task in taskGroup)
+        {
+            TaskSO taskSO = task as TaskSO;
+            if (taskSO != null)
+            {
+                if (taskSO.taskID == taskID)
+                {
+                    returnVal = true;
+                    break;
+                }
+            }
+            else
+            {
+                // else if current task is a group of tasks
+                // call this current function from that group, passing the task ID
+                TaskGroupSO taskGroupSO = task as TaskGroupSO;
+                if (taskGroupSO != null)
+                {
+                    returnVal = taskGroupSO.CheckForTask(taskID);
+                    break;
+                }
+            }
+        }
+
+        return returnVal;
+    }
+
     public bool IsGroupCompleted()
     {
         // if group is empty, all tasks in group have been completed

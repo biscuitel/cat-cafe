@@ -113,7 +113,6 @@ public class Day1Outcomes : Outcomes
                 // player allergies begin to react - do thing here
                 cameraEffects.StartDistort();
                 cameraEffects.TimeTrigger();
-
                 
 
                 break;

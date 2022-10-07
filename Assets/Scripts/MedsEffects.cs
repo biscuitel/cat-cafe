@@ -223,4 +223,9 @@ public class MedsEffects : MonoBehaviour
         this.hasMeds = hasMeds;
         if (active) StartPromptTimer();
     }
+
+    public bool HasMeds()
+    {
+        return hasMeds;
+    }
 }

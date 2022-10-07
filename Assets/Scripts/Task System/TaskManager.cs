@@ -243,4 +243,33 @@ public class TaskManager : MonoBehaviour
         outcomesScript.Outcome(outcomeID);
     }
 
+    public bool CheckForTask(int taskID)
+    {
+        bool returnVal = false;
+        foreach (TaskBase task in taskList)
+        {
+            TaskSO taskSO = task as TaskSO;
+            if (taskSO != null)
+            {
+                if (taskSO.taskID == taskID)
+                {
+                    returnVal = true;
+                    break;
+                }
+            }
+            else
+            {
+                // else if current task is a group of tasks
+                // call this current function from that group, passing the task ID
+                TaskGroupSO taskGroupSO = task as TaskGroupSO;
+                if (taskGroupSO != null)
+                {
+                    returnVal = taskGroupSO.CheckForTask(taskID);
+                    break;
+                }
+            }
+        }
+        return returnVal;
+    }
+
 }
