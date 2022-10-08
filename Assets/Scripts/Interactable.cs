@@ -61,30 +61,25 @@ public class Interactable : MonoBehaviour
         */
 
 
-        if (playerInTrigger)
-        {
             // get camera center
             Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 
             // draw line of raycast for debugging purposes
-            Debug.DrawLine(ray.origin, ray.origin + ray.direction * interactionRange, Color.yellow, 5f);
+            Debug.DrawLine(ray.origin, ray.origin + ray.direction * 1.5f, Color.yellow, 5f);
 
             // cast ray from camera center, if hits this object then interact with it
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, interactionRange, raycastLayerMask, QueryTriggerInteraction.Collide))
+            if (Physics.Raycast(ray, out hit, 1.5f, raycastLayerMask, QueryTriggerInteraction.Collide))
             {
                 if (GameObject.ReferenceEquals(obj, hit.transform.gameObject))
                 {
-
                     if (taskManager.CheckForTask(taskID))
                     {
                         interactionCrosshair.color = new Color(interactionCrosshair.color.r, interactionCrosshair.color.g, interactionCrosshair.color.b, 1);
                     }
-                    
-
+         
                     if (Input.GetButtonDown("Interact") && !interactedWith)
-                    {
-                        
+                    {                       
                         if (Interact())
                         {
                             interactionCrosshair.color = new Color(interactionCrosshair.color.r, interactionCrosshair.color.g, interactionCrosshair.color.b, 0);
@@ -113,17 +108,12 @@ public class Interactable : MonoBehaviour
                         }
                     }
                 }
-                else
-                {
-                    interactionCrosshair.color = new Color(interactionCrosshair.color.r, interactionCrosshair.color.g, interactionCrosshair.color.b, 0);
-                }
+             
 
             }
-            else
-            {
-                interactionCrosshair.color = new Color(interactionCrosshair.color.r, interactionCrosshair.color.g, interactionCrosshair.color.b, 0);
-            }
-
+        else
+        {
+            interactionCrosshair.color = new Color(interactionCrosshair.color.r, interactionCrosshair.color.g, interactionCrosshair.color.b, 0);
         }
 
     }

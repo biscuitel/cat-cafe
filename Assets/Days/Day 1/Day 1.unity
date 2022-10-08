@@ -1195,7 +1195,7 @@ Transform:
   m_LocalPosition: {x: -19.08263, y: -4.6823177, z: 4.5496793}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1648126301}
+  - {fileID: 459626447}
   - {fileID: 1997492555}
   - {fileID: 1922768642}
   - {fileID: 1962088206}
@@ -7478,7 +7478,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 256361994}
-  - component: {fileID: 256361996}
   - component: {fileID: 256361995}
   m_Layer: 9
   m_Name: Hairball (2)
@@ -7521,19 +7520,6 @@ MonoBehaviour:
   toggleVisAfterInteraction: 0
   meshes: []
   interactionRange: 10
---- !u!65 &256361996
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 256361993}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.3101282, y: 2, z: 2.9069648}
-  m_Center: {x: 0.4050641, y: 0, z: 0.7034824}
 --- !u!1 &257139512
 GameObject:
   m_ObjectHideFlags: 0
@@ -8178,7 +8164,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 305651183}
-  - component: {fileID: 305651186}
   - component: {fileID: 305651185}
   - component: {fileID: 305651184}
   m_Layer: 9
@@ -8241,19 +8226,6 @@ MonoBehaviour:
   toggleVisAfterInteraction: 1
   meshes: []
   interactionRange: 15
---- !u!65 &305651186
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 305651182}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.5470593, y: 3.3900578, z: 3.7020555}
-  m_Center: {x: -0.99548954, y: -0.03286291, z: -0.13833316}
 --- !u!1 &318796403
 GameObject:
   m_ObjectHideFlags: 0
@@ -8660,7 +8632,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 346201166}
-  - component: {fileID: 346201168}
   - component: {fileID: 346201167}
   m_Layer: 9
   m_Name: Hairball (1)
@@ -8703,19 +8674,6 @@ MonoBehaviour:
   toggleVisAfterInteraction: 0
   meshes: []
   interactionRange: 10
---- !u!65 &346201168
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 346201165}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.047532, y: 2, z: 3.6228666}
-  m_Center: {x: -0.27376604, y: 0, z: 0.06026125}
 --- !u!1 &350128767
 GameObject:
   m_ObjectHideFlags: 0
@@ -10899,7 +10857,6 @@ GameObject:
   - component: {fileID: 459626447}
   - component: {fileID: 459626446}
   - component: {fileID: 459626448}
-  - component: {fileID: 459626449}
   m_Layer: 9
   m_Name: Open/Closed Sign Animated
   m_TagString: Untagged
@@ -10934,14 +10891,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459626445}
   m_LocalRotation: {x: -0, y: -0.059535544, z: -0, w: 0.9982262}
-  m_LocalPosition: {x: 12.829331, y: 1.13155, z: -2.333}
+  m_LocalPosition: {x: 31.91196, y: 5.8138676, z: -6.882679}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6587531733204112222}
   - {fileID: 3613514054518060271}
   - {fileID: 1698368633201748451}
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_Father: {fileID: 44548593}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -6.826, z: 0}
 --- !u!114 &459626448
 MonoBehaviour:
@@ -10962,19 +10919,6 @@ MonoBehaviour:
   toggleVisAfterInteraction: 0
   meshes: []
   interactionRange: 10
---- !u!65 &459626449
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 459626445}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.7161933, y: 1.6996636, z: 1.6831143}
-  m_Center: {x: -0.585007, y: -0.34983182, z: 0.9423299}
 --- !u!4 &461343881 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9182561676091612493, guid: 007ada2c313eed64580fcec03ddb3a4e,
@@ -11264,7 +11208,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 466693312}
-  - component: {fileID: 466693314}
   - component: {fileID: 466693313}
   m_Layer: 9
   m_Name: Hairball (3)
@@ -11307,19 +11250,6 @@ MonoBehaviour:
   toggleVisAfterInteraction: 0
   meshes: []
   interactionRange: 10
---- !u!65 &466693314
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 466693311}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.1850138, y: 2, z: 3.0945895}
-  m_Center: {x: 1.1848936, y: 0, z: -0.34001362}
 --- !u!1 &468648379
 GameObject:
   m_ObjectHideFlags: 0
@@ -11845,7 +11775,6 @@ GameObject:
   m_Component:
   - component: {fileID: 480357286}
   - component: {fileID: 480357288}
-  - component: {fileID: 480357287}
   m_Layer: 9
   m_Name: CoffeeMug (1)
   m_TagString: Untagged
@@ -11868,19 +11797,6 @@ Transform:
   m_Father: {fileID: 1271154451}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -71.297005, z: 0}
---- !u!65 &480357287
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480357285}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.5365815, y: 1.9905279, z: 3.4969683}
-  m_Center: {x: 0.41591835, y: 0.49526393, z: 0.09512854}
 --- !u!114 &480357288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17032,7 +16948,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &486564440
 GameObject:
@@ -17442,7 +17358,6 @@ GameObject:
   m_Component:
   - component: {fileID: 507221604}
   - component: {fileID: 507221606}
-  - component: {fileID: 507221605}
   m_Layer: 9
   m_Name: CoffeeMug
   m_TagString: Untagged
@@ -17465,19 +17380,6 @@ Transform:
   m_Father: {fileID: 1271154451}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &507221605
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 507221603}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.3771682, y: 1.5799506, z: 2.3479881}
-  m_Center: {x: -0.1637876, y: 0.2899753, z: -0.47936153}
 --- !u!114 &507221606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27645,141 +27547,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1001 &761713030
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1648126301}
-    m_Modifications:
-    - target: {fileID: 3459834934447910811, guid: 33fa1c0aedbf4f34aaf91460cc29c37f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547662046872090344, guid: 33fa1c0aedbf4f34aaf91460cc29c37f,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547662046872090344, guid: 33fa1c0aedbf4f34aaf91460cc29c37f,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.1871454
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547662046872090344, guid: 33fa1c0aedbf4f34aaf91460cc29c37f,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.1871454
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547662046872090344, guid: 33fa1c0aedbf4f34aaf91460cc29c37f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.22900009
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547662046872090344, guid: 33fa1c0aedbf4f34aaf91460cc29c37f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.232
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547662046872090344, guid: 33fa1c0aedbf4f34aaf91460cc29c37f,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.39599955
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547662046872090344, guid: 33fa1c0aedbf4f34aaf91460cc29c37f,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.99796784
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547662046872090344, guid: 33fa1c0aedbf4f34aaf91460cc29c37f,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547662046872090344, guid: 33fa1c0aedbf4f34aaf91460cc29c37f,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.06371965
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547662046872090344, guid: 33fa1c0aedbf4f34aaf91460cc29c37f,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547662046872090344, guid: 33fa1c0aedbf4f34aaf91460cc29c37f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547662046872090344, guid: 33fa1c0aedbf4f34aaf91460cc29c37f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -7.307
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547662046872090344, guid: 33fa1c0aedbf4f34aaf91460cc29c37f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4210869471096761426, guid: 33fa1c0aedbf4f34aaf91460cc29c37f,
-        type: 3}
-      propertyPath: m_Name
-      value: OpenSign
-      objectReference: {fileID: 0}
-    - target: {fileID: 4210869471096761426, guid: 33fa1c0aedbf4f34aaf91460cc29c37f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7675761395180810477, guid: 33fa1c0aedbf4f34aaf91460cc29c37f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 33fa1c0aedbf4f34aaf91460cc29c37f, type: 3}
---- !u!4 &761713031 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3547662046872090344, guid: 33fa1c0aedbf4f34aaf91460cc29c37f,
-    type: 3}
-  m_PrefabInstance: {fileID: 761713030}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &761713032 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4210869471096761426, guid: 33fa1c0aedbf4f34aaf91460cc29c37f,
-    type: 3}
-  m_PrefabInstance: {fileID: 761713030}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &761713033
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 761713032}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.9401321, y: 3.0830305, z: 1.2562658}
-  m_Center: {x: 0.014309607, y: 0.33492133, z: -0.06897444}
---- !u!54 &761713034
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 761713032}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 3
 --- !u!1 &763005673
 GameObject:
   m_ObjectHideFlags: 0
@@ -33124,7 +32891,6 @@ GameObject:
   m_Component:
   - component: {fileID: 798599553}
   - component: {fileID: 798599555}
-  - component: {fileID: 798599554}
   m_Layer: 9
   m_Name: CoffeeMug (2)
   m_TagString: Untagged
@@ -33147,19 +32913,6 @@ Transform:
   m_Father: {fileID: 1271154451}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 121.21001, z: 0}
---- !u!65 &798599554
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 798599552}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.5522547, y: 1.5799506, z: 3.364664}
-  m_Center: {x: -0.3488054, y: 0.2899753, z: 0.5997168}
 --- !u!114 &798599555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34482,11 +34235,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 843733010}
-  - component: {fileID: 843733013}
   - component: {fileID: 843733012}
   - component: {fileID: 843733011}
   m_Layer: 9
-  m_Name: Phone (1)
+  m_Name: Phone
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34539,19 +34291,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueIndex: 0
---- !u!65 &843733013
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843733009}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.6668558, y: 2.3933668, z: 1.6341766}
-  m_Center: {x: -1.3744634, y: 0.39672375, z: 1.2114284}
 --- !u!1 &845888222
 GameObject:
   m_ObjectHideFlags: 0
@@ -35140,7 +34879,7 @@ Transform:
   - {fileID: 942187570}
   - {fileID: 1578108483}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &865894091
 GameObject:
@@ -48561,7 +48300,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 985044149}
-  - component: {fileID: 985044151}
   - component: {fileID: 985044150}
   m_Layer: 9
   m_Name: CatPoo1
@@ -48604,19 +48342,6 @@ MonoBehaviour:
   toggleVisAfterInteraction: 0
   meshes: []
   interactionRange: 15
---- !u!65 &985044151
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 985044148}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.9013944, y: 2.460988, z: 3.0413218}
-  m_Center: {x: -0.91985154, y: 1.0738907, z: -1.0206609}
 --- !u!43 &986830461
 Mesh:
   m_ObjectHideFlags: 0
@@ -49604,7 +49329,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1011353004}
-  - component: {fileID: 1011353003}
   - component: {fileID: 1011353002}
   m_Layer: 9
   m_Name: Bin
@@ -49632,19 +49356,6 @@ MonoBehaviour:
   toggleVisAfterInteraction: 0
   meshes: []
   interactionRange: 10
---- !u!65 &1011353003
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1011353001}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.5842562, y: 2.2433174, z: 2.8551722}
-  m_Center: {x: -0.08289003, y: 0.6216587, z: -0.9275861}
 --- !u!4 &1011353004
 Transform:
   m_ObjectHideFlags: 0
@@ -50364,7 +50075,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1056675998}
-  - component: {fileID: 1056676000}
   - component: {fileID: 1056675999}
   m_Layer: 9
   m_Name: LightSwitch
@@ -50407,19 +50117,6 @@ MonoBehaviour:
   toggleVisAfterInteraction: 0
   meshes: []
   interactionRange: 15
---- !u!65 &1056676000
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1056675997}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.3637562, y: 2.5406532, z: 2.0892346}
-  m_Center: {x: -0.6818781, y: -0.044461966, z: 0.9288416}
 --- !u!1 &1071152572
 GameObject:
   m_ObjectHideFlags: 0
@@ -57218,7 +56915,7 @@ MonoBehaviour:
   TaskList: {fileID: 1711813856104575664}
   signAnim: {fileID: 459626446}
   binAnim: {fileID: 845888224}
-  phoneAnim: {fileID: 0}
+  phoneAnim: {fileID: 1286940551}
   switchAnim: {fileID: 5066135464016476113}
   Vacuum: {fileID: 462683423}
   Scooper: {fileID: 1822276790}
@@ -65951,71 +65648,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647889144}
   m_Mesh: {fileID: 3847964600903405737, guid: 2f569fdf541f48141abe3dfaa446c2b6, type: 3}
---- !u!1 &1648126300
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1648126301}
-  - component: {fileID: 1648126303}
-  - component: {fileID: 1648126302}
-  m_Layer: 9
-  m_Name: Sign
-  m_TagString: Interactable
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1648126301
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1648126300}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 31.42663, y: 5.6963177, z: -6.25}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 761713031}
-  m_Father: {fileID: 44548593}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1648126302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1648126300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9554368b5463c742ae67b416a6cc91c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  taskID: 1
-  deactivateAfterInteraction: 0
-  deleteAfterInteraction: 0
-  destroyAfter: 0
-  toggleVisAfterInteraction: 0
-  meshes: []
-  interactionRange: 10
---- !u!65 &1648126303
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1648126300}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.7054596, y: 2, z: 1.5340106}
-  m_Center: {x: -0.1027298, y: 0, z: 0.017005324}
 --- !u!43 &1649640208
 Mesh:
   m_ObjectHideFlags: 0
@@ -68142,7 +67774,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1745091990}
-  - component: {fileID: 1745091992}
   - component: {fileID: 1745091991}
   m_Layer: 9
   m_Name: 'CatPoo3 '
@@ -68185,19 +67816,6 @@ MonoBehaviour:
   toggleVisAfterInteraction: 0
   meshes: []
   interactionRange: 15
---- !u!65 &1745091992
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1745091989}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.8252072, y: 1.6479475, z: 3.0830665}
-  m_Center: {x: -0.20681024, y: 0.73444474, z: -0.27077478}
 --- !u!1 &1747938836
 GameObject:
   m_ObjectHideFlags: 0
@@ -73762,7 +73380,7 @@ Transform:
   - {fileID: 334774390}
   - {fileID: 719548777}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1878721817
 MeshCollider:
@@ -74031,7 +73649,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1897327711}
-  - component: {fileID: 1897327713}
   - component: {fileID: 1897327712}
   m_Layer: 9
   m_Name: Sink
@@ -74074,19 +73691,6 @@ MonoBehaviour:
   toggleVisAfterInteraction: 0
   meshes: []
   interactionRange: 10
---- !u!65 &1897327713
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1897327710}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.345148, y: 2.1068578, z: 2.3660228}
-  m_Center: {x: -0.003680706, y: 0.5534289, z: 0.68301105}
 --- !u!1 &1898250315
 GameObject:
   m_ObjectHideFlags: 0
@@ -75435,7 +75039,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1922768642}
-  - component: {fileID: 1922768645}
   - component: {fileID: 1922768644}
   - component: {fileID: 1922768643}
   m_Layer: 9
@@ -75498,19 +75101,6 @@ MonoBehaviour:
   toggleVisAfterInteraction: 1
   meshes: []
   interactionRange: 10
---- !u!65 &1922768645
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1922768641}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.4213079, y: 2, z: 2.034657}
-  m_Center: {x: -1.1734576, y: 0, z: 0.98800397}
 --- !u!43 &1931767228
 Mesh:
   m_ObjectHideFlags: 0
@@ -78466,7 +78056,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1997492555}
-  - component: {fileID: 1997492557}
   - component: {fileID: 1997492556}
   - component: {fileID: 1997492559}
   - component: {fileID: 1997492558}
@@ -78511,19 +78100,6 @@ MonoBehaviour:
   toggleVisAfterInteraction: 0
   meshes: []
   interactionRange: 10
---- !u!65 &1997492557
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997492554}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.3064787, y: 2, z: 1.8364906}
-  m_Center: {x: 0.2759384, y: 0, z: -0.16824532}
 --- !u!114 &1997492558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80049,7 +79625,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2059197219}
-  - component: {fileID: 2059197221}
   - component: {fileID: 2059197220}
   m_Layer: 9
   m_Name: CatPoo2
@@ -80092,19 +79667,6 @@ MonoBehaviour:
   toggleVisAfterInteraction: 0
   meshes: []
   interactionRange: 15
---- !u!65 &2059197221
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2059197218}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.1297746, y: 2.1148398, z: 3.4144568}
-  m_Center: {x: -0.3590939, y: -0.059304595, z: -0.43646932}
 --- !u!1 &2062439781
 GameObject:
   m_ObjectHideFlags: 0
