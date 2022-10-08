@@ -44,11 +44,23 @@ public class Interactable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckForInteraction();
+        CheckForInteraction();        
     }
-
+   
     private void CheckForInteraction()
     {
+        /*
+        if (taskManager.CheckForTask(taskID) || taskID == 2)
+        {
+            GetComponent<BoxCollider>().enabled = true;
+        } 
+        else
+        {
+            GetComponent<BoxCollider>().enabled = false;
+        }
+        */
+
+
         if (playerInTrigger)
         {
             // get camera center
@@ -68,11 +80,14 @@ public class Interactable : MonoBehaviour
                     {
                         interactionCrosshair.color = new Color(interactionCrosshair.color.r, interactionCrosshair.color.g, interactionCrosshair.color.b, 1);
                     }
+                    
 
                     if (Input.GetButtonDown("Interact") && !interactedWith)
                     {
+                        
                         if (Interact())
                         {
+                            interactionCrosshair.color = new Color(interactionCrosshair.color.r, interactionCrosshair.color.g, interactionCrosshair.color.b, 0);
                             interactedWith = true;
                             Debug.Log("interaction happened and completed task");
                             if (dialogueTrigger != null)
@@ -98,12 +113,19 @@ public class Interactable : MonoBehaviour
                         }
                     }
                 }
-            } else
+                else
+                {
+                    interactionCrosshair.color = new Color(interactionCrosshair.color.r, interactionCrosshair.color.g, interactionCrosshair.color.b, 0);
+                }
+
+            }
+            else
             {
                 interactionCrosshair.color = new Color(interactionCrosshair.color.r, interactionCrosshair.color.g, interactionCrosshair.color.b, 0);
             }
+
         }
-        
+
     }
 
     private bool Interact()
