@@ -59734,7 +59734,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3840589194897246044}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: -0.000006228685}
-  m_LocalPosition: {x: 2.4649863, y: 0.037000004, z: 2.185501}
+  m_LocalPosition: {x: 2.4649863, y: 0.032, z: 2.185501}
   m_LocalScale: {x: 1, y: -0.039347127, z: 0.02571379}
   m_Children: []
   m_Father: {fileID: 4393346738813307828}
@@ -71844,7 +71844,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!23 &4393346737149632002
 MeshRenderer:
@@ -71858,8 +71858,8 @@ MeshRenderer:
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
