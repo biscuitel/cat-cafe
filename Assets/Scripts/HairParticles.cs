@@ -4,22 +4,34 @@ using UnityEngine;
 
 public class HairParticles : MonoBehaviour
 {
-    private ParticleSystem particles;
-    private GameObject particlesParent;
+    private ParticleSystem particlesH;
+    private ParticleSystem particlesP;
+    private GameObject particlesHair;
+    private GameObject particlesPoop;
+
+    [SerializeField] private bool playHair;
+    [SerializeField] private bool playPoop;
     void Start()
     {
-        particlesParent = GameObject.FindGameObjectWithTag("HairParticles");
-        particles = particlesParent.GetComponent<ParticleSystem>();
+        particlesHair = GameObject.FindGameObjectWithTag("HairParticles");
+        particlesH = particlesHair.GetComponent<ParticleSystem>();
+        particlesPoop = GameObject.FindGameObjectWithTag("PoopParticles");
+        particlesP = particlesPoop.GetComponent<ParticleSystem>();
     }
 
    
    
     private void OnDestroy()
     {
-        if (particlesParent)
+        if (particlesHair && playHair)
         {
-            particlesParent.transform.position = this.transform.position;
-            particles.Play();
+            particlesHair.transform.position = this.transform.position;
+            particlesH.Play();
+        }
+        if (particlesPoop && playPoop)
+        {
+            particlesPoop.transform.position = this.transform.position;
+            particlesP.Play();
         }
         
     }

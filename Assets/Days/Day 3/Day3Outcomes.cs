@@ -9,7 +9,7 @@ public class Day3Outcomes : Outcomes
     private TaskManager tm;
     private DialogueManager dm;
     private MedsEffects cameraEffects;
-    
+    private GameObject medsIcon;
 
     [SerializeField] private GameObject taskUI;
 
@@ -72,7 +72,8 @@ public class Day3Outcomes : Outcomes
         // have allergies use time instead of manual trigger by default
         cameraEffects.TimeTrigger();
         warpTrigger.SetActive(false);
-        
+
+        medsIcon = GameObject.FindGameObjectWithTag("MedsIcon");
     }
 
     // Update is called once per frame
@@ -239,6 +240,7 @@ public class Day3Outcomes : Outcomes
                 warpTrigger.SetActive(true);
 
                 taskUI.SetActive(false);
+                medsIcon.SetActive(false);
                 
                 
                 break;
@@ -269,8 +271,11 @@ public class Day3Outcomes : Outcomes
                 {
                     animator.SetBool("Open", true);
                 }
-                StartCoroutine(DelayLoadEnd(5f));
-                // player interacted with phone at end of corridor, do thing
+
+                //stops the player from taking pills during the animation
+                cameraEffects.controlsActive = false;
+                
+                StartCoroutine(DelayLoadEnd(9f));                
 
                 cameraParent.GetComponent<Animator>().enabled = true;
                 cameraParent.GetComponent<Animator>().Play("CameraFall");

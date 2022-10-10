@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class MedsEffects : MonoBehaviour
 {
+
+    [HideInInspector] public bool controlsActive;
+
     public GameObject PromptUI;
     [SerializeField] private VolumeProfile volumeProfile;
     private LensDistortion ld;
@@ -17,6 +20,8 @@ public class MedsEffects : MonoBehaviour
     private Bloom bloom;
     private ColorAdjustments colorAdjustments;
     private PlayerMovement pm;
+
+    private GameObject medsIcon;
 
     [SerializeField] private float triggerTime = 45f;
     [SerializeField] private float timeElapsed = 0f;
@@ -50,7 +55,8 @@ public class MedsEffects : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        controlsActive = true;
 
         // get postprocess volume and associated override properties
         volumeProfile = GameObject.FindGameObjectWithTag("PostProcessVolume").GetComponent<Volume>().profile;
@@ -76,6 +82,9 @@ public class MedsEffects : MonoBehaviour
 
         pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         normalSpeed = pm.moveSpeed;
+
+        medsIcon = GameObject.FindGameObjectWithTag("MedsIcon");
+        medsIcon.SetActive(false);
     }
 
     // Update is called once per frame
@@ -96,7 +105,7 @@ public class MedsEffects : MonoBehaviour
             }
             
         } else {
-            if (hasMeds && Input.GetButtonDown("TakeMeds")) {
+            if (hasMeds && Input.GetButtonDown("TakeMeds") && controlsActive == true) {
                 DeactivatePrompt();
                 StartUndistort();
                 pillAnimator.SetTrigger("PillSwallow");
@@ -237,6 +246,8 @@ public class MedsEffects : MonoBehaviour
     {
         this.hasMeds = hasMeds;
         if (active) StartPromptTimer();
+
+        medsIcon.SetActive(true);
     }
 
     public bool HasMeds()
