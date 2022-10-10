@@ -105,7 +105,7 @@ public class Day3Outcomes : Outcomes
                 }
                 // activate task board task
 
-
+                WindowCatsParent.SetActive(true);
 
                 // player allergies begin to react - do thing here
                 cameraEffects.StartDistort();
