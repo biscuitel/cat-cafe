@@ -9,6 +9,7 @@ public class Day3Outcomes : Outcomes
     private TaskManager tm;
     private DialogueManager dm;
     private MedsEffects cameraEffects;
+    
 
     [SerializeField] private GameObject taskUI;
 
@@ -24,7 +25,9 @@ public class Day3Outcomes : Outcomes
     [SerializeField] private GameObject BigButton;
     [SerializeField] private GameObject CatCagesParent;
     [SerializeField] private GameObject WindowCatsParent;
-    
+    [SerializeField] private GameObject cameraParent;
+
+
     [SerializeField] private Renderer TaskList;
 
     //the items that will appear in the players hand. They are seperate to the object the player interacts with to begin the task
@@ -69,6 +72,7 @@ public class Day3Outcomes : Outcomes
         // have allergies use time instead of manual trigger by default
         cameraEffects.TimeTrigger();
         warpTrigger.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -265,8 +269,15 @@ public class Day3Outcomes : Outcomes
                 {
                     animator.SetBool("Open", true);
                 }
-                StartCoroutine(DelayLoadEnd(3f));
+                StartCoroutine(DelayLoadEnd(5f));
                 // player interacted with phone at end of corridor, do thing
+
+                cameraParent.GetComponent<Animator>().enabled = true;
+                cameraParent.GetComponent<Animator>().Play("CameraFall");
+                cameraParent.transform.parent.GetComponent<PlayerMovement>().enabled = false;
+                cameraParent.transform.GetChild(0).GetComponent<MouseLook>().enabled = false;
+                
+
                 break;
 
             case -1:
