@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class MedsEffects : MonoBehaviour
 {
@@ -18,12 +19,14 @@ public class MedsEffects : MonoBehaviour
 
     [SerializeField] private float triggerTime = 45f;
     [SerializeField] private float timeElapsed = 0f;
+    private float loopTime = 0f;
     [SerializeField] private float promptTime = 5f;
     private bool useTime = false;
     private bool active = false;
     private bool hasMeds = false;
 
     [SerializeField] private float distortTime = 5f;
+    [SerializeField] private float persistentFXLoopTime = 5f;
     [SerializeField] private float maxLensDistortIntensity = -0.5f;
     [SerializeField] private float maxFocalLength = 20f;
     [SerializeField] private float maxChromaAberation = 0.15f;
@@ -35,6 +38,13 @@ public class MedsEffects : MonoBehaviour
     [SerializeField] private float contrast = 50f;
     [SerializeField] private float hueShift = -55f;
     [SerializeField] private float saturation = 45f;
+
+    [SerializeField] private AudioMixer audioMixer;
+    [SerializeField] private float LPCutoff = 960f;
+    [SerializeField] private float delayWet = 0.4f;
+    [SerializeField] private float chorusWet = 0.7f;
+    [SerializeField] private float pitchShift = 0.8f;
+    [SerializeField] private float reverbWet = 0.8f;
 
     [SerializeField] private Animator pillAnimator;
 
@@ -66,6 +76,8 @@ public class MedsEffects : MonoBehaviour
         colorAdjustments.contrast.Override(0f);
         colorAdjustments.hueShift.Override(0f);
         colorAdjustments.saturation.Override(0f);
+
+        audioMixer.FindSnapshot("No FX").TransitionTo(0f);
     }
 
     // Update is called once per frame
@@ -86,6 +98,22 @@ public class MedsEffects : MonoBehaviour
             }
             
         } else {
+
+            loopTime += Time.deltaTime;
+            if (loopTime >= persistentFXLoopTime)
+            {
+                loopTime = loopTime - persistentFXLoopTime;
+            }
+
+            float pitchLoop;
+            float chorusDepth;
+            Debug.Log(Mathf.Sin(2 * Mathf.PI * loopTime / persistentFXLoopTime));
+            
+            audioMixer.GetFloat("PitchShift", out pitchLoop);
+            //Debug.Log("pitchloop" + pitchLoop);
+            audioMixer.SetFloat("PitchShift", pitchLoop + (0.005f * Time.deltaTime * Mathf.Sin(2 * Mathf.PI * loopTime / persistentFXLoopTime)));
+            
+
             if (hasMeds && Input.GetButtonDown("TakeMeds")) {
                 DeactivatePrompt();
                 StartUndistort();
@@ -155,6 +183,7 @@ public class MedsEffects : MonoBehaviour
     {
         // activate desired overrides, and lerp to target values for postprocessing fx parameters
         ld.active = dof.active = chromaAb.active = paniniProj.active = vignette.active = colorAdjustments.active = true;
+        audioMixer.FindSnapshot("FX").TransitionTo(0f);
 
         float currDistort = ld.intensity.value;
         float currFocal = dof.focalLength.value;
@@ -163,21 +192,35 @@ public class MedsEffects : MonoBehaviour
         float currVignette = vignette.intensity.value;
         float currBloom = bloom.intensity.value;
 
+        float currChorusWet; audioMixer.GetFloat("ChorusWet1", out currChorusWet);
+        float currDelayWet; audioMixer.GetFloat("DelayWet", out currDelayWet);
+        float currLP; audioMixer.GetFloat("LPCutoff", out currLP);
+        float currPitch; audioMixer.GetFloat("PitchShift", out currPitch);
+        float currReverb; audioMixer.GetFloat("ReverbWet", out currReverb);
+
         float elapsed = 0f;
         while (elapsed <= distortTime)
         {
             elapsed += Time.deltaTime;
-            ld.intensity.Override(Mathf.Lerp(currDistort, maxLensDistortIntensity, elapsed/distortTime));
-            dof.focalLength.Override(Mathf.Lerp(currFocal, maxFocalLength, elapsed/distortTime));
-            chromaAb.intensity.Override(Mathf.Lerp(currChroma, maxChromaAberation, elapsed/distortTime));
-            paniniProj.distance.Override(Mathf.Lerp(currPanini, maxPaniniProj, elapsed / distortTime));
-            vignette.intensity.Override(Mathf.Lerp(currVignette, maxVignetteIntensity, elapsed / distortTime));
-            bloom.intensity.Override(Mathf.Lerp(currBloom, maxBloomIntensity, elapsed / distortTime));
+            ld.intensity.Override(Mathf.SmoothStep(currDistort, maxLensDistortIntensity, elapsed/distortTime));
+            dof.focalLength.Override(Mathf.SmoothStep(currFocal, maxFocalLength, elapsed/distortTime));
+            chromaAb.intensity.Override(Mathf.SmoothStep(currChroma, maxChromaAberation, elapsed/distortTime));
+            paniniProj.distance.Override(Mathf.SmoothStep(currPanini, maxPaniniProj, elapsed / distortTime));
+            vignette.intensity.Override(Mathf.SmoothStep(currVignette, maxVignetteIntensity, elapsed / distortTime));
+            bloom.intensity.Override(Mathf.SmoothStep(currBloom, maxBloomIntensity, elapsed / distortTime));
 
-            /*colorAdjustments.postExposure.Override(Mathf.Lerp(0f, postExposure, elapsed / distortTime));
-            colorAdjustments.contrast.Override(Mathf.Lerp(0f, contrast, elapsed / distortTime));
-            colorAdjustments.hueShift.Override(Mathf.Lerp(0f, hueShift, elapsed / distortTime));
-            colorAdjustments.saturation.Override(Mathf.Lerp(0f, saturation, elapsed / distortTime));*/
+            audioMixer.SetFloat("ChorusWet1", Mathf.SmoothStep(currChorusWet, chorusWet, elapsed / distortTime));
+            audioMixer.SetFloat("ChorusWet2", Mathf.SmoothStep(currChorusWet, chorusWet, elapsed / distortTime));
+            audioMixer.SetFloat("ChorusWet3", Mathf.SmoothStep(currChorusWet, chorusWet, elapsed / distortTime));
+            audioMixer.SetFloat("DelayWet", Mathf.SmoothStep(currDelayWet, delayWet, elapsed / distortTime));
+            audioMixer.SetFloat("LPCutoff", Mathf.SmoothStep(currLP, LPCutoff, elapsed / distortTime));
+            audioMixer.SetFloat("PitchShift", Mathf.SmoothStep(currPitch, pitchShift, elapsed / distortTime));
+            audioMixer.SetFloat("ReverbWet", Mathf.SmoothStep(currReverb, reverbWet, elapsed / distortTime));
+
+            /*colorAdjustments.postExposure.Override(Mathf.SmoothStep(0f, postExposure, elapsed / distortTime));
+            colorAdjustments.contrast.Override(Mathf.SmoothStep(0f, contrast, elapsed / distortTime));
+            colorAdjustments.hueShift.Override(Mathf.SmoothStep(0f, hueShift, elapsed / distortTime));
+            colorAdjustments.saturation.Override(Mathf.SmoothStep(0f, saturation, elapsed / distortTime));*/
             yield return null;
         }
     }
@@ -194,23 +237,39 @@ public class MedsEffects : MonoBehaviour
         float currVignette = vignette.intensity.value;
         float currBloom = bloom.intensity.value;
 
+        float currChorusWet; audioMixer.GetFloat("ChorusWet1", out currChorusWet);
+        float currDelayWet; audioMixer.GetFloat("DelayWet", out currDelayWet);
+        float currLP; audioMixer.GetFloat("LPCutoff", out currLP);
+        float currHP; audioMixer.GetFloat("HPCutoff", out currHP);
+        float currPitch; audioMixer.GetFloat("PitchShift", out currPitch);
+        float currReverb; audioMixer.GetFloat("ReverbWet", out currReverb);
+
         while (elapsed <= distortTime)
         {
             elapsed += Time.deltaTime;
-            ld.intensity.Override(Mathf.Lerp(currDistort, 0f, elapsed / distortTime));
-            dof.focalLength.Override(Mathf.Lerp(currFocal, 0f, elapsed / distortTime));
-            chromaAb.intensity.Override(Mathf.Lerp(currChroma, 0f, elapsed / distortTime));
-            paniniProj.distance.Override(Mathf.Lerp(currPanini, 0f, elapsed / distortTime));
-            vignette.intensity.Override(Mathf.Lerp(currVignette, 0f, elapsed / distortTime));
-            bloom.intensity.Override(Mathf.Lerp(currBloom, minBloomIntensity, elapsed / distortTime));
+            ld.intensity.Override(Mathf.SmoothStep(currDistort, 0f, elapsed / distortTime));
+            dof.focalLength.Override(Mathf.SmoothStep(currFocal, 0f, elapsed / distortTime));
+            chromaAb.intensity.Override(Mathf.SmoothStep(currChroma, 0f, elapsed / distortTime));
+            paniniProj.distance.Override(Mathf.SmoothStep(currPanini, 0f, elapsed / distortTime));
+            vignette.intensity.Override(Mathf.SmoothStep(currVignette, 0f, elapsed / distortTime));
+            bloom.intensity.Override(Mathf.SmoothStep(currBloom, minBloomIntensity, elapsed / distortTime));
 
-            /*colorAdjustments.postExposure.Override(Mathf.Lerp(postExposure, 0f, elapsed / distortTime));
-            colorAdjustments.contrast.Override(Mathf.Lerp(contrast, 0f, elapsed / distortTime));
-            colorAdjustments.hueShift.Override(Mathf.Lerp(hueShift, 0f, elapsed / distortTime));
-            colorAdjustments.saturation.Override(Mathf.Lerp(saturation, 0f, elapsed / distortTime));*/
+            audioMixer.SetFloat("ChorusWet1", Mathf.SmoothStep(currChorusWet, 0f, elapsed / distortTime));
+            audioMixer.SetFloat("ChorusWet2", Mathf.SmoothStep(currChorusWet, 0f, elapsed / distortTime));
+            audioMixer.SetFloat("ChorusWet3", Mathf.SmoothStep(currChorusWet, 0f, elapsed / distortTime));
+            audioMixer.SetFloat("DelayWet", Mathf.SmoothStep(currDelayWet, 0f, elapsed / distortTime));
+            audioMixer.SetFloat("LPCutoff", Mathf.SmoothStep(currLP, 22000, elapsed / distortTime));
+            audioMixer.SetFloat("PitchShift", Mathf.SmoothStep(currPitch, 1f, elapsed / distortTime));
+            audioMixer.SetFloat("ReverbWet", Mathf.SmoothStep(currReverb, 0f, elapsed / distortTime));
+
+            /*colorAdjustments.postExposure.Override(Mathf.SmoothStep(postExposure, 0f, elapsed / distortTime));
+            colorAdjustments.contrast.Override(Mathf.SmoothStep(contrast, 0f, elapsed / distortTime));
+            colorAdjustments.hueShift.Override(Mathf.SmoothStep(hueShift, 0f, elapsed / distortTime));
+            colorAdjustments.saturation.Override(Mathf.SmoothStep(saturation, 0f, elapsed / distortTime));*/
             yield return null;
         }
         ld.active = dof.active = chromaAb.active = paniniProj.active = vignette.active = colorAdjustments.active = false;
+        audioMixer.FindSnapshot("No FX").TransitionTo(0f);
     }
 
     public void TimeTrigger()
