@@ -25,7 +25,7 @@ public class Interactable : MonoBehaviour
      
 
     // max distance that player can interact from
-    [SerializeField]  private float interactionRange = 10.0f;
+    
 
     // Start is called before the first frame update
     void Start()
