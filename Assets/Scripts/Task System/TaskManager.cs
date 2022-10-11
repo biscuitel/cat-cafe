@@ -10,7 +10,7 @@ public class TaskManager : MonoBehaviour
     [SerializeField] private List<TaskBase> taskList;
     [SerializeField] private List<TaskBase> reserveTaskList;
 
-    public Animator taskCompleteAnimation;
+    
     private Outcomes outcomesScript;
     public Text taskText;
     public string jsonName;
@@ -103,10 +103,7 @@ public class TaskManager : MonoBehaviour
             UpdateUI();
         }
 
-        if (taskCompleteAnimation)
-        {
-            taskCompleteAnimation.Play("TaskComplete");
-        }
+       
         
         return returnVal;
 
