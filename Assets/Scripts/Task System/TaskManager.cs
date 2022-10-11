@@ -9,6 +9,8 @@ public class TaskManager : MonoBehaviour
 {
     [SerializeField] private List<TaskBase> taskList;
     [SerializeField] private List<TaskBase> reserveTaskList;
+
+    public Animator taskCompleteAnimation;
     private Outcomes outcomesScript;
     public Text taskText;
     public string jsonName;
@@ -100,7 +102,14 @@ public class TaskManager : MonoBehaviour
         {
             UpdateUI();
         }
+
+        if (taskCompleteAnimation)
+        {
+            taskCompleteAnimation.Play("TaskComplete");
+        }
+        
         return returnVal;
+
     }
 
     // handles updating the UI text for tasks
@@ -111,7 +120,7 @@ public class TaskManager : MonoBehaviour
         StringBuilder sb = new StringBuilder();
         GetAllTaskText(taskList, ref sb);
         taskText.text = sb.ToString();
-        
+
         
     }
 
@@ -250,6 +259,7 @@ public class TaskManager : MonoBehaviour
     public void TriggerOutcome(int outcomeID)
     {
         outcomesScript.Outcome(outcomeID);
+        
     }
 
     public void SetUIText(string text)

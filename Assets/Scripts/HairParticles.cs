@@ -15,20 +15,26 @@ public class HairParticles : MonoBehaviour
     {
         particlesHair = GameObject.FindGameObjectWithTag("HairParticles");
         particlesH = particlesHair.GetComponent<ParticleSystem>();
-        particlesPoop = GameObject.FindGameObjectWithTag("PoopParticles");
-        particlesP = particlesPoop.GetComponent<ParticleSystem>();
+
+        if (GameObject.FindGameObjectWithTag("PoopParticles"))
+        {
+            particlesPoop = GameObject.FindGameObjectWithTag("PoopParticles");
+            particlesP = particlesPoop.GetComponent<ParticleSystem>();
+        }
+        
+        
     }
 
    
    
     private void OnDestroy()
     {
-        if (particlesHair && playHair)
+        if (particlesHair && playHair && particlesH)
         {
             particlesHair.transform.position = this.transform.position;
             particlesH.Play();
         }
-        if (particlesPoop && playPoop)
+        if (particlesPoop && playPoop && particlesP)
         {
             particlesPoop.transform.position = this.transform.position;
             particlesP.Play();

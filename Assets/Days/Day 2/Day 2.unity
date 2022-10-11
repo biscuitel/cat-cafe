@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 854008bcec0a0ef47b7bd62a46c95080,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -24544,6 +24544,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4d0317c87732bf94789bbab022b0a4c7, type: 2}
   - {fileID: 11400000, guid: 4ba58e9e89db3ca489afe346bbfdfa55, type: 2}
   - {fileID: 11400000, guid: 1f9a3ddf207d50748a1eae6e4e4172f7, type: 2}
+  taskCompleteAnimation: {fileID: 1974272329}
   taskText: {fileID: 1565370327}
   jsonName: day2tasks
 --- !u!4 &1645442268
@@ -32246,6 +32247,7 @@ GameObject:
   - component: {fileID: 1974272326}
   - component: {fileID: 1974272328}
   - component: {fileID: 1974272327}
+  - component: {fileID: 1974272329}
   m_Layer: 5
   m_Name: TaskBoardImage
   m_TagString: Untagged
@@ -32306,6 +32308,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974272325}
   m_CullTransparentMesh: 0
+--- !u!95 &1974272329
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974272325}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 404df1a92a7b06441b796c533ec61ff7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1985312179
 GameObject:
   m_ObjectHideFlags: 0
