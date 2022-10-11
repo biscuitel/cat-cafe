@@ -14,7 +14,6 @@ public class Interactable : MonoBehaviour
     private DialogueTrigger dialogueTrigger;
     private bool interactedWith;
     private Graphic interactionCrosshair;
-    private Animator taskCompleteAnimation;
 
     [SerializeField] private int taskID;
     [SerializeField] private bool deactivateAfterInteraction = false;
@@ -23,13 +22,12 @@ public class Interactable : MonoBehaviour
     [SerializeField] private bool toggleVisAfterInteraction = false;
 
     [SerializeField] private MeshRenderer[] meshes;
+     
 
+    // max distance that player can interact from
+    
 
-    private void Awake()
-    {
-        taskCompleteAnimation = GameObject.FindGameObjectWithTag("TaskCompleteAnimator").GetComponent<Animator>();
-
-    }
+    // Start is called before the first frame update
     void Start()
     {
         raycastLayerMask = 1 << this.gameObject.layer;
@@ -41,7 +39,6 @@ public class Interactable : MonoBehaviour
         meshes = this.GetComponentsInChildren<MeshRenderer>();
         interactedWith = false;
         interactionCrosshair = GameObject.FindGameObjectWithTag("InteractionCrosshair").GetComponent<Graphic>();
-
     }
 
     // Update is called once per frame
@@ -85,14 +82,7 @@ public class Interactable : MonoBehaviour
                     {                       
                         if (Interact())
                         {
-
-
-                        if (taskCompleteAnimation)
-                        {
-                            taskCompleteAnimation.Play("TaskComplete");
-                        }
-
-                        interactionCrosshair.color = new Color(interactionCrosshair.color.r, interactionCrosshair.color.g, interactionCrosshair.color.b, 0);
+                            interactionCrosshair.color = new Color(interactionCrosshair.color.r, interactionCrosshair.color.g, interactionCrosshair.color.b, 0);
                             interactedWith = true;
                             Debug.Log("interaction happened and completed task");
                             if (dialogueTrigger != null)

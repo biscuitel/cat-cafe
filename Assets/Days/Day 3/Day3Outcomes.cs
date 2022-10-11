@@ -74,7 +74,6 @@ public class Day3Outcomes : Outcomes
         warpTrigger.SetActive(false);
 
         medsIcon = GameObject.FindGameObjectWithTag("MedsIcon");
-        taskUI.SetActive(false);
     }
 
     // Update is called once per frame

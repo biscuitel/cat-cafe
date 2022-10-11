@@ -76,8 +76,6 @@ public class Day2Outcomes : Outcomes
 
         vacuumAnimator = Vacuum.GetComponent<Animator>();
         scoopAnimator = Scooper.GetComponent<Animator>();
-
-        taskUI.SetActive(false);
     }
 
     // Update is called once per frame
