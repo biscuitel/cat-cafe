@@ -107,13 +107,14 @@ public class Interactable : MonoBehaviour
                         }
                     }
                 }
-             
 
-            }
+        } 
         else
         {
             interactionCrosshair.color = new Color(interactionCrosshair.color.r, interactionCrosshair.color.g, interactionCrosshair.color.b, 0);
+
         }
+        
 
     }
 
