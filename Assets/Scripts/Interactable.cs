@@ -80,7 +80,7 @@ public class Interactable : MonoBehaviour
                                 audioSource.Stop();
                                 Debug.Log("stopped audio");
                             }
-                            if (audioRand) audioRand.PlayRandomClip();
+                            if (audioRand && audioSource) audioRand.PlayRandomClip();
                             if (dialogueTrigger != null)
                             {
                                 dialogueTrigger.TriggerDialogue();

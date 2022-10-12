@@ -51174,6 +51174,7 @@ MonoBehaviour:
   timeElapsed: 0
   promptTime: 7.5
   distortTime: 4
+  persistentFXLoopTime: 5
   maxLensDistortIntensity: -0.5
   maxFocalLength: 20
   maxChromaAberation: 0.15
@@ -51185,6 +51186,12 @@ MonoBehaviour:
   contrast: 50
   hueShift: -55
   saturation: 45
+  audioMixer: {fileID: 24100000, guid: c223fec2a03f2614abe26b88e7224690, type: 2}
+  LPCutoff: 960
+  delayWet: 0.4
+  chorusWet: 0.7
+  pitchShift: 0.8
+  reverbWet: 0.8
   pillAnimator: {fileID: 131892048}
   promptText: {fileID: 2009181742}
 --- !u!1 &1271154450

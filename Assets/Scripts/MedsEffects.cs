@@ -43,7 +43,7 @@ public class MedsEffects : MonoBehaviour
     [SerializeField] private float LPCutoff = 960f;
     [SerializeField] private float delayWet = 0.4f;
     [SerializeField] private float chorusWet = 0.7f;
-    [SerializeField] private float pitchShift = 0.8f;
+    [SerializeField] private float pitchShift = 0.9f;
     [SerializeField] private float reverbWet = 0.8f;
 
     [SerializeField] private Animator pillAnimator;

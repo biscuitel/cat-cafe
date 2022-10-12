@@ -42,12 +42,14 @@ public class VacuumAudio : MonoBehaviour
 
     IEnumerator Rev()
     {
+        float vol = audioSource.volume;
+        float pitch = audioSource.pitch;
         float elapsed = 0f;
         while (elapsed < revIn)
         {
             elapsed += Time.deltaTime;
-            audioSource.pitch = Mathf.SmoothStep(1.0f, 1.0f + pitchChange, elapsed / revIn);
-            audioSource.volume = Mathf.SmoothStep(minVol, minVol + volChange, elapsed / revIn);
+            audioSource.pitch = Mathf.SmoothStep(pitch, 1.0f + pitchChange, elapsed / revIn);
+            audioSource.volume = Mathf.SmoothStep(vol, minVol + volChange, elapsed / revIn);
             Debug.Log(audioSource.pitch);
             yield return null;
         }

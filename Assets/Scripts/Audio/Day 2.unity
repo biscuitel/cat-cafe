@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1800971, g: 0.22052827, b: 0.27812055, a: 1}
+  m_IndirectSpecularColor: {r: 0.18009686, g: 0.22052792, b: 0.27811998, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 854008bcec0a0ef47b7bd62a46c95080,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -22280,7 +22280,7 @@ MonoBehaviour:
   LPCutoff: 960
   delayWet: 0.4
   chorusWet: 0.7
-  pitchShift: 0.8
+  pitchShift: 0.9
   reverbWet: 0.8
   pillAnimator: {fileID: 854767597}
   promptText: {fileID: 1853792125}
@@ -28450,6 +28450,120 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1589058644}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1788082314
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788082312}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -8510566945205667914, guid: c223fec2a03f2614abe26b88e7224690,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 87ff6b94de99b1744bc8ea5b3bc38243, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1788082315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788082312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e117a04a594897945b261c05291cb175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  revIn: 0.5
+  revLength: 2
+  pitchChange: 0.5
+  minVol: 0.5
+  volChange: 0.5
 --- !u!43 &1795419117
 Mesh:
   m_ObjectHideFlags: 0
@@ -29235,6 +29349,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1879338091}
+  - component: {fileID: 1879338093}
   m_Layer: 0
   m_Name: HandItems
   m_TagString: Untagged
@@ -29257,6 +29372,23 @@ Transform:
   m_Father: {fileID: 1480908029}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1879338093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879338090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e117a04a594897945b261c05291cb175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  revIn: 0.5
+  revLength: 2
+  pitchChange: 0.4
+  minVol: 0.75
+  volChange: 0.25
 --- !u!43 &1881905506
 Mesh:
   m_ObjectHideFlags: 0
