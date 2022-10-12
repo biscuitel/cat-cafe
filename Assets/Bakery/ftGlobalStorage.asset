@@ -48,7 +48,7 @@ MonoBehaviour:
   - Assets/ArtAssets/Models/EndTable.fbx
   - Assets/ArtAssets/Models/Antihistamines.fbx
   - Assets/ArtAssets/Models/Clock.fbx
-  modifiedAssetPaddingHash: aaf8cc2e16bd5f2d3f09ecc0fe27c1150cf43a06ecc124919660ddf9adf259163ec5d890fe4945be966302a8441b3c8306a3ddde88e2d5dce82aa120cedb894bb5e630f6b45634b7fe4945be78147692d1c1249119c2a693f927c115765617f995c2a6932aa3ddde07b0e142275031ee377e93633ec5d89075f23a06ebce28f538c2a693dd4945bef0a3d8ac
+  modifiedAssetPaddingHash: aaf8cc2e16bd5f2d3f09ecc0fe27c1150cf43a06ecc124919660ddf9adf259163ec5d890fe4945be68ca1460394924f706a3ddde88e2d5dce82aa120cedb894bb5e630f6b45634b7fe4945be78147692d1c1249119c2a693f927c115765617f995c2a6932aa3ddde07b0e142275031ee377e93633ec5d89075f23a06ebce28f538c2a693dd4945bef0a3d8ac
   modifiedMeshList: []
   modifiedMeshPaddingList: 
   modifiedAssets:
@@ -483,13 +483,13 @@ MonoBehaviour:
   - meshName:
     - Cage
     - Door
-    padding: 29000000af000000
+    padding: 30000000cc000000
     unwrapper: 0000000000000000
   - meshName:
     - Eye.r.002
     - Body.002
     - Eye.l.002
-    padding: 000100007700000000010000
+    padding: 000100008a00000000010000
     unwrapper: 000000000000000000000000
   - meshName:
     - Cube
@@ -627,11 +627,14 @@ MonoBehaviour:
   - Assets/Prefabs/Props/Other/Assets/Pin.fbx
   - Assets/ArtAssets/Models/Assets/StickyNote.fbx
   - Assets/ArtAssets/Textures/StickyNotes/Assets/StickyNote.fbx
-  uvOverlapAssetList: 00000000ffffffff0000000000000000010100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000101000001010000010100000000000000000000
+  - Assets/ArtAssets/Models/Pin.fbx
+  - Assets/ArtAssets/StickyNote.fbx
+  - Assets/ArtAssets/Models/StickyNote.fbx
+  uvOverlapAssetList: 00000000ffffffff0000000000000000010100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000101000001010000010100000000000000000000010100000000000000000000
   xatlasWarningShown: 0
   foundCompatibleSetup: 1
-  gpuName: NVIDIA GeForce GTX 1080
-  runsNonRTX: 1
+  gpuName: NVIDIA GeForce RTX 3070
+  runsNonRTX: 0
   runsOptix5: 0
   runsOptix6: 0
   runsOptix7: 1
@@ -697,7 +700,7 @@ MonoBehaviour:
   renderSettingsHoleFilling: 0
   renderSettingsBeepOnFinish: 0
   renderSettingsExportTerrainAsHeightmap: 1
-  renderSettingsRTXMode: 0
+  renderSettingsRTXMode: 1
   renderSettingsLightProbeMode: 1
   renderSettingsClientMode: 0
   renderSettingsServerAddress: 127.0.0.1
@@ -713,5 +716,5 @@ MonoBehaviour:
   renderSettingsRTPVSceneView: 0
   renderSettingsRTPVWidth: 640
   renderSettingsRTPVHeight: 360
-  modifiedMeshPaddingArray: 5a000000
-  modifiedMeshUnwrapperArray: 00000000
+  modifiedMeshPaddingArray: 30000000cc000000
+  modifiedMeshUnwrapperArray: 0000000000000000

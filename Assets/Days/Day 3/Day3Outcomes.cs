@@ -110,8 +110,7 @@ public class Day3Outcomes : Outcomes
                 WindowCatsParent.SetActive(true);
 
                 // player allergies begin to react - do thing here
-                cameraEffects.StartDistort();
-                cameraEffects.TimeTrigger();
+                
 
                 if (cameraEffects.HasMeds())
                 {

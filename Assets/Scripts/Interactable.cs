@@ -57,11 +57,11 @@ public class Interactable : MonoBehaviour
             Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 
             // draw line of raycast for debugging purposes
-            Debug.DrawLine(ray.origin, ray.origin + ray.direction * 1.5f, Color.yellow, 5f);
+            Debug.DrawLine(ray.origin, ray.origin + ray.direction * 1.7f, Color.yellow, 5f);
 
             // cast ray from camera center, if hits this object then interact with it
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 1.5f, raycastLayerMask, QueryTriggerInteraction.Collide))
+            if (Physics.Raycast(ray, out hit, 1.7f, raycastLayerMask, QueryTriggerInteraction.Collide))
             {
                 if (GameObject.ReferenceEquals(obj, hit.transform.gameObject))
                 {
