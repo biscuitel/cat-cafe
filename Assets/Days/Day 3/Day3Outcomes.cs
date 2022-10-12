@@ -263,6 +263,7 @@ public class Day3Outcomes : Outcomes
                 // player interacted with phone at end of corridor, make button appear!
                 tm.ActivateTask(14);
                 BigButton.SetActive(true);
+                BigButton.GetComponent<Interactable>().enabled = true;
                 Destroy(taskUI);
                 break;
             case 17:

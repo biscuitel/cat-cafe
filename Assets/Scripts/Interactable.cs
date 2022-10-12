@@ -52,19 +52,8 @@ public class Interactable : MonoBehaviour
    
     private void CheckForInteraction()
     {
-        /*
-        if (taskManager.CheckForTask(taskID) || taskID == 2)
-        {
-            GetComponent<BoxCollider>().enabled = true;
-        } 
-        else
-        {
-            GetComponent<BoxCollider>().enabled = false;
-        }
-        */
-
-
-            // get camera center
+      
+      // get camera center
             Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 
             // draw line of raycast for debugging purposes
