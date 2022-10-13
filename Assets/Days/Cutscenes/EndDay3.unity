@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -192,6 +192,176 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137155112}
   m_CullTransparentMesh: 0
+--- !u!1 &300227085
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 300227087}
+  - component: {fileID: 300227086}
+  m_Layer: 0
+  m_Name: '!ftraceLightmaps'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &300227086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300227085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7fa80e7116296f4eb4f49ec1544ee22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderSettingsBounces: 5
+  renderSettingsGISamples: 16
+  renderSettingsGIBackFaceWeight: 0
+  renderSettingsTileSize: 512
+  renderSettingsPriority: 2
+  renderSettingsTexelsPerUnit: 20
+  renderSettingsForceRefresh: 1
+  renderSettingsForceRebuildGeometry: 1
+  renderSettingsPerformRendering: 1
+  renderSettingsUserRenderMode: 0
+  renderSettingsDistanceShadowmask: 1
+  renderSettingsSettingsMode: 0
+  renderSettingsFixSeams: 1
+  renderSettingsDenoise: 1
+  renderSettingsDenoise2x: 0
+  renderSettingsEncode: 1
+  renderSettingsEncodeMode: 0
+  renderSettingsOverwriteWarning: 0
+  renderSettingsAutoAtlas: 1
+  renderSettingsUnwrapUVs: 1
+  renderSettingsForceDisableUnwrapUVs: 0
+  renderSettingsMaxAutoResolution: 4096
+  renderSettingsMinAutoResolution: 16
+  renderSettingsUnloadScenes: 1
+  renderSettingsAdjustSamples: 1
+  renderSettingsGILODMode: 2
+  renderSettingsGILODModeEnabled: 0
+  renderSettingsCheckOverlaps: 0
+  renderSettingsSkipOutOfBoundsUVs: 1
+  renderSettingsHackEmissiveBoost: 1
+  renderSettingsHackIndirectBoost: 1
+  renderSettingsTempPath: 
+  renderSettingsOutPath: BakeryLightmaps
+  renderSettingsUseScenePath: 0
+  renderSettingsHackAOIntensity: 0
+  renderSettingsHackAOSamples: 16
+  renderSettingsHackAORadius: 1
+  renderSettingsShowAOSettings: 0
+  renderSettingsShowTasks: 1
+  renderSettingsShowTasks2: 0
+  renderSettingsShowPaths: 1
+  renderSettingsShowNet: 1
+  renderSettingsOcclusionProbes: 0
+  renderSettingsTexelsPerMap: 0
+  renderSettingsTexelsColor: 1
+  renderSettingsTexelsMask: 1
+  renderSettingsTexelsDir: 1
+  renderSettingsShowDirWarning: 1
+  renderSettingsRenderDirMode: 0
+  renderSettingsShowCheckerSettings: 0
+  renderSettingsSamplesWarning: 1
+  renderSettingsPrefabWarning: 1
+  renderSettingsSplitByScene: 0
+  renderSettingsUVPaddingMax: 0
+  renderSettingsPostPacking: 1
+  renderSettingsHoleFilling: 0
+  renderSettingsBeepOnFinish: 0
+  renderSettingsExportTerrainAsHeightmap: 1
+  renderSettingsRTXMode: 1
+  renderSettingsLightProbeMode: 1
+  renderSettingsClientMode: 0
+  renderSettingsServerAddress: 127.0.0.1
+  renderSettingsUnwrapper: 0
+  renderSettingsDenoiserType: 100
+  renderSettingsExportTerrainTrees: 0
+  renderSettingsShowPerf: 1
+  renderSettingsSampleDiv: 1
+  renderSettingsAtlasPacker: 0
+  renderSettingsBatchPoints: 1
+  renderSettingsCompressVolumes: 0
+  renderSettingsSector: {fileID: 0}
+  renderSettingsRTPVExport: 1
+  renderSettingsRTPVSceneView: 0
+  renderSettingsRTPVWidth: 640
+  renderSettingsRTPVHeight: 360
+  lastBakeTime: 0
+  enlightenWarningShown: 0
+  enlightenWarningShown2: 0
+  lightUIDs: 
+  lights: []
+  implicitGroups: []
+  implicitGroupedObjects: []
+  bounds: []
+  hasEmissive: 
+  uvBuffOffsets: 
+  uvBuffLengths: 
+  uvSrcBuff: []
+  uvDestBuff: []
+  lmrIndicesOffsets: 
+  lmrIndicesLengths: 
+  lmrIndicesBuff: 
+  lmGroupLODResFlags: 
+  lmGroupMinLOD: 
+  lmGroupLODMatrix: 
+  serverGetFileList: []
+  lightmapHasColor: 
+  lightmapHasMask: 
+  lightmapHasDir: 
+  lightmapHasRNM: 
+  modifiedAssetPathList: []
+  modifiedAssets: []
+  maps: []
+  masks: []
+  dirMaps: []
+  rnmMaps0: []
+  rnmMaps1: []
+  rnmMaps2: []
+  mapsMode: 
+  bakedRenderers: []
+  bakedIDs: 
+  bakedScaleOffset: []
+  bakedVertexOffset: 
+  bakedVertexColorMesh: []
+  nonBakedRenderers: []
+  bakedLights: []
+  bakedLightChannels: 
+  bakedRenderersTerrain: []
+  bakedIDsTerrain: 
+  bakedScaleOffsetTerrain: []
+  assetList: []
+  uvOverlapAssetList: 
+  idremap: 
+  usesRealtimeGI: 0
+  emptyDirectionTex: {fileID: 0}
+  anyVolumes: 0
+  compressedVolumes: 0
+  sectors: []
+--- !u!4 &300227087
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300227085}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &320508232
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,8 +635,116 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   images:
-  - {fileID: 2800000, guid: ef1648baed71bc542bc5fe99f95e4c03, type: 3}
+  - {fileID: 2800000, guid: e335deadcb64e924f94c8a790b9c153b, type: 3}
+  - {fileID: 2800000, guid: 9793a5df3bb7bb9438f35cba0f744aa6, type: 3}
+  - {fileID: 2800000, guid: d7511f072d6c82347afba8d2c4b1f89d, type: 3}
+  - {fileID: 2800000, guid: b48ed53376039844d8e936ddb068175e, type: 3}
+  - {fileID: 2800000, guid: bf3b80fffd310484c8691d3fddaf92a3, type: 3}
+  - {fileID: 2800000, guid: a3d311136ee228a40854200f7ce4dae5, type: 3}
+  - {fileID: 2800000, guid: f8afdc4c02c391844a688c6e35097939, type: 3}
+  - {fileID: 2800000, guid: 2a1a57e35d9ef9349a7f3eadfc313a84, type: 3}
+  - {fileID: 2800000, guid: 82dc6cd9a0ea4e04fa22c4762bd8df33, type: 3}
+  - {fileID: 2800000, guid: cfc4acca0aaaf914a89b1cda7eef17bd, type: 3}
+  - {fileID: 2800000, guid: 531fa808db3d02640bbe93746edeec18, type: 3}
+  - {fileID: 2800000, guid: 003f33edb3f3af44c96e5306c5def2f4, type: 3}
+  - {fileID: 2800000, guid: 400842f26321a5f478059a94fc9a21ee, type: 3}
+  - {fileID: 2800000, guid: a248f5640c5da2946a91adf35656c509, type: 3}
+  - {fileID: 2800000, guid: 77e915b9cf7523a4baf3ee1231df1022, type: 3}
+  - {fileID: 2800000, guid: 24a3363f69cb8d04fbcac091bdc64fcd, type: 3}
+  - {fileID: 2800000, guid: 3b8758eb96393d54bb14ad9bfcd1091c, type: 3}
+  - {fileID: 2800000, guid: ab2e19481b2c395498725cf55b868123, type: 3}
+  - {fileID: 2800000, guid: 2e9fca4f5a6d2d04d98051fb20e5a8d4, type: 3}
+  - {fileID: 2800000, guid: b2b2b04080500a248a136481cff425d1, type: 3}
+  - {fileID: 2800000, guid: 5ceb220c442d5374da9835f3062b6729, type: 3}
+  - {fileID: 2800000, guid: d431030ab19eaad428ad41fce79b39d2, type: 3}
+  - {fileID: 2800000, guid: c1a98b60a12632f45811dfcea16f99a7, type: 3}
+  - {fileID: 2800000, guid: 1df68bec042dd6c4e84a09298fd79cd8, type: 3}
+  - {fileID: 2800000, guid: 023283ae20f39d046a13ca45cdb5444b, type: 3}
+  - {fileID: 2800000, guid: 5f899723cebfbf54dabc61c1f5800be0, type: 3}
+  - {fileID: 2800000, guid: e5434166945121e4889ca27ea66773cc, type: 3}
+  - {fileID: 2800000, guid: dd6e507e42241264cbc030bdd6d8b0fa, type: 3}
+  - {fileID: 2800000, guid: a8168e6852b17644ba295658b9db94ae, type: 3}
+  - {fileID: 2800000, guid: 2d589d5569c95e74b9cd723a03d20965, type: 3}
+  - {fileID: 2800000, guid: ed3d007c0ee5fff489a53ed5698082cd, type: 3}
+  - {fileID: 2800000, guid: 342532aec369061419af4a6b984c57f8, type: 3}
+  - {fileID: 2800000, guid: 969bae4f5143fc84e8d7f7b31c105546, type: 3}
+  - {fileID: 2800000, guid: aa8cce7629f96f14091ba31e74a49055, type: 3}
+  - {fileID: 2800000, guid: 7d2011211cc0ffe4699e871be665fed8, type: 3}
+  - {fileID: 2800000, guid: a1588ddf4e0760e47862abd3592edc7b, type: 3}
+  - {fileID: 2800000, guid: 5b66ccc1c9db1ee418da7cbc62f5247a, type: 3}
+  - {fileID: 2800000, guid: f50c8d882ebbbca41a1c54567034348d, type: 3}
+  - {fileID: 2800000, guid: 58c7fcf152b8e79439fad7fc45ddb349, type: 3}
+  - {fileID: 2800000, guid: 4cb2e0328e3fa0247bb1dd4ba5bc48de, type: 3}
+  - {fileID: 2800000, guid: 8bcf0d1553cd0df4cab39cee873b43d1, type: 3}
+  - {fileID: 2800000, guid: 3e0710ce2d9d24845ab424a74c755246, type: 3}
+  - {fileID: 2800000, guid: cd1074273d4fadc4c964eb4076aa5d8b, type: 3}
+  - {fileID: 2800000, guid: dfb44ff1d37282349bfac573281119ed, type: 3}
+  - {fileID: 2800000, guid: 14f4bf9489f962a4ba0b7468725ab44c, type: 3}
+  - {fileID: 2800000, guid: 489923b92814ee14f988423ca89a8eff, type: 3}
+  - {fileID: 2800000, guid: dbe3e9df0acc1374cb044afb510a5470, type: 3}
+  - {fileID: 2800000, guid: d253a42d4c8de7d4d8b53cf05915c8b7, type: 3}
+  - {fileID: 2800000, guid: 931e88a34eedc6244b122c5f2a3a70d3, type: 3}
+  - {fileID: 2800000, guid: 84a98a3ed47316846a9a44eb1aad3176, type: 3}
+  - {fileID: 2800000, guid: ceb651b737b151042b54e1cec4f465f9, type: 3}
+  - {fileID: 2800000, guid: 94e331578c481d041b877a997381885c, type: 3}
+  - {fileID: 2800000, guid: fcfdffb821a6446419575fab29e57782, type: 3}
+  - {fileID: 2800000, guid: 826ca0f8e5e67a045b48ceaeeb72f909, type: 3}
+  - {fileID: 2800000, guid: 90972136562e8764a9589de172878c2f, type: 3}
   imageDisplayTimes:
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - 2
+  - 1
+  - 3
+  - 0.5
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.3
+  - 0.3
+  - 0.3
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - 5
+  - 0.3
+  - 0.3
+  - 0.3
+  - 0.3
+  - 0.3
+  - 0.3
+  - 0.3
+  - 0.3
+  - 0.3
+  - 0.3
+  - 0.3
+  - 0.3
+  - 0.3
+  - 0.3
+  - 0.3
+  - 0.3
+  - 0.3
+  - 0.3
+  - 0.3
   - 5
   fadeTime: 1
 --- !u!114 &1836567808
