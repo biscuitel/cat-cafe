@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     private GameManager gm;
+    private bool show = true;
 
     private void Start()
     {
@@ -20,4 +21,11 @@ public class MainMenu : MonoBehaviour
         //SceneManager.LoadScene("Days/Day 1/Day 1");
     }
 
+    public void ShowInstructions(GameObject InstructionMenu)
+    {
+        //show or don't show the Instruction Menu
+        InstructionMenu.SetActive(show);
+        //switch the boolean to indicate Instruction Menu is visible
+        show = !show;
+    }
 }
