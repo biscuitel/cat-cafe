@@ -25,9 +25,11 @@ public class AudioRandomizer : MonoBehaviour
 
     public void PlayRandomClip()
     {
-
-        int rand = Random.Range(0, clips.Count - 1);
+      
+        int rand = Random.Range(0, clips.Count);
+        float randPitch = Random.Range(0.9f, 1.1f);
         audioSource.clip = clips[rand];
+        audioSource.pitch = randPitch;
         audioSource.Play();
     }
 

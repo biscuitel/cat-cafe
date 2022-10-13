@@ -11,6 +11,7 @@ public class ClickableObject : MonoBehaviour
     private Camera cam;
     private Vector3 camPos;
     private AudioSource audioSource;
+    private AudioRandomizer randomiser;
     private Graphic interactionCrosshair;
     private GameObject obj;
     [SerializeField] private ParticleSystem particles;
@@ -32,7 +33,11 @@ public class ClickableObject : MonoBehaviour
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         interactionCrosshair = GameObject.FindGameObjectWithTag("InteractionCrosshair").GetComponent<Graphic>();
 
-
+        if (GetComponent<AudioRandomizer>())
+        {
+            randomiser = GetComponent<AudioRandomizer>();
+        }
+        
         interactionCrosshair.color = new Color(interactionCrosshair.color.r, interactionCrosshair.color.g, interactionCrosshair.color.b, 0);
 
         obj = this.gameObject;
@@ -67,7 +72,21 @@ public class ClickableObject : MonoBehaviour
                         {
                             Debug.Log("Clickable object CLICKED!!!?????");
 
-                            if (audioSource) audioSource.Play();
+
+                            if (!audioSource.isPlaying)
+                            {
+
+                                if (randomiser)
+                                {
+                                    randomiser.PlayRandomClip();
+                                }
+                                else
+                                {
+                                    if (audioSource) audioSource.Play();
+                                }
+                            }
+
+                            
 
                             if (GetComponent<Animator>()) hit.transform.GetComponent<Animator>().SetTrigger("Interaction");
 
