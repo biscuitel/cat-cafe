@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
 
     private int dialogueID;
     public Text dialogueText;
+    public GameObject bossImage;
     public GameObject DialogueUI;
     public GameObject taskUI;
     
@@ -77,7 +78,10 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log(dialogue[listIndex].GetDialogue()[dialogueIndex]);
         dialogueText.text = dialogue[listIndex].GetDialogue()[dialogueIndex];
-    }
+        Debug.Log(listIndex + " - " + dialogueIndex);
+        Debug.Log(dialogue[0].GetPortrait()[0]);
+        bossImage.GetComponent<RawImage>().texture = dialogue[listIndex].GetPortrait()[dialogueIndex];
+    }   
 
     public void ActivateDialogue(int index)
     {

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "Data", menuName = "DialogueObjects/Dialogue", order = 1)]
 public class DialogueSO : ScriptableObject
@@ -11,9 +12,11 @@ public class DialogueSO : ScriptableObject
         Boss
     }
 
+
     [SerializeField] [TextArea] private List<string> dialogue;
     [SerializeField] private List<Speaker> characterSpeaking;
     [SerializeField] private bool onPhone = true;
+    [SerializeField] public List<Texture> characterPortrait;
 
     public List<string> GetDialogue()
     {
@@ -29,4 +32,10 @@ public class DialogueSO : ScriptableObject
     {
         return onPhone;
     }
+    
+    public List<Texture> GetPortrait()
+    {
+        return characterPortrait; 
+    }
+    
 }
