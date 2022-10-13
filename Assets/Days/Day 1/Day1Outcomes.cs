@@ -203,11 +203,7 @@ public class Day1Outcomes : Outcomes
                 //turns on scooper in players hand
                 Scooper.SetActive(true);
 
-                foreach (MeshRenderer renderer in BaseScooper.GetComponentsInChildren<MeshRenderer>())
-                {
-                    renderer.enabled = false;
-
-                }
+                
 
                 break;
             
@@ -249,7 +245,7 @@ public class Day1Outcomes : Outcomes
 
                 foreach (MeshRenderer renderer in BaseScooper.GetComponentsInChildren<MeshRenderer>())
                 {
-                    renderer.enabled = true;
+                    
                     renderer.material = ScooperMat;
                 }
 

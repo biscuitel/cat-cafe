@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 854008bcec0a0ef47b7bd62a46c95080,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3555,6 +3555,8 @@ MonoBehaviour:
   destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &238651953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4265,8 +4267,10 @@ MonoBehaviour:
   deactivateAfterInteraction: 0
   deleteAfterInteraction: 0
   destroyAfter: 0
-  toggleVisAfterInteraction: 1
+  toggleVisAfterInteraction: 0
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &284478009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4285,6 +4289,8 @@ MonoBehaviour:
   destroyAfter: 0
   toggleVisAfterInteraction: 1
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1001 &297376659
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4685,6 +4691,8 @@ MonoBehaviour:
   destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &334723008
 GameObject:
   m_ObjectHideFlags: 0
@@ -5802,6 +5810,8 @@ MonoBehaviour:
   destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!4 &374771423
 Transform:
   m_ObjectHideFlags: 0
@@ -5870,6 +5880,8 @@ MonoBehaviour:
   destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!95 &385590900
 Animator:
   serializedVersion: 3
@@ -8498,6 +8510,8 @@ MonoBehaviour:
   destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!43 &574123762
 Mesh:
   m_ObjectHideFlags: 0
@@ -9056,6 +9070,8 @@ MonoBehaviour:
   destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1001 &641566298
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9294,6 +9310,8 @@ MonoBehaviour:
   destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1001 &648740552
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11174,6 +11192,8 @@ MonoBehaviour:
   destroyAfter: 0.2
   toggleVisAfterInteraction: 0
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &760491929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11674,6 +11694,9 @@ MonoBehaviour:
   taskUI: {fileID: 584797413}
   dialogue:
   - {fileID: 11400000, guid: aefb618b299339640932c6ad429a546a, type: 2}
+  phonePickUp: {fileID: 0}
+  phoneHangUp: {fileID: 0}
+  phoneAudioSource: {fileID: 0}
 --- !u!4 &803432285
 Transform:
   m_ObjectHideFlags: 0
@@ -12802,6 +12825,8 @@ MonoBehaviour:
   destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &869772454
 GameObject:
   m_ObjectHideFlags: 0
@@ -22200,6 +22225,8 @@ MonoBehaviour:
   destroyAfter: 0.2
   toggleVisAfterInteraction: 0
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &1316593130
 GameObject:
   m_ObjectHideFlags: 0
@@ -22642,6 +22669,8 @@ MonoBehaviour:
   destroyAfter: 0.2
   toggleVisAfterInteraction: 0
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &1341785583
 GameObject:
   m_ObjectHideFlags: 0
@@ -24198,8 +24227,10 @@ MonoBehaviour:
   deactivateAfterInteraction: 0
   deleteAfterInteraction: 0
   destroyAfter: 0
-  toggleVisAfterInteraction: 1
+  toggleVisAfterInteraction: 0
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &1422581179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24218,6 +24249,8 @@ MonoBehaviour:
   destroyAfter: 0
   toggleVisAfterInteraction: 1
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &1423667708
 GameObject:
   m_ObjectHideFlags: 0
@@ -26393,6 +26426,8 @@ MonoBehaviour:
     type: 2}
   Taskboard4thTaskDoneMat: {fileID: 2100000, guid: 9ffc283a3144ea04fb6ef17dfd002fe3,
     type: 2}
+  musicTargetPitch: 1
+  pitchSlideTime: 5
 --- !u!114 &1645442267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26459,6 +26494,7 @@ MonoBehaviour:
   timeElapsed: 0
   promptTime: 7.5
   distortTime: 4
+  persistentFXLoopTime: 5
   maxLensDistortIntensity: -0.5
   maxFocalLength: 20
   maxChromaAberation: 0.15
@@ -26471,6 +26507,12 @@ MonoBehaviour:
   hueShift: -55
   saturation: 45
   minSpeed: 1.5
+  audioMixer: {fileID: 24100000, guid: c223fec2a03f2614abe26b88e7224690, type: 2}
+  LPCutoff: 960
+  delayWet: 0.4
+  chorusWet: 0.7
+  pitchShift: 0.9
+  reverbWet: 0.8
   pillAnimator: {fileID: 854767597}
   promptText: {fileID: 0}
 --- !u!43 &1665122021
@@ -33020,6 +33062,8 @@ MonoBehaviour:
   destroyAfter: 0.2
   toggleVisAfterInteraction: 0
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!95 &1782938089
 Animator:
   serializedVersion: 3
@@ -34510,6 +34554,8 @@ MonoBehaviour:
   destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &1963616831
 GameObject:
   m_ObjectHideFlags: 0
@@ -34948,6 +34994,8 @@ MonoBehaviour:
   destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &2007315411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34966,6 +35014,8 @@ MonoBehaviour:
   destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1001 &2011096304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35318,6 +35368,8 @@ MonoBehaviour:
   destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &2048409701
 GameObject:
   m_ObjectHideFlags: 0
@@ -35368,6 +35420,8 @@ MonoBehaviour:
   destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1001 &2050614662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36765,6 +36819,8 @@ MonoBehaviour:
   destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &2101309730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36783,6 +36839,8 @@ MonoBehaviour:
   destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &2101309731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36801,6 +36859,8 @@ MonoBehaviour:
   destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
+  audioRand: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!120 &2108695402
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -53326,7 +53386,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 480988643378791235}
-  - component: {fileID: 480988643378791244}
   - component: {fileID: 480988643378791247}
   - component: {fileID: 480988643378791246}
   - component: {fileID: 480988643378791233}
@@ -53356,20 +53415,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 88.70901, z: 0}
---- !u!136 &480988643378791244
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480988643378791234}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.24
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &480988643378791246
 Rigidbody:
   m_ObjectHideFlags: 0

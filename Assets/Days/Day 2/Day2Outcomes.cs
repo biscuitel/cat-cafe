@@ -185,7 +185,6 @@ public class Day2Outcomes : Outcomes
 
                 foreach (MeshRenderer renderer in BaseVacuum.GetComponentsInChildren<MeshRenderer>())
                 {
-                    renderer.enabled = true;
                     renderer.material = VacuumMat;
                 }
                 break;
@@ -264,7 +263,7 @@ public class Day2Outcomes : Outcomes
                 {
                     renderer.enabled = true;
                     renderer.material = OutlineMat;
-                }
+                }   
 
                 break;
             case 13:
