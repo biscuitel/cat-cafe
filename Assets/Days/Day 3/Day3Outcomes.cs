@@ -62,6 +62,11 @@ public class Day3Outcomes : Outcomes
     [SerializeField] private GameObject EndingScene;
     [SerializeField] private GameObject NormalScene;
 
+    private AudioSource bgm;
+    [SerializeField] private float musicTargetPitch = 1f;
+    [SerializeField] private float pitchSlideTime = 5f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,6 +80,9 @@ public class Day3Outcomes : Outcomes
 
         medsIcon = GameObject.FindGameObjectWithTag("MedsIcon");
         taskUI.SetActive(false);
+
+        bgm = GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>();
+        if (bgm) StartCoroutine(PitchSlide(bgm, musicTargetPitch, pitchSlideTime));
     }
 
     // Update is called once per frame

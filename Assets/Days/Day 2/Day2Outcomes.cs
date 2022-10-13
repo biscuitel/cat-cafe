@@ -64,6 +64,10 @@ public class Day2Outcomes : Outcomes
     [SerializeField] private Material Taskboard3rdTaskDoneMat;
     [SerializeField] private Material Taskboard4thTaskDoneMat;
 
+    private AudioSource bgm;
+    [SerializeField] private float musicTargetPitch = 1f;
+    [SerializeField] private float pitchSlideTime = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -78,6 +82,10 @@ public class Day2Outcomes : Outcomes
         scoopAnimator = Scooper.GetComponent<Animator>();
 
         taskUI.SetActive(false);
+
+        bgm = GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>();
+        if (bgm) StartCoroutine(PitchSlide(bgm, musicTargetPitch, pitchSlideTime));
+
     }
 
     // Update is called once per frame
@@ -154,12 +162,6 @@ public class Day2Outcomes : Outcomes
                 //turns on vaccuum in players hand
                 Vacuum.SetActive(true);
 
-                //turns the base vacuum off by going through each childs meshes are disabling the renderer
-                foreach (MeshRenderer renderer in BaseVacuum.GetComponentsInChildren<MeshRenderer>())
-                {
-                    renderer.enabled = false;
-
-                }
                 break;
             case 5:
                 // player cleaned (all) cat hair
@@ -199,12 +201,6 @@ public class Day2Outcomes : Outcomes
 
                 //turns on scooper in players hand
                 Scooper.SetActive(true);
-
-                foreach (MeshRenderer renderer in BaseScooper.GetComponentsInChildren<MeshRenderer>())
-                {
-                    renderer.enabled = false;
-
-                }
 
                 break;
 

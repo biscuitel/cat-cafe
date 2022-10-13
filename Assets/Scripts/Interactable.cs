@@ -24,6 +24,9 @@ public class Interactable : MonoBehaviour
 
     [SerializeField] private MeshRenderer[] meshes;
 
+    [SerializeField] private AudioRandomizer audioRand;
+    [SerializeField] AudioSource audioSource;
+
 
     private void Awake()
     {
@@ -42,6 +45,15 @@ public class Interactable : MonoBehaviour
         interactedWith = false;
         interactionCrosshair = GameObject.FindGameObjectWithTag("InteractionCrosshair").GetComponent<Graphic>();
 
+        audioRand = GetComponent<AudioRandomizer>();
+        if (audioRand)
+        {
+            audioSource = GetComponent<AudioSource>();
+        } else
+        {
+            audioRand = GetComponentInChildren<AudioRandomizer>();
+            audioSource = GetComponentInChildren<AudioSource>();
+        }
     }
 
     // Update is called once per frame
@@ -84,6 +96,12 @@ public class Interactable : MonoBehaviour
                         interactionCrosshair.color = new Color(interactionCrosshair.color.r, interactionCrosshair.color.g, interactionCrosshair.color.b, 0);
                             interactedWith = true;
                             Debug.Log("interaction happened and completed task");
+                            if (audioSource && audioSource.isPlaying)
+                            {
+                                audioSource.Stop();
+                                Debug.Log("stopped audio");
+                            }
+                            if (audioRand && audioSource) audioRand.PlayRandomClip();
                             if (dialogueTrigger != null)
                             {
                                 dialogueTrigger.TriggerDialogue();
@@ -94,7 +112,7 @@ public class Interactable : MonoBehaviour
                                 Debug.Log("toggled vis");
                                 ToggleVisibility();
                             }
-                            else if (deleteAfterInteraction)
+                            if (deleteAfterInteraction)
                             {
                                 Debug.Log("destroyed");
                                 StartCoroutine(DelayDestroy(destroyAfter));
@@ -140,9 +158,11 @@ public class Interactable : MonoBehaviour
     {
         if (meshes != null)
         {
+            Debug.Log("lmao");
             foreach (MeshRenderer renderer in meshes)
             {
-                //renderer.enabled = !renderer.enabled;
+                Debug.Log("renderer enabled = " + renderer.enabled);
+                renderer.enabled = !renderer.enabled;
             }
         }
     }
