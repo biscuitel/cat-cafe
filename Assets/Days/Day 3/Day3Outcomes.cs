@@ -275,6 +275,7 @@ public class Day3Outcomes : Outcomes
 
                 //stops the player from taking pills during the animation
                 cameraEffects.controlsActive = false;
+                cameraEffects.DeactivatePrompt();
                 
                 StartCoroutine(DelayLoadEnd(9f));                
 
@@ -283,7 +284,6 @@ public class Day3Outcomes : Outcomes
                 cameraParent.transform.parent.GetComponent<PlayerMovement>().enabled = false;
                 cameraParent.transform.GetChild(0).GetComponent<MouseLook>().enabled = false;
                 
-
                 break;
 
             case -1:

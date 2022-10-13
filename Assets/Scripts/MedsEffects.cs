@@ -156,7 +156,11 @@ public class MedsEffects : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
-        ActivatePrompt();
+
+        if (controlsActive) {
+            ActivatePrompt();
+        }
+        
 
     }
 
