@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 308b834596db7f64bbd72c2966a17cc9,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -18323,6 +18323,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6773458893238801002, guid: 6b306048d6c06594d8c8c069d67ebef5,
+        type: 3}
+      propertyPath: BGM
+      value: 
+      objectReference: {fileID: 1419314460}
     - target: {fileID: 6773458893238801002, guid: 6b306048d6c06594d8c8c069d67ebef5,
         type: 3}
       propertyPath: fadeTime
@@ -54880,7 +54885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskList:
   - {fileID: 11400000, guid: d9a750b87eef5c44ea152ba19c4f3808, type: 2}
-  - {fileID: 11400000, guid: 7102367672ef5f447a00786ec8c2b8f6, type: 2}
+  - {fileID: 11400000, guid: 5c6729fa702d3fb438675d07e98394bd, type: 2}
   reserveTaskList:
   - {fileID: 11400000, guid: 9994147bc36f9dd44832bb795ee632ce, type: 2}
   - {fileID: 11400000, guid: 11dd2d817e7519d43b6cbbd3338abe92, type: 2}
@@ -57818,6 +57823,12 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eeb33017a3524974cb10edb36d074a8b, type: 3}
+--- !u!82 &1419314460 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1203061009394824792, guid: e60054c9159124b458a96b25b79dbcb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1203061009511357217}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1425243210
 GameObject:
   m_ObjectHideFlags: 0
@@ -83832,7 +83843,7 @@ PrefabInstance:
     - target: {fileID: 1203061009394824792, guid: e60054c9159124b458a96b25b79dbcb6,
         type: 3}
       propertyPath: m_Volume
-      value: 0.599
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1203061009394824793, guid: e60054c9159124b458a96b25b79dbcb6,
         type: 3}

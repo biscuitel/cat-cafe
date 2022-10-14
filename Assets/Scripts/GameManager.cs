@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<Texture> loadImages;
     [SerializeField] private float fadeTime;
     private bool gameEnded;
+    private AudioSource BGM;
 
     void Awake()
     {
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
         levelIndex = SceneManager.GetActiveScene().buildIndex;
+
+        //BGM = GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>();
 
         if (gmInstance == null)
         {
@@ -37,6 +40,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+
         if (gameEnded != true)
         {
             levelIndex = SceneManager.GetActiveScene().buildIndex;
@@ -88,6 +93,9 @@ public class GameManager : MonoBehaviour
         loadImage.texture = loadImages[0];
         loadImage.CrossFadeAlpha(1.0f, fadeTime, false);
         float elapsed = 0f;
+
+        StartCoroutine(BGMStartFade(0f));
+
         while (elapsed < fadeTime)
         {
             elapsed += Time.deltaTime;
@@ -127,6 +135,10 @@ public class GameManager : MonoBehaviour
         int imageIndex = levelIndex;
         loadImage.texture = loadImages[GetDayImage(imageIndex)];
         loadImage.CrossFadeAlpha(0f, fadeTime, false);
+
+
+        StartCoroutine(BGMStartFade(0.6f));
+
         elapsed = 0f;
         while (elapsed < fadeTime)
         {
@@ -148,6 +160,25 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
     }
+
+    IEnumerator BGMStartFade(float targetVolume)
+    {
+        if (GameObject.FindGameObjectWithTag("BGM"))
+        {
+            BGM = GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>();
+
+            float currentTime = 0;
+            float start = BGM.volume;
+            while (currentTime < fadeTime)
+            {
+                currentTime += Time.deltaTime;
+                BGM.volume = Mathf.Lerp(start, targetVolume, currentTime / fadeTime);
+                yield return null;
+            }
+            yield break;
+        }
+    }
+
 
     public void StartFadeIn()
     {
