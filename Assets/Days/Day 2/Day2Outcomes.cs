@@ -124,7 +124,7 @@ public class Day2Outcomes : Outcomes
                 if (cameraEffects.HasMeds())
                 {
                     tm.ActivateTask(3);
-                    cameraEffects.StartPromptTimer();
+                    
                 }
                 else
                 {
@@ -144,7 +144,7 @@ public class Day2Outcomes : Outcomes
             case 2:
                 // player grabbed antihistamenes for their allergies
                 cameraEffects.SetHasMeds(true);
-                cameraEffects.StartPromptTimer();
+                
 
                 AntihistamineBox.SetActive(false);
                 // revert effects and activate next task

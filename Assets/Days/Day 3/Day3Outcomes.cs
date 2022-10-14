@@ -21,6 +21,8 @@ public class Day3Outcomes : Outcomes
 
     [SerializeField] private GameObject warpTrigger;
 
+    [SerializeField] private AudioSource lazerSound;
+
     [Header("Objects")]
     [SerializeField] private GameObject BigButton;
     [SerializeField] private GameObject CatCagesParent;
@@ -123,7 +125,7 @@ public class Day3Outcomes : Outcomes
                 if (cameraEffects.HasMeds())
                 {
                     tm.ActivateTask(3);
-                    cameraEffects.StartPromptTimer();
+                    
                 }
                 else
                 {
@@ -135,14 +137,15 @@ public class Day3Outcomes : Outcomes
             //20 is the task that is always active in the background so that the player can pick up the antihistmines at any time before the task telling them to do so.
             case 100:
                 cameraEffects.SetHasMeds(true);
-                AntihistamineBox.SetActive(false);
+                
+
                 break;
             case 2:
                 // player grabbed antihistamines for their allergies
                 cameraEffects.SetHasMeds(true);
-                cameraEffects.StartPromptTimer();
+                
 
-                AntihistamineBox.SetActive(false);
+                
                 // revert effects and activate next task
                 tm.ActivateTask(3);
                 break;
@@ -288,13 +291,15 @@ public class Day3Outcomes : Outcomes
             case -1:
 
                 vacuumAnim.Play("VacuumHit");
-                Debug.Log("Hggsffegw");
+                Debug.Log("Hair Exterminated.");
                 break;
 
             case -2:
 
-                Debug.Log("???");
+                Debug.Log("Poop Terminated.");
                 scoophitAnim.Play("scoop bop");
+
+                lazerSound.Play();
 
                 break;
             default:
