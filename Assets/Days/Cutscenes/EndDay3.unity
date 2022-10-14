@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -662,6 +662,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 023283ae20f39d046a13ca45cdb5444b, type: 3}
   - {fileID: 2800000, guid: 5f899723cebfbf54dabc61c1f5800be0, type: 3}
   - {fileID: 2800000, guid: e5434166945121e4889ca27ea66773cc, type: 3}
+  - {fileID: 2800000, guid: 489923b92814ee14f988423ca89a8eff, type: 3}
   - {fileID: 2800000, guid: dd6e507e42241264cbc030bdd6d8b0fa, type: 3}
   - {fileID: 2800000, guid: a8168e6852b17644ba295658b9db94ae, type: 3}
   - {fileID: 2800000, guid: 2d589d5569c95e74b9cd723a03d20965, type: 3}
@@ -718,6 +719,7 @@ MonoBehaviour:
   - 0.2
   - 0.2
   - 0.2
+  - 1
   - 0.2
   - 0.2
   - 0.2
@@ -725,27 +727,27 @@ MonoBehaviour:
   - 0.2
   - 0.2
   - 0.2
-  - 5
+  - 2
   - 0.3
   - 0.3
   - 0.3
   - 0.3
   - 0.3
   - 0.3
+  - 1.5
+  - 1
+  - 1
+  - 1
   - 0.3
-  - 0.3
-  - 0.3
-  - 0.3
-  - 0.3
-  - 0.3
-  - 0.3
-  - 0.3
-  - 0.3
-  - 0.3
-  - 0.3
-  - 0.3
-  - 0.3
-  - 5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 3
   fadeTime: 1
 --- !u!114 &1836567808
 MonoBehaviour:
