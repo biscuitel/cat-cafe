@@ -11,6 +11,7 @@ public class VacuumAudio : MonoBehaviour
     [SerializeField] private float minVol = 0.75f;
     [SerializeField] private float volChange = 0.25f;
     private bool justEnabled;
+    private Coroutine revCoroutine;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +37,8 @@ public class VacuumAudio : MonoBehaviour
         if (Input.GetButtonDown("Interact"))
         {
             Debug.Log("clicked interact on vacuum cleaner");
-            StartCoroutine(Rev());
+            if (revCoroutine != null) StopCoroutine(revCoroutine);
+            revCoroutine = StartCoroutine(Rev());
         }
     }
 
