@@ -7027,11 +7027,11 @@ MonoBehaviour:
   taskID: 20
   deactivateAfterInteraction: 1
   deleteAfterInteraction: 1
+  destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
   audioRand: {fileID: 0}
   audioSource: {fileID: 0}
-  interactionRange: 10
 --- !u!65 &256361996
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7934,11 +7934,11 @@ MonoBehaviour:
   taskID: 9
   deactivateAfterInteraction: 0
   deleteAfterInteraction: 0
+  destroyAfter: 0
   toggleVisAfterInteraction: 1
   meshes: []
   audioRand: {fileID: 0}
   audioSource: {fileID: 0}
-  interactionRange: 15
 --- !u!114 &305651185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7954,11 +7954,11 @@ MonoBehaviour:
   taskID: 7
   deactivateAfterInteraction: 1
   deleteAfterInteraction: 0
+  destroyAfter: 0
   toggleVisAfterInteraction: 1
   meshes: []
   audioRand: {fileID: 0}
   audioSource: {fileID: 0}
-  interactionRange: 15
 --- !u!65 &305651186
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8417,11 +8417,11 @@ MonoBehaviour:
   taskID: 20
   deactivateAfterInteraction: 1
   deleteAfterInteraction: 1
+  destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
   audioRand: {fileID: 0}
   audioSource: {fileID: 0}
-  interactionRange: 10
 --- !u!65 &346201168
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11009,11 +11009,11 @@ MonoBehaviour:
   taskID: 1
   deactivateAfterInteraction: 0
   deleteAfterInteraction: 0
+  destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
   audioRand: {fileID: 0}
   audioSource: {fileID: 0}
-  interactionRange: 10
 --- !u!65 &459626449
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11287,11 +11287,11 @@ MonoBehaviour:
   taskID: 20
   deactivateAfterInteraction: 1
   deleteAfterInteraction: 1
+  destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
   audioRand: {fileID: 0}
   audioSource: {fileID: 0}
-  interactionRange: 10
 --- !u!65 &466693314
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43981,11 +43981,11 @@ MonoBehaviour:
   taskID: 8
   deactivateAfterInteraction: 0
   deleteAfterInteraction: 0
+  destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
   audioRand: {fileID: 0}
   audioSource: {fileID: 0}
-  interactionRange: 10
 --- !u!65 &1011353003
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -44441,11 +44441,11 @@ MonoBehaviour:
   taskID: 12
   deactivateAfterInteraction: 0
   deleteAfterInteraction: 0
+  destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
   audioRand: {fileID: 0}
   audioSource: {fileID: 0}
-  interactionRange: 15
 --- !u!65 &1056676000
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -48401,6 +48401,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b14e97d48d1ffb419ec1a7f72fe54d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playHair: 0
+  playPoop: 0
 --- !u!1 &1231577694
 GameObject:
   m_ObjectHideFlags: 0
@@ -51087,6 +51089,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf72ab97699c5642956c005bd02bf6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskUI: {fileID: 0}
+  TaskList: {fileID: 0}
   signAnim: {fileID: 459626446}
   binAnim: {fileID: 845888224}
   phoneAnim: {fileID: 2040820683}
@@ -51109,6 +51113,10 @@ MonoBehaviour:
   VacuumMat: {fileID: 2100000, guid: 52f2f2148386f9740973139f6c92d712, type: 2}
   ScooperMat: {fileID: 2100000, guid: 4a4c54ecd6951c749b988cfe2a2c33ae, type: 2}
   CupMat: {fileID: 2100000, guid: f39ddf3643a9535409ea53b561fac941, type: 2}
+  Taskboard1stTaskDoneMat: {fileID: 0}
+  Taskboard2ndTaskDoneMat: {fileID: 0}
+  Taskboard3rdTaskDoneMat: {fileID: 0}
+  Taskboard4thTaskDoneMat: {fileID: 0}
   musicTargetPitch: 1
   pitchSlideTime: 0
 --- !u!114 &1270610830
@@ -51169,6 +51177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d26b2946c155294cadb27391b68883c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controlsActive: 0
+  PromptUI: {fileID: 0}
   volumeProfile: {fileID: 0}
   triggerTime: 60
   timeElapsed: 0
@@ -51186,6 +51196,7 @@ MonoBehaviour:
   contrast: 50
   hueShift: -55
   saturation: 45
+  minSpeed: 1
   audioMixer: {fileID: 24100000, guid: c223fec2a03f2614abe26b88e7224690, type: 2}
   LPCutoff: 960
   delayWet: 0.4
@@ -51558,6 +51569,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b14e97d48d1ffb419ec1a7f72fe54d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playHair: 0
+  playPoop: 0
 --- !u!1001 &1297943062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53097,25 +53110,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330805417}
   m_Mesh: {fileID: 8691780276856062721, guid: c742f7d378cc0a74c89ca2d0bc13f7ac, type: 3}
---- !u!1 &1332075670 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6773458893238801001, guid: 6b306048d6c06594d8c8c069d67ebef5,
-    type: 3}
-  m_PrefabInstance: {fileID: 506233196}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1332075671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1332075670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16a6acd95c578ec4eb6f89ac79e465b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionRange: 2
 --- !u!64 &1336273597
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -59106,11 +59100,11 @@ MonoBehaviour:
   taskID: 1
   deactivateAfterInteraction: 0
   deleteAfterInteraction: 0
+  destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
   audioRand: {fileID: 0}
   audioSource: {fileID: 0}
-  interactionRange: 10
 --- !u!65 &1648126303
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -66216,6 +66210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b14e97d48d1ffb419ec1a7f72fe54d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playHair: 0
+  playPoop: 0
 --- !u!1 &1741230876
 GameObject:
   m_ObjectHideFlags: 0
@@ -71796,11 +71792,11 @@ MonoBehaviour:
   taskID: 2
   deactivateAfterInteraction: 1
   deleteAfterInteraction: 0
+  destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
   audioRand: {fileID: 0}
   audioSource: {fileID: 0}
-  interactionRange: 10
 --- !u!43 &1868842195
 Mesh:
   m_ObjectHideFlags: 0
@@ -75577,11 +75573,11 @@ MonoBehaviour:
   taskID: 2
   deactivateAfterInteraction: 1
   deleteAfterInteraction: 0
+  destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
   audioRand: {fileID: 0}
   audioSource: {fileID: 0}
-  interactionRange: 5
 --- !u!65 &1962088208
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -76933,11 +76929,11 @@ MonoBehaviour:
   taskID: 3
   deactivateAfterInteraction: 0
   deleteAfterInteraction: 0
+  destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
   audioRand: {fileID: 0}
   audioSource: {fileID: 0}
-  interactionRange: 10
 --- !u!65 &1997492557
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -76966,11 +76962,11 @@ MonoBehaviour:
   taskID: 10
   deactivateAfterInteraction: 0
   deleteAfterInteraction: 0
+  destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
   audioRand: {fileID: 0}
   audioSource: {fileID: 0}
-  interactionRange: 10
 --- !u!114 &1997492559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76986,11 +76982,11 @@ MonoBehaviour:
   taskID: 6
   deactivateAfterInteraction: 0
   deleteAfterInteraction: 0
+  destroyAfter: 0
   toggleVisAfterInteraction: 0
   meshes: []
   audioRand: {fileID: 0}
   audioSource: {fileID: 0}
-  interactionRange: 10
 --- !u!1 &2002572461
 GameObject:
   m_ObjectHideFlags: 0
