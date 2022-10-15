@@ -10,6 +10,7 @@ public class Day3Outcomes : Outcomes
     private DialogueManager dm;
     private MedsEffects cameraEffects;
     private GameObject medsIcon;
+    private AudioSource thump;
 
     [SerializeField] private GameObject taskUI;
 
@@ -21,7 +22,9 @@ public class Day3Outcomes : Outcomes
 
     [SerializeField] private GameObject warpTrigger;
 
+
     [SerializeField] private AudioSource lazerSound;
+    [SerializeField] private AudioSource hairHit;
 
     [Header("Objects")]
     [SerializeField] private GameObject BigButton;
@@ -83,6 +86,7 @@ public class Day3Outcomes : Outcomes
         medsIcon = GameObject.FindGameObjectWithTag("MedsIcon");
         taskUI.SetActive(false);
 
+        thump = GameObject.FindGameObjectWithTag("TransitionThump").GetComponent<AudioSource>();
         bgm = GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>();
         if (bgm) StartCoroutine(PitchSlide(bgm, musicTargetPitch, pitchSlideTime));
     }
@@ -241,6 +245,8 @@ public class Day3Outcomes : Outcomes
                 tm.ActivateTask(13);
                 warpTrigger.SetActive(true);
 
+                thump.Play();
+
                 taskUI.SetActive(false);
                 medsIcon.SetActive(false);
                 
@@ -292,6 +298,8 @@ public class Day3Outcomes : Outcomes
 
                 vacuumAnim.Play("VacuumHit");
                 Debug.Log("Hair Exterminated.");
+
+                hairHit.gameObject.GetComponent<AudioRandomizer>().PlayRandomClip();
                 break;
 
             case -2:

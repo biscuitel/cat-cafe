@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour
         loadImage.CrossFadeAlpha(0f, fadeTime, false);
 
 
-        StartCoroutine(BGMStartFade(0.6f));
+        StartCoroutine(BGMStartFade(0.3f));
 
         elapsed = 0f;
         while (elapsed < fadeTime)

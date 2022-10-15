@@ -136,6 +136,8 @@ public class MedsEffects : MonoBehaviour
                 pillAnimator.SetTrigger("PillSwallow");
                 pillAnimator.SetTrigger("PillReset");
 
+                pillAnimator.gameObject.GetComponent<AudioSource>().Play();
+                
             }
         }
     }
