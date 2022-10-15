@@ -259,7 +259,7 @@ public class Day3Outcomes : Outcomes
                 // prompt player to enter staff room, activate warp to final corridor
                 
                 Debug.Log("player was teleported to end corridor");
-
+                cameraEffects.SetInCorridor(true);
                 
 
                 tm.ActivateTask(12);

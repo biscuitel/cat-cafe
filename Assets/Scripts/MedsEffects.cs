@@ -43,7 +43,7 @@ public class MedsEffects : MonoBehaviour
     [SerializeField] private float maxBloomIntensity = 0.75f;
     [SerializeField] private float postExposure = 1f;
     [SerializeField] private float contrast = 50f;
-    [SerializeField] private float hueShift = -55f;
+    //[SerializeField] private float hueShift = -55f;
     [SerializeField] private float saturation = 45f;
 
     [SerializeField] private float minSpeed = 1f;
@@ -60,12 +60,14 @@ public class MedsEffects : MonoBehaviour
     public Text promptText;
 
     private Coroutine distortCoroutine;
+    [SerializeField] private bool inCorridor;
 
     // Start is called before the first frame update
     void Start()
     {
 
         controlsActive = true;
+        inCorridor = false;
 
         // get postprocess volume and associated override properties
         volumeProfile = GameObject.FindGameObjectWithTag("PostProcessVolume").GetComponent<Volume>().profile;
@@ -214,7 +216,13 @@ public class MedsEffects : MonoBehaviour
         float currVignette = vignette.intensity.value;
         float currBloom = bloom.intensity.value;
 
+        float currExposure = colorAdjustments.postExposure.value;
+        float currContrast = colorAdjustments.contrast.value;
+        //float currHueShift = colorAdjustments.hueShift.value;
+        float currSaturation = colorAdjustments.saturation.value;
+
         float currMoveSpeed = pm.moveSpeed;
+
         float currChorusWet; audioMixer.GetFloat("ChorusWet1", out currChorusWet);
         float currDelayWet; audioMixer.GetFloat("DelayWet", out currDelayWet);
         float currLP; audioMixer.GetFloat("LPCutoff", out currLP);
@@ -233,10 +241,15 @@ public class MedsEffects : MonoBehaviour
             bloom.intensity.Override(Mathf.SmoothStep(currBloom, maxBloomIntensity, elapsed / distortTime));
 
             pm.moveSpeed = Mathf.Lerp(currMoveSpeed, minSpeed, elapsed / distortTime);
-            /*colorAdjustments.postExposure.Override(Mathf.Lerp(0f, postExposure, elapsed / distortTime));
-            colorAdjustments.contrast.Override(Mathf.Lerp(0f, contrast, elapsed / distortTime));
-            colorAdjustments.hueShift.Override(Mathf.Lerp(0f, hueShift, elapsed / distortTime));
-            colorAdjustments.saturation.Override(Mathf.Lerp(0f, saturation, elapsed / distortTime));*/
+
+            if (inCorridor)
+            {
+                colorAdjustments.postExposure.Override(Mathf.Lerp(currExposure, postExposure, elapsed / distortTime));
+                colorAdjustments.contrast.Override(Mathf.Lerp(currContrast, contrast, elapsed / distortTime));
+                //colorAdjustments.hueShift.Override(Mathf.Lerp(currHueShift, hueShift, elapsed / distortTime));
+                colorAdjustments.saturation.Override(Mathf.Lerp(currSaturation, saturation, elapsed / distortTime));
+            }
+            
             audioMixer.SetFloat("ChorusWet1", Mathf.SmoothStep(currChorusWet, chorusWet, elapsed / distortTime));
             audioMixer.SetFloat("ChorusWet2", Mathf.SmoothStep(currChorusWet, chorusWet, elapsed / distortTime));
             audioMixer.SetFloat("ChorusWet3", Mathf.SmoothStep(currChorusWet, chorusWet, elapsed / distortTime));
@@ -260,6 +273,12 @@ public class MedsEffects : MonoBehaviour
         float currPanini = paniniProj.distance.value;
         float currVignette = vignette.intensity.value;
         float currBloom = bloom.intensity.value;
+
+        float currExposure = colorAdjustments.postExposure.value;
+        float currContrast = colorAdjustments.contrast.value;
+        //float currHueShift = colorAdjustments.hueShift.value;
+        float currSaturation = colorAdjustments.saturation.value;
+
         float currMoveSpeed = pm.moveSpeed;
 
         float currChorusWet; audioMixer.GetFloat("ChorusWet1", out currChorusWet);
@@ -281,10 +300,13 @@ public class MedsEffects : MonoBehaviour
 
             pm.moveSpeed = Mathf.Lerp(currMoveSpeed, normalSpeed, elapsed / distortTime);
 
-            /*colorAdjustments.postExposure.Override(Mathf.SmoothStep(postExposure, 0f, elapsed / distortTime));
-            colorAdjustments.contrast.Override(Mathf.SmoothStep(contrast, 0f, elapsed / distortTime));
-            colorAdjustments.hueShift.Override(Mathf.SmoothStep(hueShift, 0f, elapsed / distortTime));
-            colorAdjustments.saturation.Override(Mathf.SmoothStep(saturation, 0f, elapsed / distortTime)); */
+            if (inCorridor)
+            {
+                colorAdjustments.postExposure.Override(Mathf.SmoothStep(currExposure, 0f, elapsed / distortTime));
+                colorAdjustments.contrast.Override(Mathf.SmoothStep(currContrast, 0f, elapsed / distortTime));
+                //colorAdjustments.hueShift.Override(Mathf.SmoothStep(currHueShift, 0f, elapsed / distortTime));
+                colorAdjustments.saturation.Override(Mathf.SmoothStep(currSaturation, 0f, elapsed / distortTime));
+            }
 
              audioMixer.SetFloat("ChorusWet1", Mathf.SmoothStep(currChorusWet, 0f, elapsed / distortTime));
             audioMixer.SetFloat("ChorusWet2", Mathf.SmoothStep(currChorusWet, 0f, elapsed / distortTime));
@@ -316,5 +338,10 @@ public class MedsEffects : MonoBehaviour
     public bool HasMeds()
     {
         return hasMeds;
+    }
+
+    public void SetInCorridor(bool inCorridor)
+    {
+        this.inCorridor = inCorridor;
     }
 }
