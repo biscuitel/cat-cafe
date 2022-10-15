@@ -10194,6 +10194,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6773458893238801002, guid: 6b306048d6c06594d8c8c069d67ebef5,
+        type: 3}
+      propertyPath: fadeTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6773458893238801004, guid: 6b306048d6c06594d8c8c069d67ebef5,
         type: 3}
       propertyPath: m_Pivot.x
@@ -26503,7 +26508,7 @@ PrefabInstance:
     - target: {fileID: 1203061009394824792, guid: e60054c9159124b458a96b25b79dbcb6,
         type: 3}
       propertyPath: m_Volume
-      value: 0
+      value: 0.195
       objectReference: {fileID: 0}
     - target: {fileID: 1203061009394824793, guid: e60054c9159124b458a96b25b79dbcb6,
         type: 3}
@@ -29566,7 +29571,7 @@ MonoBehaviour:
   Taskboard4thTaskDoneMat: {fileID: 2100000, guid: 9ffc283a3144ea04fb6ef17dfd002fe3,
     type: 2}
   musicTargetPitch: 0.7
-  pitchSlideTime: 5
+  pitchSlideTime: 7
 --- !u!114 &1645442267
 MonoBehaviour:
   m_ObjectHideFlags: 0

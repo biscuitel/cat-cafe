@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
         loadImage.CrossFadeAlpha(1.0f, fadeTime, false);
         float elapsed = 0f;
 
-        StartCoroutine(BGMStartFade(0f));
+        StartCoroutine(BGMStartFadeOut());
 
         while (elapsed < fadeTime)
         {
@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour
         loadImage.CrossFadeAlpha(0f, fadeTime, false);
 
 
-        StartCoroutine(BGMStartFade(0.3f));
+        StartCoroutine(BGMStartFadeIn());
 
         elapsed = 0f;
         while (elapsed < fadeTime)
@@ -161,7 +161,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    IEnumerator BGMStartFade(float targetVolume)
+    IEnumerator BGMStartFadeIn()
+    {
+        if (GameObject.FindGameObjectWithTag("BGM"))
+        {
+            BGM = GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>();
+            float targetVolume = BGM.volume;
+            BGM.volume = 0;
+            float currentTime = 0;
+            float start = BGM.volume;
+            while (currentTime < fadeTime)
+            {
+                currentTime += Time.deltaTime;
+                BGM.volume = Mathf.Lerp(start, targetVolume, currentTime / fadeTime);
+                yield return null;
+            }
+            yield break;
+        }
+    }
+
+    IEnumerator BGMStartFadeOut()
     {
         if (GameObject.FindGameObjectWithTag("BGM"))
         {
@@ -172,7 +191,7 @@ public class GameManager : MonoBehaviour
             while (currentTime < fadeTime)
             {
                 currentTime += Time.deltaTime;
-                BGM.volume = Mathf.Lerp(start, targetVolume, currentTime / fadeTime);
+                BGM.volume = Mathf.Lerp(start, 0, currentTime / fadeTime);
                 yield return null;
             }
             yield break;
