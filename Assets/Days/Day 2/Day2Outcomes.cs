@@ -25,6 +25,8 @@ public class Day2Outcomes : Outcomes
     private Animator vacuumAnimator;
     private Animator scoopAnimator;
 
+    [Header("Audio")]
+    [SerializeField] private GameObject PhonePickup;
     // The items that will appear in the players hand. They are seperate to the object the player interacts with to begin the task
     // Instead they are attached to the camera or player (depending on whether or not they should follow where the player looks)
     [Header("Hand Items")]
@@ -107,6 +109,9 @@ public class Day2Outcomes : Outcomes
                     //phoneAnim.SetBool("StartAnimation", true);
                     phoneAnim.SetTrigger("phoneStop");
                 }
+
+                PhonePickup.gameObject.GetComponent<AudioSource>().Play();
+
                 tm.ActivateTask(1);
                 break;
             case 1:

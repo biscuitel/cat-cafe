@@ -11,6 +11,7 @@ public class Day3Outcomes : Outcomes
     private MedsEffects cameraEffects;
     private GameObject medsIcon;
     private AudioSource thump;
+    
 
     [SerializeField] private GameObject taskUI;
 
@@ -23,10 +24,13 @@ public class Day3Outcomes : Outcomes
 
     [SerializeField] private GameObject warpTrigger;
 
-
+    [Header("Audio")]
     [SerializeField] private AudioSource lazerSound;
     [SerializeField] private AudioSource hairHit;
     [SerializeField] private AudioSource groundHit;
+    [SerializeField] private GameObject jailDoorAudioParent;
+    [SerializeField] private GameObject endingPhonePickup;
+    [SerializeField] private GameObject startPhonePickup;
 
     [Header("Objects")]
     [SerializeField] private GameObject BigButton;
@@ -112,6 +116,8 @@ public class Day3Outcomes : Outcomes
                     //phoneAnim.SetBool("StartAnimation", true);
                     phoneAnim.SetTrigger("phoneoff");
                 }
+
+                startPhonePickup.gameObject.GetComponent<AudioSource>().Play();
                 tm.ActivateTask(1);
                 break;
             case 1:
@@ -276,6 +282,9 @@ public class Day3Outcomes : Outcomes
                     //phoneAnim.SetBool("StartAnimation", true);
                     finalPhoneAnim.gameObject.GetComponentInParent<AudioSource>().Stop();
                 }
+
+                endingPhonePickup.gameObject.GetComponent<AudioRandomizer>().PlayRandomClip();
+
                 tm.ActivateTask(14);
                 
                 BigButton.SetActive(true);
@@ -289,6 +298,12 @@ public class Day3Outcomes : Outcomes
                 {
                     animator.SetBool("Open", true);
                 }
+
+                foreach (AudioRandomizer randomizer in jailDoorAudioParent.GetComponentsInChildren<AudioRandomizer>())
+                {
+                    randomizer.PlayRandomClip();
+                }
+
                 groundHit.Play();
                 //stops the player from taking pills during the animation
                 cameraEffects.controlsActive = false;
