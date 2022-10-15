@@ -34,6 +34,7 @@ public class DialogueManager : MonoBehaviour
         if (dialogueActive && Input.GetButtonDown("Interact"))
         {
             DisplayDialogue();
+
         }
         
     }
@@ -81,6 +82,9 @@ public class DialogueManager : MonoBehaviour
         Debug.Log(listIndex + " - " + dialogueIndex);
         Debug.Log(dialogue[0].GetPortrait()[0]);
         bossImage.GetComponent<RawImage>().texture = dialogue[listIndex].GetPortrait()[dialogueIndex];
+
+        gameObject.GetComponent<AudioSource>().pitch = Random.Range(0.8f,1.2f);
+        gameObject.GetComponent<AudioSource>().Play();
     }   
 
     public void ActivateDialogue(int index)

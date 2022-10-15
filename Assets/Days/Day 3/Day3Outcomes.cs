@@ -18,6 +18,7 @@ public class Day3Outcomes : Outcomes
     [SerializeField] private Animator signAnim;
     [SerializeField] private Animator binAnim;
     [SerializeField] private Animator phoneAnim;
+    [SerializeField] private Animator finalPhoneAnim;
     [SerializeField] private Animator scoophitAnim;
 
     [SerializeField] private GameObject warpTrigger;
@@ -25,6 +26,7 @@ public class Day3Outcomes : Outcomes
 
     [SerializeField] private AudioSource lazerSound;
     [SerializeField] private AudioSource hairHit;
+    [SerializeField] private AudioSource groundHit;
 
     [Header("Objects")]
     [SerializeField] private GameObject BigButton;
@@ -268,7 +270,13 @@ public class Day3Outcomes : Outcomes
                 break;
             case 16:
                 // player interacted with phone at end of corridor, make button appear!
+                if (finalPhoneAnim)
+                {
+                    //phoneAnim.SetBool("StartAnimation", true);
+                    finalPhoneAnim.gameObject.GetComponentInParent<AudioSource>().Stop();
+                }
                 tm.ActivateTask(14);
+                
                 BigButton.SetActive(true);
                 BigButton.GetComponent<Interactable>().enabled = true;
                 Destroy(taskUI);
@@ -280,17 +288,18 @@ public class Day3Outcomes : Outcomes
                 {
                     animator.SetBool("Open", true);
                 }
-
+                groundHit.Play();
                 //stops the player from taking pills during the animation
                 cameraEffects.controlsActive = false;
                 cameraEffects.DeactivatePrompt();
-                
-                StartCoroutine(DelayLoadEnd(9f));                
-
+                cameraEffects.StartDistort();
                 cameraParent.GetComponent<Animator>().enabled = true;
                 cameraParent.GetComponent<Animator>().Play("CameraFall");
                 cameraParent.transform.parent.GetComponent<PlayerMovement>().enabled = false;
                 cameraParent.transform.GetChild(0).GetComponent<MouseLook>().enabled = false;
+                
+                StartCoroutine(DelayLoadEnd(9f));                
+
                 
                 break;
 
