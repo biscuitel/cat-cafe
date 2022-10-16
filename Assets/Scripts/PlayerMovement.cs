@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask[] groundMasks;
     private Transform groundCheck;
     private bool isGrounded;
+    private AudioSource walkSound;
 
     // player velocity for purposes of jumping, gravity, grounded checks, etc.
     private Vector3 vel;
@@ -26,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        walkSound = GameObject.FindGameObjectWithTag("WalkSound").GetComponent<AudioSource>();
+
         // get ground check object from children
         foreach (Transform child in this.transform)
         {
@@ -79,6 +82,23 @@ public class PlayerMovement : MonoBehaviour
             Vector3 moveVec = this.transform.right * x + this.transform.forward * z;
             if (moveVec.sqrMagnitude > 1f) moveVec.Normalize();
             controller.Move(moveVec * moveSpeed * Time.deltaTime);
+
+            if (x > 0 || z > 0)
+            {
+                if (!walkSound.isPlaying)
+                {
+                    walkSound.UnPause();
+                }
+                
+            } 
+            else
+            {
+                if (walkSound.isPlaying)
+                {
+                    walkSound.Pause();
+                }
+                
+            }
 
             // jump if player inputs jump and is grounded
             if (Input.GetButtonDown("Jump") && isGrounded)
