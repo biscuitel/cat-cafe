@@ -23,9 +23,19 @@ public class MainMenu : MonoBehaviour
 
     public void ShowInstructions(GameObject InstructionMenu)
     {
+
+        if (InstructionMenu.gameObject.activeSelf)
+        {
+            InstructionMenu.SetActive(false);
+        } 
+        else
+        {
+            InstructionMenu.SetActive(true);
+        }
         //show or don't show the Instruction Menu
-        InstructionMenu.SetActive(show);
+        
         //switch the boolean to indicate Instruction Menu is visible
-        show = !show;
+        
     }
+
 }
