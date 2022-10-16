@@ -11,9 +11,12 @@ public class PauseMenu : MonoBehaviour
 
     private GameManager gm;
 
+    private AudioSource walkSound;
+
     private void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        walkSound = GameObject.FindGameObjectWithTag("WalkSound").GetComponent<AudioSource>();
     }
 
     public void Update()
@@ -27,7 +30,9 @@ public class PauseMenu : MonoBehaviour
             }
             else
             {
+                
                 Pause();
+                
             }
         }
     }
@@ -35,6 +40,8 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         Debug.Log("Pause");
+
+        walkSound.Pause();
         //Show the Pause Menu, Pause the Game, and allow the cursor to be used
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;

@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
             if (moveVec.sqrMagnitude > 1f) moveVec.Normalize();
             controller.Move(moveVec * moveSpeed * Time.deltaTime);
 
-            if (x > 0 || z > 0)
+            if (x > 0 || z > 0 && !PauseMenu.GameIsPaused)
             {
                 if (!walkSound.isPlaying)
                 {
