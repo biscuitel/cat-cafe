@@ -173,7 +173,11 @@ public class GameManager : MonoBehaviour
             while (currentTime < fadeTime)
             {
                 currentTime += Time.deltaTime;
-                BGM.volume = Mathf.Lerp(start, targetVolume, currentTime / fadeTime);
+                if (BGM)
+                {
+                    BGM.volume = Mathf.Lerp(start, targetVolume, currentTime / fadeTime);
+                }
+                
                 yield return null;
             }
             yield break;
