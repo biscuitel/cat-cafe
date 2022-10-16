@@ -1,4 +1,26 @@
-All sounds from freesound.org
+Cat Cafe Simulator 
+
+Group Members:
+Xavier, Lily, Nicole, Ethan, CJ and Louis.
+
+This build contains the finished game :O
+
+Controls:
+
+WASD to move
+
+LMB to interact
+
+ESC to pause the game
+
+Q to take antihistamines (once you've picked them up and have allergies)
+
+L to skip ahead one scene
+
+P to restart the current scene
+
+
+Sounds from freesound.org
 
 Walking on a concrete floor by AlexMurphy53 | License: Attribution Noncommercial 4.0
 Astri : sound bit 011 : piano Satie-ish and Yo.wav by prod.astri | License: Attribution 3.0
