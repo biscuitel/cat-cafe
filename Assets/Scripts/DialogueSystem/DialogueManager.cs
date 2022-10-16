@@ -14,7 +14,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject bossImage;
     public GameObject DialogueUI;
     public GameObject taskUI;
-    
+
+    private AudioSource walkSound;
 
     [SerializeField] private List<DialogueSO> dialogue;
     [SerializeField] private AudioClip phonePickUp;
@@ -25,6 +26,7 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         //DialogueUI.SetActive(true);
+        walkSound = GameObject.FindGameObjectWithTag("WalkSound").GetComponent<AudioSource>();
         
     }
 
@@ -89,6 +91,12 @@ public class DialogueManager : MonoBehaviour
 
     public void ActivateDialogue(int index)
     {
+
+        if (walkSound.isPlaying)
+        {
+            walkSound.Pause();
+        }
+
         if (dialogue[listIndex].isOnPhone() && phoneAudioSource)
         {
             phoneAudioSource.volume = 0.75f;

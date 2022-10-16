@@ -314,7 +314,7 @@ public class Day3Outcomes : Outcomes
                 cameraParent.transform.parent.GetComponent<PlayerMovement>().enabled = false;
                 cameraParent.transform.GetChild(0).GetComponent<MouseLook>().enabled = false;
                 
-                StartCoroutine(DelayLoadEnd(9f));                
+                StartCoroutine(DelayLoadEnd(11f));                
 
                 
                 break;
