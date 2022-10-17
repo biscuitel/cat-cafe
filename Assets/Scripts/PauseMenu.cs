@@ -62,9 +62,11 @@ public class PauseMenu : MonoBehaviour
     public void MainMenu()
     {
         //Start the game timer and unpause the game
+        gm.levelIndex = 0;
         Debug.Log("Main Menu");
-        gm.StartFadeIn();
+        SceneManager.LoadSceneAsync(0);
         Time.timeScale = 1f;
         GameIsPaused = false;
+        
     }
 }

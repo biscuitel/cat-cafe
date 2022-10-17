@@ -19,6 +19,7 @@ public class MainMenu : MonoBehaviour
 
         controls.enabled = false;
         credits.enabled = false;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void StartGame()
@@ -26,9 +27,10 @@ public class MainMenu : MonoBehaviour
         //set the timer to be normal time and load the Day 1 scene
         Time.timeScale = 1f;
         gm.LoadNextScene();
-        //SceneManager.LoadScene("Days/Day 1/Day 1");
-
         
+        Cursor.lockState = CursorLockMode.Locked;
+
+
     }
 
     public void ShowInstructions(Graphic InstructionMenu)

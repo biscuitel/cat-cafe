@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager gmInstance;
 
-    private int levelIndex;
+    [HideInInspector] public int levelIndex;
     private RawImage loadImage;
     [SerializeField] private List<Texture> loadImages;
     [SerializeField] private float fadeTime;
@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetButtonDown("Load"))
         {
             if (levelIndex < SceneManager.sceneCountInBuildSettings)
@@ -66,6 +67,8 @@ public class GameManager : MonoBehaviour
         {
             ReloadScene();
         } 
+        */
+        
     }
 
     public void EndOfGame()
@@ -85,6 +88,11 @@ public class GameManager : MonoBehaviour
     public void ReloadScene()
     {
         StartCoroutine(Load(true));     
+    }
+
+    public void LoadFirst()
+    {
+        SceneManager.LoadSceneAsync(1);
     }
 
     IEnumerator Load(bool reload)
@@ -113,7 +121,7 @@ public class GameManager : MonoBehaviour
             if (levelIndex >= SceneManager.sceneCountInBuildSettings - 1)
             {
                 levelIndex = 0;
-                EndOfGame();
+                load = SceneManager.LoadSceneAsync(0);
             }
             else
             {
