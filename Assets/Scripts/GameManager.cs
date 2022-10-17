@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         levelIndex = SceneManager.GetActiveScene().buildIndex;
 
-        //BGM = GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>();
+        
 
         if (gmInstance == null)
         {
