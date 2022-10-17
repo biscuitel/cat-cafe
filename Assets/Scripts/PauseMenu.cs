@@ -63,12 +63,8 @@ public class PauseMenu : MonoBehaviour
     {
         //Start the game timer and unpause the game
         Debug.Log("Main Menu");
+        gm.StartFadeIn();
         Time.timeScale = 1f;
         GameIsPaused = false;
-
-        //end the game and return to the main menu
-        gm.LoadMainMenu();
-        Destroy(this.gameObject);
-
     }
 }

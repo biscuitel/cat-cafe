@@ -2,15 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
     private GameManager gm;
-    private bool show = true;
+    private Graphic credits;
+    private Graphic controls;
+
 
     private void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        credits = GameObject.FindGameObjectWithTag("Credits").GetComponent<Graphic>();
+        controls = GameObject.FindGameObjectWithTag("Controls").GetComponent<Graphic>();
+
+        controls.enabled = false;
+        credits.enabled = false;
     }
 
     public void StartGame()
@@ -19,23 +27,43 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 1f;
         gm.LoadNextScene();
         //SceneManager.LoadScene("Days/Day 1/Day 1");
+
+        
     }
 
-    public void ShowInstructions(GameObject InstructionMenu)
+    public void ShowInstructions(Graphic InstructionMenu)
     {
 
-        if (InstructionMenu.gameObject.activeSelf)
+        credits.enabled = false;
+
+        if (InstructionMenu.enabled)
         {
-            InstructionMenu.SetActive(false);
+            InstructionMenu.enabled = false;    
         } 
         else
         {
-            InstructionMenu.SetActive(true);
+            InstructionMenu.enabled = true;
         }
         //show or don't show the Instruction Menu
         
         //switch the boolean to indicate Instruction Menu is visible
         
+    }
+
+    public void ShowCredits(Graphic Credits)
+    {
+
+        controls.enabled = false;
+
+        if (Credits.enabled)
+        {
+            Credits.enabled = false;
+        }
+        else
+        {
+            Credits.enabled = true;
+        }
+
     }
 
 }
